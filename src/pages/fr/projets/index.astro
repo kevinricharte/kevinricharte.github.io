@@ -3,16 +3,16 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import ProjectCard from '../../../components/ProjectCard.astro';
 
-const projets = (await getCollection('projets')).sort((a, b) => a.data.ordre - b.data.ordre);
+const projets = (await getCollection('projets', ({ data }) => !data.draft)).sort((a, b) => a.data.ordre - b.data.ordre);
 const allTypos = Array.from(new Set(projets.flatMap((p) => p.data.typologies))).sort((a, b) => a.localeCompare(b, 'fr'));
 const filters = ['Tous', ...allTypos];
 ---
-<BaseLayout title="Projets — Kevin Richarte, étalonneur fiction" lang="fr" description="Sélection de projets étalonnés par Kevin Richarte — fiction, clip narratif, documentaire, brand content, publicité.">
+<BaseLayout title="Projets — Kevin Richarte, étalonneur fiction" lang="fr" description="Sélection de projets étalonnés par Kevin Richarte — fiction, clip narratif, brand content, publicité.">
   <section class="section container-wide">
     <header class="proj-head reveal">
       <p class="meta">Projets</p>
       <h1 class="proj-title">Sélection de projets étalonnés</h1>
-      <p class="proj-sub">Filmographie d'étalonneur — fiction, clip, documentaire, brand content narratif.</p>
+      <p class="proj-sub">Filmographie d'étalonneur — fiction, clip, brand content narratif.</p>
     </header>
 
     <div class="filters" role="group" aria-label="Filtrer par typologie">

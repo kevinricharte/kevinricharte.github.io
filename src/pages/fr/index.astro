@@ -5,7 +5,7 @@ import ProjectCard from '../../components/ProjectCard.astro';
 import { site } from '../../data/site';
 
 const title = 'Kevin Richarte — Étalonneur fiction · Région parisienne';
-const featured = (await getCollection('projets', ({ data }) => data.featured)).sort((a, b) => a.data.ordre - b.data.ordre);
+const featured = (await getCollection('projets', ({ data }) => data.featured && !data.draft)).sort((a, b) => a.data.ordre - b.data.ordre);
 
 // Marques rencontrées dans le parcours (logos monochromes). Formulation honnête, pas "clients".
 const marques = [
@@ -113,7 +113,7 @@ const marques = [
   <section class="section cta-band">
     <div class="container reveal">
       <p class="cta-band-text">
-        Un projet de fiction, un clip, un documentaire, une publicité narrative&nbsp;?
+        Un projet de fiction, un clip, une publicité narrative&nbsp;?
         <em>Parlons-en.</em>
       </p>
       <a href="/fr/contact" class="cta">

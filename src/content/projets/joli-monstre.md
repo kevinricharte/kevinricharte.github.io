@@ -1,24 +1,18 @@
 ---
 titre: "Joli Monstre"
-# annee: à confirmer
+annee: 2026
 typologiePrincipale: "Fiction"
 typologies: ["Fiction"]
-# diffusion: à confirmer
-distinctions: []
+distinctions: ["Nikon Film Festival 2026 — parmi les 50 finalistes"]
 credits:
-  realisation: "[Réalisateur — à confirmer]"
-  production: "[Production — à confirmer]"
-  image: "[Chef opérateur — à confirmer]"
-  camera: "[Caméra — à confirmer]"
+  realisation: "Stan Pacotte & Natacha Couvillers"
   etalonnage: "Kevin Richarte"
-  workflow: "[Espace colorimétrique — à confirmer]"
 cover: "cover.jpg"
 coverAlt: "Joli Monstre — image étalonnée"
-stills: []
-detailTechnique: "[Détail technique — à compléter.]"
-inspirations: []
-featured: false
+featured: true
 ordre: 13
 ---
 
-[Note d'intention — à rédiger par Kevin. Récit de la démarche d'étalonnage propre à ce projet : intention narrative, références convoquées, choix techniques argumentés.]
+Court-métrage intimiste construit autour d'un concept fondamentalement épuré : un couple qui a besoin de se dire la vérité. Aucun effet de style, aucun artifice.
+
+Le défi d'étalonnage tenait précisément à cette modestie sincère du matériau : faire émerger une qualité cinématographique d'un dispositif qui pouvait très vite ressembler à un téléfilm plutôt qu'à un court-métrage pensé pour le grand écran. Sans parti pris d'image affirmé, sans qu'une émotion soit construite colorimétriquement, le résultat serait resté neutre, télévisuel. C'est ce risque qui rendait le travail intéressant.

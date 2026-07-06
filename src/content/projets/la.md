@@ -1,24 +1,21 @@
 ---
 titre: "Là"
-annee: 2025
-typologiePrincipale: "Publicité"
-typologies: ["Publicité"]
-diffusion: "Canal+"
+annee: 2026
+typologiePrincipale: "Spot"
+typologies: ["Spot"]
+diffusion: "Canal+ — 163 passages (janvier–février 2026)"
 distinctions: []
 credits:
-  realisation: "[Réalisateur — à confirmer]"
+  realisation: "Emily Finot"
   production: "En Avant Toutes"
-  image: "[Chef opérateur — à confirmer]"
-  camera: "[Caméra — à confirmer]"
   etalonnage: "Kevin Richarte"
-  workflow: "[Espace colorimétrique — à confirmer]"
 cover: "cover.jpg"
 coverAlt: "Là — image étalonnée"
-stills: []
-detailTechnique: "[Détail technique — à compléter.]"
-inspirations: []
-featured: true
+featured: false
+draft: true
 ordre: 2
 ---
 
-[Note d'intention — à rédiger par Kevin. Récit de la démarche d'étalonnage propre à ce projet : intention narrative, références convoquées, choix techniques argumentés.]
+Spot de prévention contre les violences faites aux jeunes femmes, pour l'association En Avant Toutes.
+
+[Note d'intention à rédiger par Kévin — projet prioritaire à sortir du brouillon : forte diffusion (Canal+, 163 passages en janvier–février 2026).]

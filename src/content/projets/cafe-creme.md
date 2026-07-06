@@ -1,24 +1,24 @@
 ---
 titre: "Café Crème"
-# annee: à confirmer
-typologiePrincipale: "Fiction"
-typologies: ["Fiction"]
-# diffusion: à confirmer
+annee: 2025
+typologiePrincipale: "Clip"
+typologies: ["Clip"]
 distinctions: []
 credits:
-  realisation: "[Réalisateur — à confirmer]"
-  production: "[Production — à confirmer]"
-  image: "[Chef opérateur — à confirmer]"
-  camera: "[Caméra — à confirmer]"
+  realisation: "Gustave Pelletier"
+  production: "Svoboda Agency"
+  image: "Cliiim_"
+  camera: "Blackmagic PYXIS 6K"
   etalonnage: "Kevin Richarte"
-  workflow: "[Espace colorimétrique — à confirmer]"
 cover: "cover.jpg"
 coverAlt: "Café Crème — image étalonnée"
-stills: []
-detailTechnique: "[Détail technique — à compléter.]"
-inspirations: []
+inspirations: ["Damien Chazelle — La La Land, Babylon", "Jean-Pierre Jeunet"]
 featured: true
 ordre: 4
 ---
 
-[Note d'intention — à rédiger par Kevin. Récit de la démarche d'étalonnage propre à ce projet : intention narrative, références convoquées, choix techniques argumentés.]
+Univers visuel du groupe parisien Café Crème (The Roaming Agency) — estival, teinté de romantisme. Producteurs : Dennis Sharganov & Yanek Ling.
+
+Inspirations principales : Damien Chazelle (*La La Land*, *Babylon*) pour les couleurs chaleureuses et la qualité romantique ; l'élégance visuelle de *Babylon* pour les scènes d'intérieur. La majorité des plans extérieurs ayant été filmée en lumière naturelle de jour, l'enjeu était de créer une cohérence d'ensemble tout en construisant une identité colorimétrique reconnaissable : chaque image devait évoquer immédiatement l'univers du Café Crème.
+
+La texture était l'élément central : exploitation poussée des outils Halation du Film Look Creator de DaVinci Resolve pour créer cette patine pellicule qui apporte de l'authenticité au romantisme et confère l'intemporalité recherchée. Également une première : l'étalonnage d'un plan en image de synthèse — la fameuse tasse de café — intégré suffisamment finement pour se traiter comme les autres séquences caméra.

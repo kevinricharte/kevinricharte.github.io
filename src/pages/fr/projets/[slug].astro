@@ -6,7 +6,7 @@ import { Image } from 'astro:assets';
 import { projectImage, projectImages } from '../../../lib/images';
 
 export async function getStaticPaths() {
-  const projets = (await getCollection('projets')).sort((a, b) => a.data.ordre - b.data.ordre);
+  const projets = (await getCollection('projets', ({ data }) => !data.draft)).sort((a, b) => a.data.ordre - b.data.ordre);
   const n = projets.length;
   return projets.map((p, i) => ({
     params: { slug: p.id },
@@ -23,14 +23,17 @@ const stills = projectImages(p.id, d.stills);
 const wipeAvant = d.wipe ? projectImage(p.id, d.wipe.avant) : undefined;
 const wipeApres = d.wipe ? projectImage(p.id, d.wipe.apres) : undefined;
 
-const metaLine = [d.annee, d.typologiePrincipale, d.diffusion, d.duree].filter(Boolean).join('  ·  ');
+// Filet de sécurité : tout champ vide ou de forme "[… à confirmer]" est masqué.
+const show = (v?: string) => (v && !/^\s*\[.*\]\s*$/.test(v) ? v : undefined);
+const detailTech = show(d.detailTechnique);
+const metaLine = [d.annee, d.typologiePrincipale, show(d.diffusion), show(d.duree)].filter(Boolean).join('  ·  ');
 const credits: [string, string | undefined][] = [
-  ['Réalisation', d.credits.realisation],
-  ['Production', d.credits.production],
-  ['Image', d.credits.image],
-  ['Caméra', d.credits.camera],
+  ['Réalisation', show(d.credits.realisation)],
+  ['Production', show(d.credits.production)],
+  ['Image', show(d.credits.image)],
+  ['Caméra', show(d.credits.camera)],
   ['Étalonnage', d.credits.etalonnage],
-  ['Workflow', d.credits.workflow],
+  ['Workflow', show(d.credits.workflow)],
 ];
 const tagGroups: [string, string[]][] = [
   ['Caméras', d.tags.cameras],
@@ -100,10 +103,10 @@ const desc = `${d.titre}${d.annee ? ` (${d.annee})` : ''} — ${d.typologiePrinc
     )}
 
     <!-- ===== Détail technique ===== -->
-    {d.detailTechnique && (
+    {detailTech && (
       <section class="p-tech container-read reveal">
         <p class="meta p-section-label">Détail technique</p>
-        <p class="p-tech-text">{d.detailTechnique}</p>
+        <p class="p-tech-text">{detailTech}</p>
       </section>
     )}
 

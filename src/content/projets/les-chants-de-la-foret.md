@@ -1,24 +1,22 @@
 ---
 titre: "Les Chants de la Forêt"
-# annee: à confirmer
 typologiePrincipale: "Fiction"
 typologies: ["Fiction"]
-# diffusion: à confirmer
 distinctions: []
 credits:
-  realisation: "[Réalisateur — à confirmer]"
-  production: "[Production — à confirmer]"
-  image: "[Chef opérateur — à confirmer]"
-  camera: "[Caméra — à confirmer]"
+  realisation: "Alice Helft"
+  production: "Nomad Drone"
+  image: "Rebecca Antunes"
+  camera: "Blackmagic Pocket Cinema Camera 4K · Panasonic S5IIx (V-Log)"
   etalonnage: "Kevin Richarte"
-  workflow: "[Espace colorimétrique — à confirmer]"
 cover: "cover.jpg"
 coverAlt: "Les Chants de la Forêt — image étalonnée"
-stills: []
-detailTechnique: "[Détail technique — à compléter.]"
-inspirations: []
 featured: true
 ordre: 6
 ---
 
-[Note d'intention — à rédiger par Kevin. Récit de la démarche d'étalonnage propre à ce projet : intention narrative, références convoquées, choix techniques argumentés.]
+L'histoire raconte la transition entre l'enfermement urbain et la liberté naturelle ; l'étalonnage devait traduire visuellement ce contraste émotionnel.
+
+Scènes de bureau : palette froide, désaturée et monochrome — l'uniformité des tons traduit l'enfermement psychologique du personnage dans son quotidien stressant.
+
+Scènes en forêt : approche totalement différente, chaleur dans les hautes lumières pour évoquer l'apaisement du contact avec la nature. L'outil Halation de DaVinci Resolve est devenu central sur ces séquences : la diffusion lumineuse crée une atmosphère enveloppante, presque onirique, particulièrement saisissante dans les reflets de l'eau. L'idée était que le spectateur ressente physiquement l'immersion sensorielle vécue par la protagoniste.

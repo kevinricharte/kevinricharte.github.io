@@ -1,24 +1,20 @@
 ---
 titre: "Couleur Caméléon"
-# annee: à confirmer
 typologiePrincipale: "Fiction"
 typologies: ["Fiction"]
-# diffusion: à confirmer
 distinctions: []
 credits:
-  realisation: "[Réalisateur — à confirmer]"
-  production: "[Production — à confirmer]"
-  image: "[Chef opérateur — à confirmer]"
-  camera: "[Caméra — à confirmer]"
+  realisation: "Nicolas Di Adamo"
+  production: "Rivolian Films"
+  image: "Angelo Beaubreuil"
+  camera: "Sony FX30 · caméscope analogique d'époque"
   etalonnage: "Kevin Richarte"
-  workflow: "[Espace colorimétrique — à confirmer]"
 cover: "cover.jpg"
 coverAlt: "Couleur Caméléon — image étalonnée"
-stills: []
-detailTechnique: "[Détail technique — à compléter.]"
-inspirations: []
 featured: false
 ordre: 10
 ---
 
-[Note d'intention — à rédiger par Kevin. Récit de la démarche d'étalonnage propre à ce projet : intention narrative, références convoquées, choix techniques argumentés.]
+Le récit raconte une enquête dont les indices sont éloignés dans le temps. Le défi colorimétrique était double : intégrer de manière cohérente des plans tournés sur caméscopes des années 2000 — à la nature analogique très marquée — avec des images contemporaines, dans une atmosphère commune, sans gommer la spécificité de chaque source.
+
+L'orientation a consisté à conserver volontairement les imperfections typiques d'une caméra vidéo des années 2000 — notamment le bruit numérique omniprésent — tout en construisant une atmosphère oppressante d'ensemble, qui oppose des teintes jaunâtres presque maladives à des archives froides dans leur aspect clinique.

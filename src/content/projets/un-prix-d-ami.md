@@ -1,24 +1,23 @@
 ---
 titre: "Un Prix d'Ami"
-# annee: à confirmer
+annee: 2024
 typologiePrincipale: "Fiction"
 typologies: ["Fiction"]
-# diffusion: à confirmer
 distinctions: []
 credits:
-  realisation: "[Réalisateur — à confirmer]"
-  production: "[Production — à confirmer]"
-  image: "[Chef opérateur — à confirmer]"
-  camera: "[Caméra — à confirmer]"
+  realisation: "Élie Ankri"
+  production: "1982 Films"
+  image: "Olivier Tresson"
   etalonnage: "Kevin Richarte"
-  workflow: "[Espace colorimétrique — à confirmer]"
 cover: "cover.jpg"
 coverAlt: "Un Prix d'Ami — image étalonnée"
-stills: []
-detailTechnique: "[Détail technique — à compléter.]"
-inspirations: []
+inspirations: ["Buster Keaton", "Woody Allen", "Simulation Kodak Portra 400"]
 featured: false
 ordre: 12
 ---
 
-[Note d'intention — à rédiger par Kevin. Récit de la démarche d'étalonnage propre à ce projet : intention narrative, références convoquées, choix techniques argumentés.]
+Court-métrage cherchant une texture visuelle intemporelle, quelque part entre Buster Keaton et Woody Allen. Les rushes présentaient une excellente base technique — constance remarquable de la dynamique d'image, hautes et basses lumières bien équilibrées — offrant une flexibilité idéale pour le grading.
+
+L'approche s'est construite par comparaisons visuelles présentées au réalisateur : captures comparatives entre LOG brut, conversion LUT standard et propositions créatives. À partir de références noir et blanc classiques, le réalisateur cherchait une texture organique et chaude : la simulation Kodak Portra 400 s'est imposée comme compromis — chaleur et texture, sans basculer dans le noir et blanc des références d'origine.
+
+Défi technique principal : transformer un tournage estival en ambiance automnale. Manipulation des verts vers des teintes jaunâtres moins saturées, contraste adouci, basses lumières rehaussées ; l'espace DaVinci Wide Gamut a fourni la latitude nécessaire sans compromettre la qualité d'image. Grain et bloom en touche finale — ce souffle nostalgique qui dialogue avec l'esthétique classique. La validation de la première version comme version définitive a confirmé la justesse de l'approche.
