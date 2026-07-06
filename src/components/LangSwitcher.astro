@@ -1,0 +1,28 @@
+---
+import { getLangFromUrl } from '../i18n/utils';
+interface Props { lang?: 'fr' | 'en'; }
+const lang = Astro.props.lang ?? getLangFromUrl(Astro.url);
+// Passera à true quand la version anglaise sera en ligne.
+const enReady = false;
+---
+<div class="lang-switch" role="group" aria-label="Langue / Language">
+  <span class:list={["ls", { active: lang === 'fr' }]}>FR</span>
+  <span class="ls-sep" aria-hidden="true">/</span>
+  {enReady
+    ? <a href="/en/" class:list={["ls", { active: lang === 'en' }]}>EN</a>
+    : <span class="ls is-disabled" title="Version anglaise à venir" aria-disabled="true">EN</span>}
+</div>
+
+<style>
+  .lang-switch {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    font-family: var(--font-sans); font-size: 0.72rem; letter-spacing: 0.12em;
+  }
+  .ls { color: var(--brouillard); }
+  .ls.active { color: var(--ivoire); }
+  a.ls:hover { color: var(--ambre); }
+  .ls.is-disabled { color: var(--cendre); cursor: not-allowed; }
+  .ls-sep { color: var(--cendre); }
+  :global(.on-ivoire) .ls { color: #6f6455; }
+  :global(.on-ivoire) .ls.active { color: var(--encre); }
+</style>

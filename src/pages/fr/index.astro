@@ -1,0 +1,237 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import ProjectCard from '../../components/ProjectCard.astro';
+import { site } from '../../data/site';
+
+const title = 'Kevin Richarte — Étalonneur fiction · Région parisienne';
+const featured = (await getCollection('projets', ({ data }) => data.featured)).sort((a, b) => a.data.ordre - b.data.ordre);
+
+// Marques rencontrées dans le parcours (logos monochromes). Formulation honnête, pas "clients".
+const marques = [
+  { file: 'apple.svg', name: 'Apple' },
+  { file: 'canal.svg', name: 'Canal+' },
+  { file: 'france-tv.svg', name: 'France.tv' },
+  { file: 'gaumont.svg', name: 'Gaumont' },
+  { file: 'la-poste.svg', name: 'Groupe La Poste' },
+  { file: 'cordon-bleu.svg', name: 'Le Cordon Bleu' },
+  { file: 'nike.svg', name: 'Nike' },
+  { file: 'studio-hari.svg', name: 'Studio Hari' },
+  { file: 'uber-eats.svg', name: 'Uber Eats' },
+];
+---
+<BaseLayout title={title} lang="fr" padded={false} heroHeader={true}>
+  <!-- ===== 1. SHOWREEL (propre, non couvert) ===== -->
+  <section class="reel" id="showreel" aria-label="Showreel">
+    <div class="reel-media" aria-hidden="true">
+      <div class="reel-fallback"></div>
+      <div class="reel-video" data-vimeo={site.showreelVimeoId}></div>
+    </div>
+    <a href="#accroche" class="reel-scroll" aria-label="Découvrir">
+      <span class="reel-scroll-txt">Découvrir</span>
+      <span class="reel-scroll-line" aria-hidden="true"></span>
+    </a>
+  </section>
+
+  <!-- ===== 2. ACCROCHE (panneau grainé — le "révéler") ===== -->
+  <section class="statement" id="accroche">
+    <div class="statement-grain" aria-hidden="true"></div>
+    <div class="statement-inner container-wide">
+      <p class="statement-eyebrow"><span class="tick" aria-hidden="true">—</span> Étalonneur · Spécialisé fiction</p>
+      <h1 class="statement-title">Révéler <em>votre image.</em></h1>
+      <a href="/fr/projets" class="cta">
+        <span class="cta-label">Voir les projets</span>
+        <span class="cta-arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== 3. SÉLECTION ===== -->
+  <section class="section selection">
+    <div class="container-wide">
+      <div class="selection-head reveal">
+        <p class="meta">Sélection</p>
+        <h2 class="selection-title">Quelques projets</h2>
+      </div>
+      <ul role="list" class="project-grid selection-grid">
+        {featured.map((p) => <ProjectCard entry={p} />)}
+      </ul>
+      <p class="selection-more reveal">
+        <a href="/fr/projets" class="cta">
+          <span class="cta-label">Voir tous les projets</span>
+          <span class="cta-arrow" aria-hidden="true">→</span>
+        </a>
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== 4. APPROCHE (bascule Ivoire) ===== -->
+  <section class="section on-ivoire approche">
+    <div class="container-read reveal">
+      <p class="meta approche-label">Approche</p>
+      <blockquote class="approche-quote">
+        La couleur ne décore pas l'image. Elle prolonge le récit que le réalisateur
+        et le chef opérateur ont déjà inscrit dans la lumière.
+      </blockquote>
+      <a href="/fr/a-propos" class="cta cta-dark">
+        <span class="cta-label">En savoir plus</span>
+        <span class="cta-arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== 5. MARQUES + CHIFFRES ===== -->
+  <section class="section marques">
+    <div class="container-wide reveal">
+      <p class="meta marques-label">Marques &amp; groupes rencontrés dans mon parcours d'étalonneur</p>
+      <ul role="list" class="marques-grid">
+        {marques.map((l) => (
+          <li><span class="brand" style={`--logo: url(/logos/marques/${l.file})`} role="img" aria-label={l.name}></span></li>
+        ))}
+      </ul>
+      <div class="stats">
+        <div class="stat"><span class="stat-num">1000+</span><span class="meta">projets étalonnés (2021–2024)</span></div>
+        <div class="stat"><span class="stat-num">Depuis 2024</span><span class="meta">en indépendant</span></div>
+        <div class="stat"><span class="stat-num">DaVinci Resolve</span><span class="meta">Studio · certifié End User</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 6. COACHING (Ivoire) ===== -->
+  <section class="section on-ivoire coaching">
+    <div class="container-read reveal">
+      <p class="meta">Accompagnement</p>
+      <p class="coaching-text">Voir un projet avec les yeux d'un étalonneur — un accompagnement pour les réalisateurs, chefs opérateurs et étudiants qui veulent mieux dialoguer avec la post-production image.</p>
+      <a href="/fr/formation" class="cta cta-dark">
+        <span class="cta-label">Découvrir la formation</span>
+        <span class="cta-arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== 7. CTA CONTACT ===== -->
+  <section class="section cta-band">
+    <div class="container reveal">
+      <p class="cta-band-text">
+        Un projet de fiction, un clip, un documentaire, une publicité narrative&nbsp;?
+        <em>Parlons-en.</em>
+      </p>
+      <a href="/fr/contact" class="cta">
+        <span class="cta-label">Me contacter</span>
+        <span class="cta-arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* ================= SHOWREEL ================= */
+  .reel { position: relative; height: 100svh; min-height: 520px; overflow: hidden; background: var(--encre); isolation: isolate; }
+  .reel-media { position: absolute; inset: 0; z-index: 0; opacity: 0; transition: opacity 1400ms var(--ease); }
+  .reel.is-lit .reel-media { opacity: 1; }
+  .reel-fallback { position: absolute; inset: 0; background: radial-gradient(120% 100% at 50% 32%, #241a12 0%, #17110d 55%, var(--encre) 100%); }
+  .reel-video { position: absolute; inset: 0; }
+  .reel-video :global(iframe) {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 100vw; height: 56.25vw; min-height: 100%; min-width: 177.78vh; border: 0; pointer-events: none;
+  }
+  .reel::after {
+    content: ""; position: absolute; inset: auto 0 0 0; height: 22%; z-index: 1; pointer-events: none;
+    background: linear-gradient(to top, rgba(21,17,14,0.55) 0%, rgba(21,17,14,0.12) 55%, transparent 100%);
+  }
+  .reel-scroll {
+    position: absolute; left: 50%; bottom: clamp(1.4rem, 3.5vh, 2.4rem); transform: translateX(-50%); z-index: 2;
+    display: inline-flex; flex-direction: column; align-items: center; gap: 0.6rem; color: var(--ivoire);
+  }
+  .reel-scroll-txt { font-family: var(--font-sans); font-size: 0.66rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ivoire-72); }
+  .reel-scroll-line { width: 1px; height: 40px; background: linear-gradient(var(--ambre), transparent); animation: scrollpulse 2.1s var(--ease) infinite; }
+  @keyframes scrollpulse {
+    0% { transform: scaleY(0.25); transform-origin: top; opacity: 0.35; }
+    50% { transform: scaleY(1); opacity: 1; }
+    100% { transform: scaleY(0.25); transform-origin: bottom; opacity: 0.35; }
+  }
+  @media (max-width: 899px) {
+    .reel { height: auto; aspect-ratio: 16 / 9; min-height: 220px; }
+    .reel-video :global(iframe) { position: absolute; inset: 0; top: 0; left: 0; width: 100%; height: 100%; min-width: 0; min-height: 0; transform: none; }
+  }
+
+  /* ================= ACCROCHE ================= */
+  .statement { position: relative; background: var(--encre); overflow: hidden; padding-block: clamp(4.5rem, 12vh, 9rem); }
+  .statement-grain { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(72% 120% at 15% 18%, rgba(198,106,42,0.16) 0%, transparent 56%); }
+  .statement-grain::after {
+    content: ""; position: absolute; inset: 0; mix-blend-mode: overlay; opacity: 0.09;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 180px;
+  }
+  .statement-inner { position: relative; }
+  .statement-eyebrow { font-family: var(--font-sans); font-size: 0.76rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ivoire); margin-bottom: 1.6rem; }
+  .statement-eyebrow .tick { color: var(--ambre); margin-right: 0.55rem; }
+  .statement-title { font-family: var(--font-serif); font-weight: 300; font-size: var(--step-5); line-height: 0.98; color: var(--ivoire); max-width: 16ch; }
+  .statement-title em { font-style: italic; font-weight: 300; }
+  .statement .cta { margin-top: 2.4rem; }
+
+  /* ================= CTA (partagé) ================= */
+  .cta { display: inline-flex; align-items: center; gap: 0.7rem; font-family: var(--font-sans); font-size: 0.8rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ivoire); }
+  .cta-label { position: relative; padding-bottom: 4px; background-image: linear-gradient(var(--ambre), var(--ambre)); background-repeat: no-repeat; background-position: 0 100%; background-size: 100% 1px; transition: background-size var(--dur) var(--ease); }
+  .cta:hover .cta-label, .cta:focus-visible .cta-label { background-size: 0% 1px; }
+  .cta-arrow { color: var(--ambre); transition: transform var(--dur) var(--ease); }
+  .cta:hover .cta-arrow { transform: translateX(5px); }
+  .cta-dark { color: var(--encre); }
+
+  /* ================= SÉLECTION ================= */
+  .selection-title { font-size: var(--step-3); font-weight: 300; margin-top: 0.5rem; }
+  .selection-grid { margin-top: 2.6rem; }
+  .selection-more { margin-top: 2.6rem; }
+
+  /* ================= APPROCHE ================= */
+  .approche { text-align: left; }
+  .approche-label { color: #6f6455; margin-bottom: 1.6rem; }
+  .approche-quote { font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: var(--step-3); line-height: 1.28; color: var(--encre); max-width: 22ch; }
+  .approche .cta { margin-top: 2rem; }
+
+  /* ================= MARQUES + CHIFFRES ================= */
+  .marques-label { max-width: 42ch; }
+  .marques-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.4rem 1.6rem; margin-top: 2.2rem; align-items: center; }
+  @media (min-width: 720px) { .marques-grid { grid-template-columns: repeat(5, 1fr); } }
+  .brand {
+    display: block; width: 100%; height: 30px; background-color: var(--brouillard);
+    -webkit-mask: var(--logo) center / contain no-repeat; mask: var(--logo) center / contain no-repeat;
+    transition: background-color var(--dur) var(--ease);
+  }
+  .brand:hover { background-color: var(--ivoire); }
+  .stats { display: flex; flex-wrap: wrap; gap: 2.5rem 3rem; margin-top: 3.6rem; padding-top: 2.6rem; border-top: 1px solid var(--line); }
+  .stat { display: flex; flex-direction: column; gap: 0.4rem; }
+  .stat-num { font-family: var(--font-serif); font-weight: 300; font-size: var(--step-2); color: var(--ivoire); line-height: 1; }
+
+  /* ================= COACHING ================= */
+  .coaching-text { font-family: var(--font-serif); font-size: var(--step-2); font-weight: 300; font-style: italic; color: var(--encre); max-width: 32ch; margin-top: 1.2rem; margin-bottom: 1.9rem; line-height: 1.3; }
+
+  /* ================= CTA BAND ================= */
+  .cta-band .container { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.5rem; }
+  .cta-band-text { font-family: var(--font-serif); font-size: var(--step-2); font-weight: 300; color: var(--ivoire); max-width: 30ch; }
+  .cta-band-text em { font-style: italic; color: var(--ambre); }
+  .cta-band .cta { margin-top: 0; }
+</style>
+
+<script>
+  const reel = document.querySelector('.reel');
+  requestAnimationFrame(() => reel?.classList.add('is-lit'));
+
+  const host = document.querySelector('.reel-video');
+  const id = host?.getAttribute('data-vimeo');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const injectBg = () => {
+    const f = document.createElement('iframe');
+    f.src = `https://player.vimeo.com/video/${id}?background=1&autoplay=1&loop=1&muted=1&dnt=1`;
+    f.allow = 'autoplay; fullscreen; picture-in-picture';
+    f.setAttribute('tabindex', '-1'); f.setAttribute('aria-hidden', 'true'); f.title = 'Showreel Kevin Richarte';
+    host?.appendChild(f);
+  };
+
+  // Showreel en fond, autoplay muet (desktop + mobile). Respecte prefers-reduced-motion.
+  if (host && id && !reduce) {
+    if ('requestIdleCallback' in window) (window as any).requestIdleCallback(injectBg, { timeout: 1800 });
+    else setTimeout(injectBg, 700);
+  }
+</script>

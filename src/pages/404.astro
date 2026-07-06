@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Page introuvable — Kevin Richarte" lang="fr">
+  <section class="notfound container">
+    <p class="meta">Erreur 404</p>
+    <h1>Cette page n'existe pas.</h1>
+    <p class="nf-text">Le lien est peut-être erroné, ou la page a été déplacée.</p>
+    <p><a href="/fr/" class="link-accent underline-accent">Retour à l'accueil <span aria-hidden="true">→</span></a></p>
+  </section>
+</BaseLayout>
+
+<style>
+  .notfound { min-height: 62vh; display: flex; flex-direction: column; justify-content: center; gap: 1.4rem; }
+  .notfound h1 { font-size: var(--step-4); font-weight: 300; }
+  .nf-text { color: var(--ivoire-72); max-width: 46ch; }
+</style>

@@ -1,0 +1,109 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const publics = [
+  'Réalisateurs (en activité ou en formation) qui veulent gagner en autonomie sur les questions d\'image',
+  'Chefs opérateurs qui veulent prolonger la conversation jusqu\'à l\'étalonnage',
+  'Étudiants en audiovisuel orientés vers la réalisation ou la prise de vue',
+  'Producteurs et exécutifs qui veulent comprendre les enjeux d\'un brief d\'étalonnage',
+  'Établissements d\'enseignement pour des interventions ponctuelles',
+];
+const axes = [
+  { t: 'Lire une image', d: 'Apprendre à décrire ce qu\'on voit, ce qu\'on veut, ce qui ne va pas.' },
+  { t: 'Dialoguer avec un étalonneur', d: 'Vocabulaire, références, méthode de brief.' },
+  { t: 'Reconnaître les pièges fréquents', d: 'L\'attachement au LOG, la peur de « casser » l\'image, la confusion entre LUT de référence et look final.' },
+  { t: 'Construire une intention colorimétrique', d: 'Depuis l\'écriture jusqu\'à la post-production.' },
+];
+---
+<BaseLayout title="Formation — Kevin Richarte, étalonneur fiction" lang="fr" description="Accompagnement pédagogique pour non-étalonneurs : voir un projet avec les yeux d'un étalonneur.">
+  <!-- Hero -->
+  <section class="section container-read form-hero reveal">
+    <p class="meta">Formation</p>
+    <h1 class="form-title">Voir un projet avec les yeux d'un étalonneur.</h1>
+    <p class="form-sub">Un accompagnement pour les réalisateurs, chefs opérateurs et étudiants qui veulent mieux dialoguer avec la post-production image. Volontairement distinct d'une formation au logiciel&nbsp;: l'objectif est d'apprendre à <em>voir</em>.</p>
+  </section>
+
+  <!-- À qui -->
+  <section class="section on-ivoire">
+    <div class="container-read reveal">
+      <p class="meta">À qui ça s'adresse</p>
+      <ul role="list" class="form-list">
+        {publics.map((p) => <li>{p}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <!-- Ce qu'on travaille -->
+  <section class="section container-wide reveal">
+    <p class="meta">Ce qu'on travaille ensemble</p>
+    <div class="axes">
+      {axes.map((a) => (
+        <div class="axis">
+          <h2 class="axis-t">{a.t}</h2>
+          <p class="axis-d">{a.d}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Format + Pourquoi moi -->
+  <section class="section on-ivoire">
+    <div class="container-wide two-col">
+      <div class="reveal">
+        <p class="meta">Format</p>
+        <ul role="list" class="form-list dark">
+          <li>Sessions individuelles, à distance ou en présentiel (région parisienne)</li>
+          <li>Possibilité d'audits sur un projet en cours</li>
+          <li>Modules courts ou accompagnement sur la durée d'un projet</li>
+          <li>Interventions en école sur demande</li>
+        </ul>
+      </div>
+      <div class="reveal">
+        <p class="meta">Pourquoi moi</p>
+        <ul role="list" class="form-list dark">
+          <li>Double parcours réalisateur / étalonneur</li>
+          <li>Expérience pédagogique : modules de formation interne pour deux publics distincts (monteurs et étalonneurs freelance), atelier d'écriture en lycée</li>
+          <li>Volume traité : plus de mille projets sur trois ans</li>
+          <li>Candidature en cours pour un Master 2 Didactique de l'image</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modalités -->
+  <section class="section container-read modalites reveal">
+    <p class="meta">Modalités</p>
+    <p class="modalites-text">Premier échange découverte gratuit. Tarifs sur demande.</p>
+    <p class="modalites-note">Offre en cours de structuration — premières sessions disponibles. Écrivez-moi pour échanger sur vos besoins.</p>
+    <a href="/fr/contact" class="cta">
+      <span class="cta-label">Me contacter</span>
+      <span class="cta-arrow" aria-hidden="true">→</span>
+    </a>
+  </section>
+</BaseLayout>
+
+<style>
+  .form-hero { padding-top: var(--space-2xl); }
+  .form-title { font-family: var(--font-serif); font-weight: 300; font-size: var(--step-4); line-height: 1.05; margin-top: 1rem; max-width: 18ch; }
+  .form-sub { color: var(--ivoire-72); margin-top: 1.4rem; max-width: 54ch; font-size: 1.05rem; line-height: 1.6; }
+  .form-sub em { font-style: italic; color: var(--ivoire); }
+
+  .form-list { display: flex; flex-direction: column; gap: 0.8rem; margin-top: 1.2rem; max-width: 60ch; }
+  :global(.on-ivoire) .form-list { color: var(--encre); }
+  .form-list li { position: relative; padding-left: 1.4rem; font-family: var(--font-serif); font-size: 1.15rem; line-height: 1.45; }
+  .form-list li::before { content: "—"; position: absolute; left: 0; color: var(--ambre); }
+  .form-list.dark li { color: var(--encre); }
+
+  .axes { display: grid; grid-template-columns: 1fr; gap: 2rem; margin-top: 1.8rem; }
+  @media (min-width: 700px) { .axes { grid-template-columns: 1fr 1fr; gap: 2.5rem 3rem; } }
+  .axis { border-top: 1px solid var(--line); padding-top: 1.2rem; }
+  .axis-t { font-family: var(--font-serif); font-weight: 400; font-size: 1.5rem; color: var(--ivoire); }
+  .axis-d { color: var(--ivoire-72); margin-top: 0.5rem; line-height: 1.55; }
+
+  .two-col { display: grid; grid-template-columns: 1fr; gap: 3rem; }
+  @media (min-width: 760px) { .two-col { grid-template-columns: 1fr 1fr; } }
+
+  .modalites { padding-top: var(--space-2xl); }
+  .modalites-text { font-family: var(--font-serif); font-size: var(--step-2); font-weight: 300; color: var(--ivoire); margin-top: 1rem; }
+  .modalites-note { color: var(--ivoire-72); font-style: italic; font-family: var(--font-serif); margin-top: 0.8rem; margin-bottom: 1.8rem; max-width: 50ch; }
+</style>

@@ -1,0 +1,24 @@
+{
+  "name": "kevin-richarte-site",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Site professionnel de Kevin Richarte — étalonneur fiction, région parisienne.",
+  "engines": {
+    "node": ">=18.20.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^5.0.0",
+    "@astrojs/sitemap": "^3.0.0",
+    "@fontsource/cormorant-garamond": "^5.0.0",
+    "@fontsource-variable/inter": "^5.0.0",
+    "sharp": "^0.33.0"
+  }
+}

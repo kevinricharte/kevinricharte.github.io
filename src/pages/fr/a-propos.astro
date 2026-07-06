@@ -1,0 +1,131 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import portrait from '../../assets/portrait.jpg';
+import { site } from '../../data/site';
+
+const competences = [
+  { label: 'Logiciels', items: ['DaVinci Resolve Studio (certifié End User)', 'Adobe Premiere Pro', 'Shutter Encoder'] },
+  { label: 'Formats & workflows', items: ['RAW & LOG', 'ACES', 'DaVinci Wide Gamut', 'Rec.709', 'Conversion · conforming · livraison multi-formats', 'Conseil pré-production', 'Création de LUTs'] },
+  { label: 'Caméras', items: ['ARRI Alexa', 'RED V-RAPTOR', 'Sony FX9', 'Blackmagic PYXIS 6K · BMPCC', 'Panasonic GH/S'] },
+  { label: 'Approches', items: ['Identités visuelles narratives', 'Harmonisation multi-sources', 'Continuité visuelle', 'Simulation pellicule & looks cinéma'] },
+];
+const formation = [
+  { annee: '2020', item: 'DaVinci Resolve Certified End User · Blackmagic Design' },
+  { annee: '2018', item: 'Titre RNCP Niveau II Réalisateur-Monteur · ACFA Multimédia, Montpellier' },
+  { annee: '2016', item: 'Licence Études cinématographiques et audiovisuelles · Université Montpellier III Paul-Valéry' },
+  { annee: 'En cours', item: 'Candidature VAPP — Master 2 Didactique de l\'image' },
+];
+---
+<BaseLayout title="À propos — Kevin Richarte, étalonneur fiction" lang="fr" description="Le parcours et la méthode de Kevin Richarte, étalonneur spécialisé fiction en région parisienne.">
+  <!-- Exergue -->
+  <section class="section container-read exergue-wrap reveal">
+    <p class="meta">À propos</p>
+    <blockquote class="exergue">«&nbsp;{site.manifeste}&nbsp;»</blockquote>
+  </section>
+
+  <!-- Bio + portrait -->
+  <section class="section on-ivoire">
+    <div class="container-wide bio-grid">
+      <div class="bio-portrait reveal">
+        <Image src={portrait} alt="Portrait de Kevin Richarte, étalonneur" widths={[400, 600, 900]} sizes="(max-width:800px) 100vw, 40vw" format="webp" />
+      </div>
+      <div class="bio-text reveal">
+        <p class="meta">Parcours</p>
+        <p>Kevin Richarte est étalonneur, spécialisé fiction, en région parisienne. Après une formation en cinéma — Licence Études cinématographiques et audiovisuelles (Université Montpellier III, 2016), puis titre RNCP Réalisateur-Monteur (ACFA Multimédia, 2018) — il commence par la réalisation et la production audiovisuelle : making-of, documentaire, vidéo.</p>
+        <p>En 2021, il rejoint Jellysmack / Keli Network France comme coloriste. En trois ans, il étalonne plus de mille projets pour les chaînes et créateurs de la maison, devient référent technique et conçoit des modules de formation interne, destinés aussi bien aux monteurs qu'aux étalonneurs freelance.</p>
+        <p>Depuis mai 2024, il exerce en indépendant et recentre son travail sur la fiction, le clip narratif, le documentaire et le brand content narratif. Parmi ses projets récents : <em>Postcard from Marseille</em> (France&nbsp;3 PACA · France&nbsp;TV) et <em>Là</em> (En Avant Toutes, diffusé sur Canal+).</p>
+        <p class="draft-note">[Bio provisoire, composée à partir des faits du brief — à valider et affiner avec Kevin.]</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Méthode -->
+  <section class="section container-read method-wrap reveal">
+    <p class="meta">Approche &amp; méthode</p>
+    <ol class="method">
+      <li><span class="method-h">Analyser le projet</span> — lire le film d'abord, la technique ensuite.</li>
+      <li><span class="method-h">Évaluer les sources</span> — état technique, espaces colorimétriques, points de vigilance.</li>
+      <li><span class="method-h">Proposer, argumenté</span> — souvent par comparatifs entre LOG brut, LUT standard et propositions personnelles.</li>
+      <li><span class="method-h">Dialoguer</span> — avec le réalisateur et le chef opérateur, tout au long du grading.</li>
+      <li><span class="method-h">Livrer</span> — en multi-formats, prêts pour la diffusion.</li>
+    </ol>
+  </section>
+
+  <!-- Setup + compétences -->
+  <section class="section on-ivoire">
+    <div class="container-wide two-col">
+      <div class="reveal">
+        <p class="meta">Studio</p>
+        <ul role="list" class="plain-list">
+          <li>Studio personnel calibré (gris 18&nbsp;%, moniteur DCI-P3)</li>
+          <li>Panneau Blackmagic Micro Panel</li>
+          <li>Éclairage bias &amp; acoustique contrôlés</li>
+          <li>À distance (sessions calibrées par partage d'écran) ou en présentiel</li>
+          <li>Stockage sécurisé</li>
+        </ul>
+      </div>
+      <div class="reveal comp">
+        <p class="meta">Compétences techniques</p>
+        {competences.map((g) => (
+          <div class="comp-group">
+            <span class="comp-label">{g.label}</span>
+            <p class="comp-items">{g.items.join('  ·  ')}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Formation + langues -->
+  <section class="section container-wide two-col formation-wrap reveal">
+    <div>
+      <p class="meta">Formation &amp; certifications</p>
+      <ul role="list" class="timeline">
+        {formation.map((f) => (
+          <li><span class="tl-year meta">{f.annee}</span><span class="tl-item">{f.item}</span></li>
+        ))}
+      </ul>
+    </div>
+    <div>
+      <p class="meta">Langues</p>
+      <ul role="list" class="plain-list">
+        <li>Français — natif</li>
+        <li>Anglais — C1 courant</li>
+      </ul>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .exergue-wrap { padding-top: var(--space-2xl); }
+  .exergue { font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: var(--step-3); line-height: 1.3; color: var(--ivoire); max-width: 24ch; margin-top: 1.4rem; }
+
+  .bio-grid { display: grid; grid-template-columns: 1fr; gap: 2.5rem; }
+  @media (min-width: 800px) { .bio-grid { grid-template-columns: 0.8fr 1.2fr; gap: 4rem; align-items: start; } }
+  .bio-portrait :global(img) { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border: 1px solid var(--line); }
+  .bio-text { font-family: var(--font-serif); font-size: 1.18rem; line-height: 1.7; color: var(--encre); }
+  .bio-text p { margin-bottom: 1.1rem; max-width: 60ch; }
+  .bio-text p:first-of-type { margin-top: 0.8rem; }
+  .bio-text em { font-style: italic; }
+  .draft-note { font-family: var(--font-sans); font-size: 0.8rem; font-style: normal; color: #8a7d6a; }
+
+  .method { list-style: none; counter-reset: m; margin-top: 1.6rem; display: flex; flex-direction: column; gap: 1.1rem; max-width: 60ch; }
+  .method li { counter-increment: m; position: relative; padding-left: 2.6rem; color: var(--ivoire-72); font-family: var(--font-serif); font-size: 1.15rem; line-height: 1.5; }
+  .method li::before { content: counter(m, decimal-leading-zero); position: absolute; left: 0; top: 0.15rem; font-family: var(--font-sans); font-size: 0.72rem; letter-spacing: 0.08em; color: var(--ambre); }
+  .method-h { color: var(--ivoire); }
+
+  .two-col { display: grid; grid-template-columns: 1fr; gap: 3rem; }
+  @media (min-width: 760px) { .two-col { grid-template-columns: 1fr 1fr; } }
+  .plain-list { display: flex; flex-direction: column; gap: 0.6rem; margin-top: 1.1rem; color: var(--ivoire-72); }
+  :global(.on-ivoire) .plain-list { color: #5a5044; }
+  .comp-group { margin-top: 1.3rem; }
+  .comp-label { font-family: var(--font-sans); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ambre); }
+  .comp-items { font-family: var(--font-serif); font-size: 1.1rem; color: var(--encre); margin-top: 0.35rem; line-height: 1.4; }
+
+  .formation-wrap { padding-top: var(--space-2xl); }
+  .timeline { display: flex; flex-direction: column; gap: 1rem; margin-top: 1.1rem; }
+  .timeline li { display: grid; grid-template-columns: 5.5rem 1fr; gap: 1rem; align-items: baseline; }
+  .tl-year { color: var(--ambre); }
+  .tl-item { font-family: var(--font-serif); font-size: 1.1rem; color: var(--ivoire); }
+</style>

@@ -1,0 +1,167 @@
+---
+import { getRoutes, useTranslations, getLangFromUrl } from '../i18n/utils';
+import LangSwitcher from './LangSwitcher.astro';
+import { site } from '../data/site';
+
+interface Props { lang?: 'fr' | 'en'; transparent?: boolean; }
+const lang = Astro.props.lang ?? getLangFromUrl(Astro.url);
+const { transparent = false } = Astro.props;
+const t = useTranslations(lang);
+const r = getRoutes(lang);
+
+const path = Astro.url.pathname.replace(/\/+$/, '') || '/';
+const norm = (h: string) => h.replace(/\/+$/, '') || '/';
+const isActive = (href: string) => {
+  const h = norm(href);
+  if (h === norm(r.home)) return path === h;
+  return path === h || path.startsWith(h + '/');
+};
+
+const links = [
+  { href: r.home, label: t('nav.home') },
+  { href: r.projects, label: t('nav.projects') },
+  { href: r.training, label: t('nav.training') },
+  { href: r.about, label: t('nav.about') },
+  { href: r.contact, label: t('nav.contact') },
+];
+---
+<header class:list={["site-header", { transparent }]}>
+  <div class="header-inner container-wide">
+    <a href={r.home} class="brand" aria-label={`${site.name} — accueil`}>
+      <span class="brand-name">Kevin Richarte</span>
+    </a>
+
+    <nav class="nav-desktop" aria-label="Navigation principale">
+      <ul role="list">
+        {links.map((l) => (
+          <li>
+            <a
+              href={l.href}
+              class:list={["nav-link", { active: isActive(l.href) }]}
+              aria-current={isActive(l.href) ? 'page' : undefined}
+            >{l.label}</a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <div class="header-right">
+      <div class="header-lang"><LangSwitcher lang={lang} /></div>
+      <button class="burger" aria-label={t('nav.menu')} aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="mobile-menu" id="mobile-menu" hidden>
+    <nav aria-label="Navigation">
+      <ul role="list">
+        {links.map((l) => (
+          <li>
+            <a href={l.href} class:list={["m-link", { active: isActive(l.href) }]}
+               aria-current={isActive(l.href) ? 'page' : undefined}>{l.label}</a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+    <div class="mobile-lang"><LangSwitcher lang={lang} /></div>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: fixed; inset: 0 0 auto 0; height: var(--header-h);
+    z-index: var(--z-header);
+    display: flex; align-items: center;
+    border-bottom: 1px solid transparent;
+    transition: background var(--dur) var(--ease), border-color var(--dur) var(--ease), backdrop-filter var(--dur) var(--ease);
+  }
+  /* Non-transparent (pages intérieures) : fond dès le départ */
+  .site-header:not(.transparent) {
+    background: var(--encre-92);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border-bottom-color: var(--line);
+  }
+  /* Transparent (accueil) : devient solide au scroll */
+  .site-header.transparent.is-solid {
+    background: var(--encre-92);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border-bottom-color: var(--line);
+  }
+
+  .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; width: 100%; }
+
+  .brand { display: inline-flex; align-items: baseline; }
+  .brand-name { font-family: var(--font-serif); font-size: 1.35rem; line-height: 1; color: var(--ivoire); letter-spacing: 0.01em; }
+
+  .nav-desktop ul { display: flex; gap: 1.9rem; }
+  .nav-link {
+    font-family: var(--font-sans); font-size: 0.78rem; letter-spacing: 0.11em; text-transform: uppercase;
+    color: var(--ivoire-72); padding-block: 0.4rem; position: relative; transition: color var(--dur) var(--ease);
+  }
+  .nav-link:hover { color: var(--ivoire); }
+  .nav-link.active { color: var(--ivoire); }
+  .nav-link.active::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: -3px; height: 1px; background: var(--ambre);
+  }
+
+  .header-right { display: flex; align-items: center; gap: 1.25rem; }
+
+  .burger { display: none; width: 30px; height: 22px; position: relative; }
+  .burger span { position: absolute; left: 0; right: 0; height: 1.5px; background: var(--ivoire); transition: transform var(--dur) var(--ease), opacity var(--dur) var(--ease); }
+  .burger span:nth-child(1) { top: 2px; }
+  .burger span:nth-child(2) { top: 10px; }
+  .burger span:nth-child(3) { top: 18px; }
+  .burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+  .burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+  .burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+  .mobile-menu {
+    position: fixed; inset: var(--header-h) 0 0 0; z-index: calc(var(--z-header) - 1);
+    background: var(--encre); border-top: 1px solid var(--line);
+    display: flex; flex-direction: column; justify-content: space-between;
+    padding: 2.5rem var(--gutter) 3rem;
+  }
+  .mobile-menu[hidden] { display: none; }
+  .mobile-menu ul { display: flex; flex-direction: column; gap: 0.4rem; }
+  .m-link {
+    font-family: var(--font-serif); font-size: clamp(2rem, 9vw, 2.8rem); font-weight: 300; color: var(--ivoire-72);
+    display: inline-block; padding-block: 0.35rem;
+  }
+  .m-link.active { color: var(--ambre); }
+  .mobile-lang { padding-top: 2rem; }
+
+  @media (max-width: 820px) {
+    .nav-desktop, .header-lang { display: none; }
+    .burger { display: block; }
+  }
+
+  :global(body.menu-open) { overflow: hidden; }
+</style>
+
+<script>
+  const header = document.querySelector('.site-header');
+  const solidify = () => {
+    if (!header) return;
+    if (window.scrollY > 24) header.classList.add('is-solid');
+    else header.classList.remove('is-solid');
+  };
+  solidify();
+  window.addEventListener('scroll', solidify, { passive: true });
+
+  const burger = document.querySelector('.burger');
+  const menu = document.getElementById('mobile-menu');
+  const setOpen = (open: boolean) => {
+    if (!burger || !menu) return;
+    burger.setAttribute('aria-expanded', String(open));
+    menu.hidden = !open;
+    document.body.classList.toggle('menu-open', open);
+  };
+  burger?.addEventListener('click', () => {
+    setOpen(burger.getAttribute('aria-expanded') !== 'true');
+  });
+  menu?.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setOpen(false)));
+  window.addEventListener('keydown', (e) => { if (e.key === 'Escape') setOpen(false); });
+</script>

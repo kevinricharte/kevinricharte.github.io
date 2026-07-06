@@ -1,0 +1,75 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import ProjectCard from '../../../components/ProjectCard.astro';
+
+const projets = (await getCollection('projets')).sort((a, b) => a.data.ordre - b.data.ordre);
+const allTypos = Array.from(new Set(projets.flatMap((p) => p.data.typologies))).sort((a, b) => a.localeCompare(b, 'fr'));
+const filters = ['Tous', ...allTypos];
+---
+<BaseLayout title="Projets — Kevin Richarte, étalonneur fiction" lang="fr" description="Sélection de projets étalonnés par Kevin Richarte — fiction, clip narratif, documentaire, brand content, publicité.">
+  <section class="section container-wide">
+    <header class="proj-head reveal">
+      <p class="meta">Projets</p>
+      <h1 class="proj-title">Sélection de projets étalonnés</h1>
+      <p class="proj-sub">Filmographie d'étalonneur — fiction, clip, documentaire, brand content narratif.</p>
+    </header>
+
+    <div class="filters" role="group" aria-label="Filtrer par typologie">
+      {filters.map((f, i) => (
+        <button type="button" class:list={["filter", { active: i === 0 }]} data-filter={f === 'Tous' ? '*' : f}>{f}</button>
+      ))}
+    </div>
+
+    <ul role="list" class="project-grid" id="proj-grid">
+      {projets.map((p) => <ProjectCard entry={p} />)}
+    </ul>
+
+    <p class="empty meta" id="proj-empty" hidden>
+      Aucun projet dans cette catégorie. <button type="button" class="empty-reset" data-filter="*">Voir tous les projets</button>
+    </p>
+  </section>
+</BaseLayout>
+
+<style>
+  .proj-head { max-width: 40ch; }
+  .proj-title { font-size: var(--step-4); font-weight: 300; margin-top: 0.8rem; }
+  .proj-sub { color: var(--ivoire-72); margin-top: 1rem; max-width: 46ch; }
+
+  .filters { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 2.4rem; margin-bottom: 2.8rem; }
+  .filter {
+    font-family: var(--font-sans); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--brouillard); padding: 0.5rem 0.95rem; border: 1px solid var(--line); border-radius: 100px;
+    transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+  }
+  .filter:hover { color: var(--ivoire); border-color: var(--brouillard); }
+  .filter.active { color: var(--ivoire); border-color: var(--ambre); }
+
+  .empty { margin-top: 2.5rem; }
+  .empty-reset { color: var(--ambre); text-decoration: underline; text-underline-offset: 3px; }
+</style>
+
+<script>
+  const grid = document.getElementById('proj-grid');
+  if (grid) {
+    const cards = Array.from(grid.querySelectorAll<HTMLElement>('.card'));
+    const empty = document.getElementById('proj-empty');
+    const filterBtns = Array.from(document.querySelectorAll<HTMLElement>('.filter'));
+
+    const apply = (f: string) => {
+      let visible = 0;
+      cards.forEach((c) => {
+        const typos = (c.dataset.typos || '').split('|');
+        const show = f === '*' || typos.includes(f);
+        c.hidden = !show;
+        if (show) visible += 1;
+      });
+      if (empty) empty.hidden = visible > 0;
+      filterBtns.forEach((b) => b.classList.toggle('active', b.dataset.filter === f));
+    };
+
+    document.querySelectorAll<HTMLElement>('[data-filter]').forEach((b) => {
+      b.addEventListener('click', () => apply(b.dataset.filter || '*'));
+    });
+  }
+</script>
