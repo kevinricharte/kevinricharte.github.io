@@ -10,12 +10,22 @@ credits:
   image: Clement Vaissaire
   camera: Blackmagic PYXIS 6K
   etalonnage: Kévin Richarte
-cover: /media/projets/cafe-creme--still-04.webp
+cover: /media/projets/Still 2026-04-30 161034_3.70.2.jpg
 coverAlt: Café Crème — image étalonnée
 wipe:
   avant: /media/projets/Still 2026-06-09 114610_2.15.1.jpg
   apres: /media/projets/cafe-creme--still-02.webp
   alt: Café Crème
+stills:
+  - /media/projets/cafe-creme--cover.webp
+  - /media/projets/Still 2026-04-30 161034_3.2.1.jpg
+  - /media/projets/Still 2026-04-30 161034_3.4.1.jpg
+  - /media/projets/Still 2026-04-30 161034_3.18.1.jpg
+  - /media/projets/Still 2026-04-30 161034_3.26.1.jpg
+  - /media/projets/Still 2026-04-30 161034_3.35.1-1.jpg
+  - /media/projets/Still 2026-04-30 161034_3.49.1.jpg
+  - /media/projets/Still 2026-04-30 161034_3.69.1.jpg
+  - /media/projets/Still 2026-04-30 161034_3.69.1-1.jpg
 inspirations:
   - Damien Chazelle — La La Land, Babylon
   - Jean-Pierre Jeunet
