@@ -9,17 +9,13 @@ credits:
   production: Svoboda Agency
   image: Clement Vaissaire
   camera: Blackmagic PYXIS 6K
+  etalonnage: Kévin Richarte
+cover: /media/projets/cafe-creme--still-04.webp
 coverAlt: Café Crème — image étalonnée
 wipe:
   avant: /media/projets/Still 2026-06-09 114610_2.15.1.jpg
   apres: /media/projets/cafe-creme--still-02.webp
   alt: Café Crème
-stills:
-  - /media/projets/cafe-creme--still-01.webp
-  - /media/projets/cafe-creme--still-02.webp
-  - /media/projets/cafe-creme--still-03.webp
-  - /media/projets/cafe-creme--still-04.webp
-  - /media/projets/cafe-creme--still-05.webp
 inspirations:
   - Damien Chazelle — La La Land, Babylon
   - Jean-Pierre Jeunet
