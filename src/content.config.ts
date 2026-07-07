@@ -28,7 +28,11 @@ const projets = defineCollection({
     cover: z.string(),
     coverAlt: z.string().optional(),
     wipe: z
-      .object({ avant: z.string(), apres: z.string(), alt: z.string().optional() })
+      .object({
+        avant: z.string().optional(),
+        apres: z.string().optional(),
+        alt: z.string().optional(),
+      })
       .optional(),
     stills: z.array(z.string()).default([]),
     detailTechnique: z.string().optional(),

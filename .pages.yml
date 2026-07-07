@@ -1,0 +1,91 @@
+# Configuration du panneau d'administration visuel (Pages CMS — https://pagescms.org)
+# Ce fichier décrit, en français, les champs que Kévin voit et modifie dans le panneau.
+
+media:
+  input: public/media/projets   # où sont rangées les images dans le dépôt
+  output: /media/projets         # chemin utilisé dans les pages
+  extensions: [webp, jpg, jpeg, png, avif]
+  categories: [image]
+
+content:
+  - name: projets
+    label: Projets
+    type: collection
+    path: src/content/projets
+    filename: '{primary}.md'
+    view:
+      primary: titre
+      sort: ordre
+      order: asc
+      fields: [titre, typologiePrincipale, featured, draft, ordre]
+    fields:
+      - name: titre
+        label: Titre du projet
+        type: string
+        required: true
+      - name: annee
+        label: Année (laisser vide si inconnue)
+        type: number
+      - name: typologiePrincipale
+        label: Type affiché sur la fiche
+        type: select
+        options:
+          values: [Fiction, Clip, Publicité, Brand content, Documentaire, Spot]
+      - name: typologies
+        label: Catégories (servent aux filtres de la page Projets)
+        type: select
+        list: true
+        options:
+          values: [Fiction, Clip, Publicité, Brand content, Documentaire, Spot]
+      - name: diffusion
+        label: Diffusion (ex. « Canal+ », « France 3 Régions · France TV »)
+        type: string
+      - name: distinctions
+        label: Distinctions / sélections (une par ligne)
+        type: string
+        list: true
+      - name: credits
+        label: Crédits
+        type: object
+        fields:
+          - { name: realisation, label: Réalisation, type: string }
+          - { name: production, label: Production, type: string }
+          - { name: image, label: Chef opérateur, type: string }
+          - { name: camera, label: Caméra, type: string }
+          - { name: etalonnage, label: Étalonnage, type: string, default: 'Kévin Richarte' }
+          - { name: workflow, label: Workflow / espace colorimétrique, type: string }
+      - name: cover
+        label: Image de couverture (vignette + haut de la fiche)
+        type: image
+      - name: coverAlt
+        label: Description de la couverture (pour l'accessibilité)
+        type: string
+      - name: wipe
+        label: Comparatif avant / après (facultatif)
+        type: object
+        fields:
+          - { name: avant, label: Plan REC.709 (avant), type: image }
+          - { name: apres, label: Plan étalonné (après), type: image }
+          - { name: alt, label: Légende du plan, type: string }
+      - name: stills
+        label: Galerie de plans (ajoute autant d'images que tu veux)
+        type: image
+        list: true
+      - name: inspirations
+        label: Inspirations / références (une par ligne)
+        type: string
+        list: true
+      - name: featured
+        label: Mettre en avant dans la « Sélection » de l'accueil
+        type: boolean
+        default: false
+      - name: draft
+        label: Brouillon — masqué du site tant que la case est cochée
+        type: boolean
+        default: false
+      - name: ordre
+        label: Ordre d'affichage (petit nombre = plus haut dans la grille)
+        type: number
+      - name: body
+        label: Note d'intention
+        type: rich-text
