@@ -12,6 +12,11 @@ credits:
   etalonnage: "Kévin Richarte"
 cover: "cover.jpg"
 coverAlt: "Western Moderne — image étalonnée"
+wipe:
+  avant: "wipe-avant.jpg"
+  apres: "wipe-apres.jpg"
+  alt: "Western Moderne — plan du bord de rivière"
+stills: ["still-01.jpg", "still-02.jpg", "still-03.jpg"]
 inspirations: ["Le Bon, la Brute et le Truand — Sergio Leone"]
 featured: true
 ordre: 3
