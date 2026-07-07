@@ -1,18 +1,24 @@
 ---
-titre: "Kill La Blonde"
+titre: Kill La Blonde
 annee: 2026
-typologiePrincipale: "Fiction"
-typologies: ["Fiction"]
+typologiePrincipale: Fiction
+typologies:
+  - Fiction
 distinctions: []
 credits:
-  realisation: "Natacha Couvillers"
-  production: "Stanislas Pacotte"
-  image: "Tom Giffon"
-  camera: "Sony FX3"
-  etalonnage: "Kévin Richarte"
-cover: "cover.jpg"
-coverAlt: "Kill La Blonde — image étalonnée"
-stills: ["still-01.jpg", "still-02.jpg", "still-03.jpg", "still-04.jpg", "still-05.jpg"]
+  realisation: Natacha Couvillers
+  production: Stanislas Pacotte
+  image: Tom Giffon
+  camera: Sony FX3
+  etalonnage: Kévin Richarte
+cover: /media/projets/kill-la-blonde--cover.webp
+coverAlt: Kill La Blonde — image étalonnée
+stills:
+  - /media/projets/kill-la-blonde--still-01.webp
+  - /media/projets/kill-la-blonde--still-02.webp
+  - /media/projets/kill-la-blonde--still-03.webp
+  - /media/projets/kill-la-blonde--still-04.webp
+  - /media/projets/kill-la-blonde--still-05.webp
 featured: false
 ordre: 15
 ---

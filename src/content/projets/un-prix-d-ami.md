@@ -1,17 +1,21 @@
 ---
-titre: "Un Prix d'Ami"
+titre: Un Prix d'Ami
 annee: 2024
-typologiePrincipale: "Fiction"
-typologies: ["Fiction"]
+typologiePrincipale: Fiction
+typologies:
+  - Fiction
 distinctions: []
 credits:
-  realisation: "Élie Ankri"
-  production: "1982 Films"
-  image: "Olivier Tresson"
-  etalonnage: "Kévin Richarte"
-cover: "cover.jpg"
-coverAlt: "Un Prix d'Ami — image étalonnée"
-inspirations: ["Buster Keaton", "Woody Allen", "Simulation Kodak Portra 400"]
+  realisation: Élie Ankri
+  production: 1982 Films
+  image: Olivier Tresson
+  etalonnage: Kévin Richarte
+cover: /media/projets/un-prix-d-ami--cover.webp
+coverAlt: Un Prix d'Ami — image étalonnée
+inspirations:
+  - Buster Keaton
+  - Woody Allen
+  - Simulation Kodak Portra 400
 featured: false
 ordre: 12
 ---

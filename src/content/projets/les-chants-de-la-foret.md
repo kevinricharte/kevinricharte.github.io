@@ -1,18 +1,29 @@
 ---
-titre: "Les Chants de la Forêt"
-typologiePrincipale: "Fiction"
-typologies: ["Fiction"]
+titre: Les Chants de la Forêt
+typologiePrincipale: Fiction
+typologies:
+  - Fiction
 distinctions: []
 credits:
-  realisation: "Alice Helft"
-  production: "Nomad Drone"
-  image: "Rebecca Antunes"
-  camera: "Blackmagic Pocket Cinema Camera 4K · Panasonic S5IIx (V-Log)"
-  etalonnage: "Kévin Richarte"
-cover: "cover.jpg"
-coverAlt: "Les Chants de la Forêt — image étalonnée"
+  realisation: Alice Helft
+  production: Nomad Drone
+  image: Rebecca Antunes
+  camera: Blackmagic Pocket Cinema Camera 4K · Panasonic S5IIx (V-Log)
+  etalonnage: Kévin Richarte
+cover: /media/projets/les-chants-de-la-foret--cover.webp
+coverAlt: Les Chants de la Forêt — image étalonnée
 featured: true
 ordre: 6
+wipe:
+  avant: /media/projets/les-chants-de-la-foret--wipe-avant.webp
+  apres: /media/projets/les-chants-de-la-foret--wipe-apres.webp
+  alt: Les Chants de la Forêt
+stills:
+  - /media/projets/les-chants-de-la-foret--still-01.webp
+  - /media/projets/les-chants-de-la-foret--still-02.webp
+  - /media/projets/les-chants-de-la-foret--still-03.webp
+  - /media/projets/les-chants-de-la-foret--still-04.webp
+  - /media/projets/les-chants-de-la-foret--still-05.webp
 ---
 
 L'histoire raconte la transition entre l'enfermement urbain et la liberté naturelle ; l'étalonnage devait traduire visuellement ce contraste émotionnel.

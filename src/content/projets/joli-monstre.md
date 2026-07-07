@@ -1,16 +1,24 @@
 ---
-titre: "Jolie Monstre"
+titre: Jolie Monstre
 annee: 2026
-typologiePrincipale: "Fiction"
-typologies: ["Fiction"]
-distinctions: ["Nikon Film Festival 2026 — parmi les 50 finalistes"]
+typologiePrincipale: Fiction
+typologies:
+  - Fiction
+distinctions:
+  - Nikon Film Festival 2026 — parmi les 50 finalistes
 credits:
-  realisation: "Stan Pacotte & Natacha Couvillers"
-  etalonnage: "Kévin Richarte"
-cover: "cover.jpg"
-coverAlt: "Jolie Monstre — image étalonnée"
+  realisation: Stan Pacotte & Natacha Couvillers
+  etalonnage: Kévin Richarte
+cover: /media/projets/joli-monstre--cover.webp
+coverAlt: Jolie Monstre — image étalonnée
 featured: true
 ordre: 13
+stills:
+  - /media/projets/joli-monstre--still-01.webp
+  - /media/projets/joli-monstre--still-02.webp
+  - /media/projets/joli-monstre--still-03.webp
+  - /media/projets/joli-monstre--still-04.webp
+  - /media/projets/joli-monstre--still-05.webp
 ---
 
 Court-métrage intimiste construit autour d'un concept fondamentalement épuré : un couple qui a besoin de se dire la vérité. Aucun effet de style, aucun artifice.

@@ -1,20 +1,26 @@
 ---
-titre: "Chromatique"
-typologiePrincipale: "Fiction"
-typologies: ["Fiction"]
+titre: Chromatique
+typologiePrincipale: Fiction
+typologies:
+  - Fiction
 distinctions: []
 credits:
-  realisation: "Alexandra Battereau"
-  image: "Louis Bonnet"
-  camera: "Nikon ZR"
-  etalonnage: "Kévin Richarte"
-cover: "cover.jpg"
-coverAlt: "Chromatique — image étalonnée"
+  realisation: Alexandra Battereau
+  image: Louis Bonnet
+  camera: Nikon ZR
+  etalonnage: Kévin Richarte
+cover: /media/projets/chromatique--cover.webp
+coverAlt: Chromatique — image étalonnée
 wipe:
-  avant: "wipe-avant.jpg"
-  apres: "wipe-apres.jpg"
-  alt: "Chromatique"
-stills: ["still-01.jpg", "still-02.jpg", "still-03.jpg", "still-04.jpg", "still-05.jpg"]
+  avant: /media/projets/chromatique--wipe-avant.webp
+  apres: /media/projets/chromatique--wipe-apres.webp
+  alt: Chromatique
+stills:
+  - /media/projets/chromatique--still-01.webp
+  - /media/projets/chromatique--still-02.webp
+  - /media/projets/chromatique--still-03.webp
+  - /media/projets/chromatique--still-04.webp
+  - /media/projets/chromatique--still-05.webp
 featured: false
 ordre: 8
 ---

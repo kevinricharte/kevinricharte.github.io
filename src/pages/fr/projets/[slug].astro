@@ -2,8 +2,6 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import BeforeAfter from '../../../components/BeforeAfter.astro';
 import { getCollection, render } from 'astro:content';
-import { Image } from 'astro:assets';
-import { projectImage, projectStills, projectWipe } from '../../../lib/images';
 
 export async function getStaticPaths() {
   const projets = (await getCollection('projets', ({ data }) => !data.draft)).sort((a, b) => a.data.ordre - b.data.ordre);
@@ -18,11 +16,10 @@ const { p, prev, next } = Astro.props;
 const d = p.data;
 const { Content } = await render(p);
 
-const cover = projectImage(p.id, d.cover);
-const stills = projectStills(p.id);
-const wipe = projectWipe(p.id);
-const wipeAvant = wipe?.avant;
-const wipeApres = wipe?.apres;
+const cover = d.cover;
+const stills = d.stills ?? [];
+const wipeAvant = d.wipe?.avant;
+const wipeApres = d.wipe?.apres;
 
 // Filet de sécurité : tout champ vide ou de forme "[… à confirmer]" est masqué.
 const show = (v?: string) => (v && !/^\s*\[.*\]\s*$/.test(v) ? v : undefined);
@@ -61,7 +58,7 @@ const desc = `${d.titre}${d.annee ? ` (${d.annee})` : ''} — ${d.typologiePrinc
     <!-- ===== Visuel principal ===== -->
     {cover && (
       <div class="p-visual container-wide">
-        <Image src={cover} alt={d.coverAlt ?? d.titre} widths={[800, 1200, 1600, 1920]} sizes="(max-width:1500px) 100vw, 1500px" format="webp" class="p-visual-img" />
+        <img src={cover} alt={d.coverAlt ?? d.titre} class="p-visual-img" />
       </div>
     )}
 
@@ -118,7 +115,7 @@ const desc = `${d.titre}${d.annee ? ` (${d.annee})` : ''} — ${d.typologiePrinc
           <p class="meta p-section-label">Galerie</p>
           <div class="gallery">
             {stills.map((s, i) => (
-              <Image src={s} alt={`${d.titre} — image ${i + 1}`} widths={[600, 900, 1280]} sizes="(max-width:800px) 100vw, 50vw" format="webp" class="gallery-img" loading="lazy" />
+              <img src={s} alt={`${d.titre} — image ${i + 1}`} class="gallery-img" loading="lazy" />
             ))}
           </div>
         </div>

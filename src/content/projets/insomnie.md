@@ -1,20 +1,34 @@
 ---
-titre: "Insomnie"
+titre: Insomnie
 annee: 2026
-typologiePrincipale: "Clip"
-typologies: ["Clip"]
+typologiePrincipale: Clip
+typologies:
+  - Clip
 distinctions: []
 credits:
-  realisation: "Valentin O'Quin"
-  production: "MUSIGAMY"
-  image: "Mickaël Delahaie"
-  camera: "ARRI Alexa"
-  etalonnage: "Kévin Richarte"
-cover: "cover.jpg"
-coverAlt: "Insomnie — image étalonnée"
-inspirations: ["Tarantino — Kill Bill", "John Wick", "Spielberg"]
+  realisation: Valentin O'Quin
+  production: MUSIGAMY
+  image: Mickaël Delahaie
+  camera: ARRI Alexa
+  etalonnage: Kévin Richarte
+cover: /media/projets/insomnie--cover.webp
+coverAlt: Insomnie — image étalonnée
+inspirations:
+  - Tarantino — Kill Bill
+  - John Wick
+  - Spielberg
 featured: true
 ordre: 5
+wipe:
+  avant: /media/projets/insomnie--wipe-avant.webp
+  apres: /media/projets/insomnie--wipe-apres.webp
+  alt: Insomnie
+stills:
+  - /media/projets/insomnie--still-01.webp
+  - /media/projets/insomnie--still-02.webp
+  - /media/projets/insomnie--still-03.webp
+  - /media/projets/insomnie--still-04.webp
+  - /media/projets/insomnie--still-05.webp
 ---
 
 Clip de l'artiste CVRMEN (MUSIGAMY), à grande variété de plans — une liberté créative étendue.

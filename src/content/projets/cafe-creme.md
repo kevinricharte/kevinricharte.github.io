@@ -1,20 +1,33 @@
 ---
-titre: "Café Crème"
+titre: Café Crème
 annee: 2025
-typologiePrincipale: "Clip"
-typologies: ["Clip"]
+typologiePrincipale: Clip
+typologies:
+  - Clip
 distinctions: []
 credits:
-  realisation: "Gustave Pelletier"
-  production: "Svoboda Agency"
-  image: "Cliiim_"
-  camera: "Blackmagic PYXIS 6K"
-  etalonnage: "Kévin Richarte"
-cover: "cover.jpg"
-coverAlt: "Café Crème — image étalonnée"
-inspirations: ["Damien Chazelle — La La Land, Babylon", "Jean-Pierre Jeunet"]
+  realisation: Gustave Pelletier
+  production: Svoboda Agency
+  image: Cliiim_
+  camera: Blackmagic PYXIS 6K
+  etalonnage: Kévin Richarte
+cover: /media/projets/cafe-creme--cover.webp
+coverAlt: Café Crème — image étalonnée
+inspirations:
+  - 'Damien Chazelle — La La Land, Babylon'
+  - Jean-Pierre Jeunet
 featured: true
 ordre: 4
+wipe:
+  avant: /media/projets/cafe-creme--wipe-avant.webp
+  apres: /media/projets/cafe-creme--wipe-apres.webp
+  alt: Café Crème
+stills:
+  - /media/projets/cafe-creme--still-01.webp
+  - /media/projets/cafe-creme--still-02.webp
+  - /media/projets/cafe-creme--still-03.webp
+  - /media/projets/cafe-creme--still-04.webp
+  - /media/projets/cafe-creme--still-05.webp
 ---
 
 Univers visuel du groupe parisien Café Crème (The Roaming Agency) — estival, teinté de romantisme. Producteurs : Dennis Sharganov & Yanek Ling.

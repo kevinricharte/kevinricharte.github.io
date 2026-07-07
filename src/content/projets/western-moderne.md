@@ -1,23 +1,28 @@
 ---
-titre: "Western Moderne"
+titre: Western Moderne
 annee: 2025
-typologiePrincipale: "Fiction"
-typologies: ["Fiction"]
+typologiePrincipale: Fiction
+typologies:
+  - Fiction
 distinctions: []
 credits:
-  realisation: "Juliette Kajdas"
-  production: "Balafre Cinéma"
-  image: "Mickaël Delahaie"
-  camera: "RED V-RAPTOR"
-  etalonnage: "Kévin Richarte"
-cover: "cover.jpg"
-coverAlt: "Western Moderne — image étalonnée"
+  realisation: Juliette Kajdas
+  production: Balafre Cinéma
+  image: Mickaël Delahaie
+  camera: RED V-RAPTOR
+  etalonnage: Kévin Richarte
+cover: /media/projets/western-moderne--cover.webp
+coverAlt: Western Moderne — image étalonnée
 wipe:
-  avant: "wipe-avant.jpg"
-  apres: "wipe-apres.jpg"
-  alt: "Western Moderne — plan du bord de rivière"
-stills: ["still-01.jpg", "still-02.jpg", "still-03.jpg"]
-inspirations: ["Le Bon, la Brute et le Truand — Sergio Leone"]
+  avant: /media/projets/western-moderne--wipe-avant.webp
+  apres: /media/projets/western-moderne--wipe-apres.webp
+  alt: Western Moderne — plan du bord de rivière
+stills:
+  - /media/projets/western-moderne--still-01.webp
+  - /media/projets/western-moderne--still-02.webp
+  - /media/projets/western-moderne--still-03.webp
+inspirations:
+  - 'Le Bon, la Brute et le Truand — Sergio Leone'
 featured: true
 ordre: 3
 ---

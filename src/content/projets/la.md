@@ -1,16 +1,17 @@
 ---
-titre: "Là"
+titre: Là
 annee: 2026
-typologiePrincipale: "Publicité"
-typologies: ["Publicité"]
-diffusion: "Canal+ — 163 passages (janvier–février 2026)"
+typologiePrincipale: Publicité
+typologies:
+  - Publicité
+diffusion: Canal+ — 163 passages (janvier–février 2026)
 distinctions: []
 credits:
-  realisation: "Emily Finot"
-  production: "En Avant Toutes"
-  etalonnage: "Kévin Richarte"
-cover: "cover.jpg"
-coverAlt: "Là — image étalonnée"
+  realisation: Emily Finot
+  production: En Avant Toutes
+  etalonnage: Kévin Richarte
+cover: /media/projets/la--cover.webp
+coverAlt: Là — image étalonnée
 featured: false
 draft: true
 ordre: 2

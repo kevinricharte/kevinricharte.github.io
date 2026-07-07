@@ -1,24 +1,34 @@
 ---
-titre: "Postcard from Marseille"
+titre: Postcard from Marseille
 annee: 2025
-typologiePrincipale: "Fiction"
-typologies: ["Fiction"]
-diffusion: "France 3 Régions · France TV"
+typologiePrincipale: Fiction
+typologies:
+  - Fiction
+diffusion: France 3 Régions · France TV
 distinctions: []
 credits:
-  realisation: "Hermance Roué & Marie Abega"
-  production: "Channel Rose Production"
-  image: "Jérémie Antocicco"
-  camera: "Sony FX30"
-  etalonnage: "Kévin Richarte"
-cover: "cover.jpg"
-coverAlt: "Postcard from Marseille — image étalonnée"
+  realisation: Hermance Roué & Marie Abega
+  production: Channel Rose Production
+  image: Jérémie Antocicco
+  camera: Sony FX30
+  etalonnage: Kévin Richarte
+cover: /media/projets/postcard-from-marseille--cover.webp
+coverAlt: Postcard from Marseille — image étalonnée
 wipe:
-  avant: "wipe-avant.jpg"
-  apres: "wipe-apres.jpg"
-  alt: "Postcard from Marseille"
-stills: ["still-01.jpg", "still-02.jpg", "still-03.jpg", "still-04.jpg", "still-05.jpg", "still-06.jpg"]
-inspirations: ["Moonlight", "Le Grand Bleu", "Beau is Afraid"]
+  avant: /media/projets/postcard-from-marseille--wipe-avant.webp
+  apres: /media/projets/postcard-from-marseille--wipe-apres.webp
+  alt: Postcard from Marseille
+stills:
+  - /media/projets/postcard-from-marseille--still-01.webp
+  - /media/projets/postcard-from-marseille--still-02.webp
+  - /media/projets/postcard-from-marseille--still-03.webp
+  - /media/projets/postcard-from-marseille--still-04.webp
+  - /media/projets/postcard-from-marseille--still-05.webp
+  - /media/projets/postcard-from-marseille--still-06.webp
+inspirations:
+  - Moonlight
+  - Le Grand Bleu
+  - Beau is Afraid
 featured: true
 ordre: 1
 ---
