@@ -76,6 +76,16 @@ const desc = `${d.titre}${d.annee ? ` (${d.annee})` : ''} — ${d.typologiePrinc
       </dl>
     </section>
 
+    <!-- ===== Avant / Après (wipe) — remonté pour être visible d'emblée ===== -->
+    {wipeAvant && wipeApres && (
+      <section class="section p-wipe">
+        <div class="container-wide reveal">
+          <p class="meta p-section-label">Avant / Après</p>
+          <BeforeAfter avant={wipeAvant} apres={wipeApres} alt={d.wipe?.alt ?? d.titre} />
+        </div>
+      </section>
+    )}
+
     <!-- ===== Note d'intention (fond Ivoire) ===== -->
     <section class="section on-ivoire p-note">
       <div class="container-read reveal">
@@ -91,16 +101,6 @@ const desc = `${d.titre}${d.annee ? ` (${d.annee})` : ''} — ${d.typologiePrinc
         )}
       </div>
     </section>
-
-    <!-- ===== Avant / Après (wipe) ===== -->
-    {wipeAvant && wipeApres && (
-      <section class="section p-wipe">
-        <div class="container-wide reveal">
-          <p class="meta p-section-label">Avant / Après</p>
-          <BeforeAfter avant={wipeAvant} apres={wipeApres} alt={d.wipe?.alt ?? d.titre} />
-        </div>
-      </section>
-    )}
 
     <!-- ===== Détail technique ===== -->
     {detailTech && (
