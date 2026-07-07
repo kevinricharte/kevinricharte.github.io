@@ -7,8 +7,8 @@ distinctions: []
 credits:
   realisation: "Damien Douchez"
   image: "Olivier Tresson"
-  camera: "Sony A7S (S-Log2)"
-  etalonnage: "Kevin Richarte"
+  camera: "Sony AS7 (S-Log2)"
+  etalonnage: "Kévin Richarte"
 cover: "cover.jpg"
 coverAlt: "Stop the Train — image étalonnée"
 inspirations: ["Brazil — Terry Gilliam", "Abyss — James Cameron"]

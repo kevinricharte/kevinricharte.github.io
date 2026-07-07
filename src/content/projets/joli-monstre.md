@@ -1,14 +1,14 @@
 ---
-titre: "Joli Monstre"
+titre: "Jolie Monstre"
 annee: 2026
 typologiePrincipale: "Fiction"
 typologies: ["Fiction"]
 distinctions: ["Nikon Film Festival 2026 — parmi les 50 finalistes"]
 credits:
   realisation: "Stan Pacotte & Natacha Couvillers"
-  etalonnage: "Kevin Richarte"
+  etalonnage: "Kévin Richarte"
 cover: "cover.jpg"
-coverAlt: "Joli Monstre — image étalonnée"
+coverAlt: "Jolie Monstre — image étalonnée"
 featured: true
 ordre: 13
 ---

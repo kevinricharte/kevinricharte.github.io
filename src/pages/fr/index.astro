@@ -4,7 +4,7 @@ import { getCollection } from 'astro:content';
 import ProjectCard from '../../components/ProjectCard.astro';
 import { site } from '../../data/site';
 
-const title = 'Kevin Richarte — Étalonneur fiction · Région parisienne';
+const title = 'Kévin Richarte — Étalonneur fiction · Région parisienne';
 const featured = (await getCollection('projets', ({ data }) => data.featured && !data.draft)).sort((a, b) => a.data.ordre - b.data.ordre);
 
 // Marques rencontrées dans le parcours (logos monochromes). Formulation honnête, pas "clients".
@@ -225,7 +225,7 @@ const marques = [
     const f = document.createElement('iframe');
     f.src = `https://player.vimeo.com/video/${id}?background=1&autoplay=1&loop=1&muted=1&dnt=1`;
     f.allow = 'autoplay; fullscreen; picture-in-picture';
-    f.setAttribute('tabindex', '-1'); f.setAttribute('aria-hidden', 'true'); f.title = 'Showreel Kevin Richarte';
+    f.setAttribute('tabindex', '-1'); f.setAttribute('aria-hidden', 'true'); f.title = 'Showreel Kévin Richarte';
     host?.appendChild(f);
   };
 

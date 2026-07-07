@@ -9,7 +9,7 @@ credits:
   production: "Balafre Cinéma"
   image: "Mickaël Delahaie"
   camera: "RED V-RAPTOR"
-  etalonnage: "Kevin Richarte"
+  etalonnage: "Kévin Richarte"
 cover: "cover.jpg"
 coverAlt: "Western Moderne — image étalonnée"
 inspirations: ["Le Bon, la Brute et le Truand — Sergio Leone"]

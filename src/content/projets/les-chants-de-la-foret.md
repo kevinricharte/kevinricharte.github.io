@@ -8,7 +8,7 @@ credits:
   production: "Nomad Drone"
   image: "Rebecca Antunes"
   camera: "Blackmagic Pocket Cinema Camera 4K · Panasonic S5IIx (V-Log)"
-  etalonnage: "Kevin Richarte"
+  etalonnage: "Kévin Richarte"
 cover: "cover.jpg"
 coverAlt: "Les Chants de la Forêt — image étalonnée"
 featured: true

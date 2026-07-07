@@ -6,7 +6,7 @@ typologies: ["Brand content"]
 distinctions: []
 credits:
   camera: "Sony (S-Log3)"
-  etalonnage: "Kevin Richarte"
+  etalonnage: "Kévin Richarte"
 cover: "cover.jpg"
 coverAlt: "Yann Couvreur — image étalonnée"
 featured: false

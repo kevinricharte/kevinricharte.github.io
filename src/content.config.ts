@@ -20,7 +20,7 @@ const projets = defineCollection({
         production: z.string().optional(),
         image: z.string().optional(),
         camera: z.string().optional(),
-        etalonnage: z.string().default('Kevin Richarte'),
+        etalonnage: z.string().default('Kévin Richarte'),
         workflow: z.string().optional(),
       })
       .default({}),

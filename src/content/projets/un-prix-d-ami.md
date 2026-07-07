@@ -8,7 +8,7 @@ credits:
   realisation: "Élie Ankri"
   production: "1982 Films"
   image: "Olivier Tresson"
-  etalonnage: "Kevin Richarte"
+  etalonnage: "Kévin Richarte"
 cover: "cover.jpg"
 coverAlt: "Un Prix d'Ami — image étalonnée"
 inspirations: ["Buster Keaton", "Woody Allen", "Simulation Kodak Portra 400"]

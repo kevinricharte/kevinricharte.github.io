@@ -9,7 +9,7 @@ credits:
   production: "Svoboda Agency"
   image: "Cliiim_"
   camera: "Blackmagic PYXIS 6K"
-  etalonnage: "Kevin Richarte"
+  etalonnage: "Kévin Richarte"
 cover: "cover.jpg"
 coverAlt: "Café Crème — image étalonnée"
 inspirations: ["Damien Chazelle — La La Land, Babylon", "Jean-Pierre Jeunet"]

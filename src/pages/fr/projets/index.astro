@@ -7,7 +7,7 @@ const projets = (await getCollection('projets', ({ data }) => !data.draft)).sort
 const allTypos = Array.from(new Set(projets.flatMap((p) => p.data.typologies))).sort((a, b) => a.localeCompare(b, 'fr'));
 const filters = ['Tous', ...allTypos];
 ---
-<BaseLayout title="Projets — Kevin Richarte, étalonneur fiction" lang="fr" description="Sélection de projets étalonnés par Kevin Richarte — fiction, clip narratif, brand content, publicité.">
+<BaseLayout title="Projets — Kévin Richarte, étalonneur fiction" lang="fr" description="Sélection de projets étalonnés par Kévin Richarte — fiction, clip narratif, brand content, publicité.">
   <section class="section container-wide">
     <header class="proj-head reveal">
       <p class="meta">Projets</p>

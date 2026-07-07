@@ -1,6 +1,6 @@
 // Données factuelles centralisées (issues du brief). Ne rien inventer ici.
 export const site = {
-  name: 'Kevin Richarte',
+  name: 'Kévin Richarte',
   role: 'Étalonneur',
   roleLong: 'Étalonneur · Spécialisé fiction',
   tagline: 'Étalonneur · Spécialisé fiction · Région parisienne',

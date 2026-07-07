@@ -1,14 +1,14 @@
 ---
 titre: "Là"
 annee: 2026
-typologiePrincipale: "Spot"
-typologies: ["Spot"]
+typologiePrincipale: "Publicité"
+typologies: ["Publicité"]
 diffusion: "Canal+ — 163 passages (janvier–février 2026)"
 distinctions: []
 credits:
   realisation: "Emily Finot"
   production: "En Avant Toutes"
-  etalonnage: "Kevin Richarte"
+  etalonnage: "Kévin Richarte"
 cover: "cover.jpg"
 coverAlt: "Là — image étalonnée"
 featured: false

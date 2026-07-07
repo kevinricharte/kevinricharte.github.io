@@ -10,7 +10,7 @@ credits:
   production: "Channel Rose Production"
   image: "Jérémie Antocicco"
   camera: "Sony FX30"
-  etalonnage: "Kevin Richarte"
+  etalonnage: "Kévin Richarte"
 cover: "cover.jpg"
 coverAlt: "Postcard from Marseille — image étalonnée"
 wipe:

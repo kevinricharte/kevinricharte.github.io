@@ -1,5 +1,5 @@
 ---
-titre: "Couleur Caméléon"
+titre: "Couleurs Caméléon"
 typologiePrincipale: "Fiction"
 typologies: ["Fiction"]
 distinctions: []
@@ -8,9 +8,9 @@ credits:
   production: "Rivolian Films"
   image: "Angelo Beaubreuil"
   camera: "Sony FX30 · caméscope analogique d'époque"
-  etalonnage: "Kevin Richarte"
+  etalonnage: "Kévin Richarte"
 cover: "cover.jpg"
-coverAlt: "Couleur Caméléon — image étalonnée"
+coverAlt: "Couleurs Caméléon — image étalonnée"
 featured: false
 ordre: 10
 ---

@@ -1,4 +1,4 @@
-# Site Kevin Richarte — étalonneur
+# Site Kévin Richarte — étalonneur
 
 Site vitrine construit avec [Astro](https://astro.build) (statique, hébergeable sur GitHub Pages).
 Palette, typographie et structure suivent le brief de design.

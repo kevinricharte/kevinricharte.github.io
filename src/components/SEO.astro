@@ -8,7 +8,7 @@ interface Props {
 }
 const {
   title,
-  description = "Kevin Richarte — étalonneur spécialisé fiction, région parisienne. Étalonnage créatif et technique de projets fiction, clip, documentaire et brand content narratif sur DaVinci Resolve Studio.",
+  description = "Kévin Richarte — étalonneur spécialisé fiction, région parisienne. Étalonnage créatif et technique de projets fiction, clip, documentaire et brand content narratif sur DaVinci Resolve Studio.",
   image = '/og/og-default.jpg',
 } = Astro.props;
 
@@ -25,7 +25,7 @@ const ogImage = new URL(image, Astro.site).href;
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 
 <meta property="og:type" content="website" />
-<meta property="og:site_name" content="Kevin Richarte" />
+<meta property="og:site_name" content="Kévin Richarte" />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:url" content={canonical} />
