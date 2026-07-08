@@ -2,9 +2,9 @@
 # Ce fichier décrit, en français, les champs que Kévin voit et modifie dans le panneau.
 
 media:
-  input: public/media/projets   # où sont rangées les images dans le dépôt
-  output: /media/projets         # chemin utilisé dans les pages
-  extensions: [webp, jpg, jpeg, png, avif]
+  input: public/media   # dossier des images dans le dépôt (projets + logos)
+  output: /media         # chemin utilisé dans les pages
+  extensions: [webp, jpg, jpeg, png, avif, svg]
   categories: [image]
 
 content:
@@ -89,3 +89,22 @@ content:
       - name: body
         label: Note d'intention
         type: rich-text
+
+  - name: reglages
+    label: Réglages du site
+    type: file
+    path: src/data/reglages.json
+    fields:
+      - name: afficherFormation
+        label: Afficher l'onglet « Formation » dans le menu du site
+        type: boolean
+      - name: logoHauteur
+        label: Hauteur des logos de marques (en pixels — ex. 30)
+        type: number
+      - name: logos
+        label: Logos des marques (glisse pour réordonner ; supprime pour retirer)
+        type: object
+        list: true
+        fields:
+          - { name: image, label: Fichier du logo, type: image }
+          - { name: nom, label: Nom de la marque, type: string }

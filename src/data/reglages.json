@@ -1,0 +1,15 @@
+{
+  "afficherFormation": false,
+  "logoHauteur": 30,
+  "logos": [
+    { "image": "/media/marques/apple.svg", "nom": "Apple" },
+    { "image": "/media/marques/canal.svg", "nom": "Canal+" },
+    { "image": "/media/marques/france-tv.svg", "nom": "France.tv" },
+    { "image": "/media/marques/gaumont.svg", "nom": "Gaumont" },
+    { "image": "/media/marques/la-poste.svg", "nom": "Groupe La Poste" },
+    { "image": "/media/marques/cordon-bleu.svg", "nom": "Le Cordon Bleu" },
+    { "image": "/media/marques/nike.svg", "nom": "Nike" },
+    { "image": "/media/marques/studio-hari.svg", "nom": "Studio Hari" },
+    { "image": "/media/marques/uber-eats.svg", "nom": "Uber Eats" }
+  ]
+}

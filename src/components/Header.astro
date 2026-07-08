@@ -2,6 +2,7 @@
 import { getRoutes, useTranslations, getLangFromUrl } from '../i18n/utils';
 import LangSwitcher from './LangSwitcher.astro';
 import { site } from '../data/site';
+import reglages from '../data/reglages.json';
 
 interface Props { lang?: 'fr' | 'en'; transparent?: boolean; }
 const lang = Astro.props.lang ?? getLangFromUrl(Astro.url);
@@ -20,7 +21,7 @@ const isActive = (href: string) => {
 const links = [
   { href: r.home, label: t('nav.home') },
   { href: r.projects, label: t('nav.projects') },
-  { href: r.training, label: t('nav.training') },
+  ...(reglages.afficherFormation ? [{ href: r.training, label: t('nav.training') }] : []),
   { href: r.about, label: t('nav.about') },
   { href: r.contact, label: t('nav.contact') },
 ];

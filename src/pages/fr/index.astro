@@ -3,22 +3,13 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import ProjectCard from '../../components/ProjectCard.astro';
 import { site } from '../../data/site';
+import reglages from '../../data/reglages.json';
 
 const title = 'Kévin Richarte — Étalonneur fiction · Région parisienne';
 const featured = (await getCollection('projets', ({ data }) => data.featured && !data.draft)).sort((a, b) => a.data.ordre - b.data.ordre);
 
-// Marques rencontrées dans le parcours (logos en couleurs naturelles sur panneau clair). Formulation honnête, pas "clients".
-const marques = [
-  { file: 'apple.svg', name: 'Apple' },
-  { file: 'canal.svg', name: 'Canal+' },
-  { file: 'france-tv.svg', name: 'France.tv' },
-  { file: 'gaumont.svg', name: 'Gaumont' },
-  { file: 'la-poste.svg', name: 'Groupe La Poste' },
-  { file: 'cordon-bleu.svg', name: 'Le Cordon Bleu' },
-  { file: 'nike.svg', name: 'Nike' },
-  { file: 'studio-hari.svg', name: 'Studio Hari' },
-  { file: 'uber-eats.svg', name: 'Uber Eats' },
-];
+// Marques + taille des logos : gérés depuis le panneau (Réglages du site).
+const marques = reglages.logos;
 ---
 <BaseLayout title={title} lang="fr" padded={false} heroHeader={true}>
   <!-- ===== 1. SHOWREEL (propre, non couvert) ===== -->
@@ -85,9 +76,9 @@ const marques = [
     <div class="container-wide reveal">
       <p class="meta marques-label">Marques &amp; groupes rencontrés dans mon parcours d'étalonneur</p>
       <div class="marques-panel">
-        <ul role="list" class="marques-grid">
+        <ul role="list" class="marques-grid" style={`--logo-h: ${reglages.logoHauteur}px`}>
           {marques.map((l) => (
-            <li><img class="brand-logo" src={`/logos/marques/${l.file}`} alt={l.name} loading="lazy" /></li>
+            <li><img class="brand-logo" src={l.image} alt={l.nom} loading="lazy" /></li>
           ))}
         </ul>
       </div>
@@ -99,17 +90,19 @@ const marques = [
     </div>
   </section>
 
-  <!-- ===== 6. COACHING (Ivoire) ===== -->
-  <section class="section on-ivoire coaching">
-    <div class="container-read reveal">
-      <p class="meta">Accompagnement</p>
-      <p class="coaching-text">Voir un projet avec les yeux d'un étalonneur — un accompagnement pour les réalisateurs, chefs opérateurs et étudiants qui veulent mieux dialoguer avec la post-production image.</p>
-      <a href="/fr/formation" class="cta cta-dark">
-        <span class="cta-label">Découvrir la formation</span>
-        <span class="cta-arrow" aria-hidden="true">→</span>
-      </a>
-    </div>
-  </section>
+  <!-- ===== 6. COACHING (Ivoire) — masqué automatiquement si Formation est désactivée ===== -->
+  {reglages.afficherFormation && (
+    <section class="section on-ivoire coaching">
+      <div class="container-read reveal">
+        <p class="meta">Accompagnement</p>
+        <p class="coaching-text">Voir un projet avec les yeux d'un étalonneur — un accompagnement pour les réalisateurs, chefs opérateurs et étudiants qui veulent mieux dialoguer avec la post-production image.</p>
+        <a href="/fr/formation" class="cta cta-dark">
+          <span class="cta-label">Découvrir la formation</span>
+          <span class="cta-arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </section>
+  )}
 
   <!-- ===== 7. CTA CONTACT ===== -->
   <section class="section cta-band">
@@ -196,7 +189,7 @@ const marques = [
   .marques-panel { background: var(--ivoire); border-radius: 6px; padding: clamp(1.6rem, 4vw, 2.8rem); margin-top: 2rem; }
   .marques-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.2rem 1.8rem; align-items: center; justify-items: center; }
   @media (min-width: 720px) { .marques-grid { grid-template-columns: repeat(5, 1fr); } }
-  .brand-logo { height: 30px; width: auto; max-width: 100%; object-fit: contain; }
+  .brand-logo { height: var(--logo-h, 30px); width: auto; max-width: 100%; object-fit: contain; }
   .stats { display: flex; flex-wrap: wrap; gap: 2.5rem 3rem; margin-top: 3.6rem; padding-top: 2.6rem; border-top: 1px solid var(--line); }
   .stat { display: flex; flex-direction: column; gap: 0.4rem; }
   .stat-num { font-family: var(--font-serif); font-weight: 300; font-size: var(--step-2); color: var(--ivoire); line-height: 1; }
