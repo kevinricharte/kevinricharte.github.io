@@ -3,30 +3,29 @@ titre: La Coupe
 typologiePrincipale: Fiction
 typologies:
   - Fiction
-distinctions: []
 credits:
   realisation: Florian Sanchez
   camera: ARRI Alexa
   etalonnage: Kévin Richarte
-cover: /media/projets/la-coupe--cover.webp
+cover: /media/Still 2026-04-30 143528_3.21.1.jpg
 coverAlt: La Coupe — image étalonnée
 wipe:
-  avant: /media/projets/la-coupe--wipe-avant.webp
-  apres: /media/projets/la-coupe--wipe-apres.webp
+  avant: /media/Still 2026-06-09 120121_2.66.1.jpg
+  apres: /media/Still 2026-04-30 143528_3.66.1.jpg
   alt: La Coupe
 stills:
-  - /media/projets/la-coupe--still-01.webp
-  - /media/projets/la-coupe--still-02.webp
-  - /media/projets/la-coupe--still-03.webp
-  - /media/projets/la-coupe--still-04.webp
-  - /media/projets/la-coupe--still-05.webp
+  - /media/Still 2026-04-30 143528_3.16.1.jpg
+  - /media/Still 2026-04-30 143528_3.52.1.jpg
+  - /media/Still 2026-04-30 143528_3.50.1.jpg
+  - /media/Still 2026-04-30 143528_3.25.1.jpg
+  - /media/Still 2026-04-30 143528_3.29.1.jpg
 inspirations:
   - Old Boy
   - Bong Joon-ho
-featured: false
+featured: true
+draft: false
 ordre: 16
 ---
-
 Court-métrage inspiré du concours Jeanne d'Arc à Orléans — une interrogation sur la féminité et les attentes sociales.
 
 Après une conversion LUT ARRI par défaut, la direction esthétique s'est orientée vers le cinéma coréen (*Old Boy*, Bong Joon-ho) : couleurs assumées, atmosphère tragi-comique. Le travail s'est structuré autour de trois plans clés, avec une ambiance orangée et incandescente pour les scènes d'audition, et une tonalité plus sombre pour la séquence finale.
