@@ -98,8 +98,28 @@ content:
       - name: afficherFormation
         label: Afficher l'onglet « Formation » dans le menu du site
         type: boolean
+      - name: logosDisposition
+        label: Disposition des logos
+        type: select
+        options:
+          values:
+            - { value: bandeau, label: 'Bandeau défilant (les logos glissent latéralement)' }
+            - { value: ligne, label: 'Ligne fixe (les logos restent en place)' }
+        default: bandeau
+      - name: logosDefilementAuto
+        label: Défilement automatique en boucle (décoche pour défiler seulement au survol de la souris)
+        type: boolean
+        default: true
+      - name: logosMelanger
+        label: Mélanger l'ordre des logos à chaque visite
+        type: boolean
+        default: true
+      - name: logosVitesse
+        label: Vitesse du défilement (secondes par tour — plus grand = plus lent)
+        type: number
+        default: 40
       - name: logoHauteur
-        label: Hauteur des logos de marques (en pixels — ex. 30)
+        label: Taille de référence des logos (en pixels — ex. 30)
         type: number
       - name: logos
         label: Logos des marques (glisse pour réordonner ; supprime pour retirer)
@@ -108,3 +128,4 @@ content:
         fields:
           - { name: image, label: Fichier du logo, type: image }
           - { name: nom, label: Nom de la marque, type: string }
+          - { name: taille, label: 'Taille propre en % (100 = référence, 120 = plus grand, 80 = plus petit)', type: number, default: 100 }

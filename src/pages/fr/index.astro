@@ -8,8 +8,13 @@ import reglages from '../../data/reglages.json';
 const title = 'Kévin Richarte — Étalonneur fiction · Région parisienne';
 const featured = (await getCollection('projets', ({ data }) => data.featured && !data.draft)).sort((a, b) => a.data.ordre - b.data.ordre);
 
-// Marques + taille des logos : gérés depuis le panneau (Réglages du site).
+// Marques + logos : tout se règle depuis le panneau (Réglages du site).
 const marques = reglages.logos;
+const logoDispo = reglages.logosDisposition ?? 'bandeau';
+const logoAuto = reglages.logosDefilementAuto ?? true;
+const logoMelanger = reglages.logosMelanger ?? true;
+const logoVitesse = reglages.logosVitesse ?? 40;
+const logoHauteur = reglages.logoHauteur ?? 30;
 ---
 <BaseLayout title={title} lang="fr" padded={false} heroHeader={true}>
   <!-- ===== 1. SHOWREEL (propre, non couvert) ===== -->
@@ -76,11 +81,21 @@ const marques = reglages.logos;
     <div class="container-wide reveal">
       <p class="meta marques-label">Marques &amp; groupes rencontrés dans mon parcours d'étalonneur</p>
       <div class="marques-panel">
-        <ul role="list" class="marques-grid" style={`--logo-h: ${reglages.logoHauteur}px`}>
-          {marques.map((l) => (
-            <li><img class="brand-logo" src={l.image} alt={l.nom} loading="lazy" /></li>
-          ))}
-        </ul>
+        <div
+          class="marques-wrap"
+          data-dispo={logoDispo}
+          data-auto={String(logoAuto)}
+          data-melanger={String(logoMelanger)}
+          style={`--logo-h: ${logoHauteur}px; --marquee-duree: ${logoVitesse}s`}
+        >
+          <ul role="list" class="marques-grid">
+            {marques.map((l) => (
+              <li class="marque">
+                <img class="brand-logo" src={l.image} alt={l.nom} loading="lazy" style={`--taille: ${(l.taille ?? 100) / 100}`} />
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
       <div class="stats">
         <div class="stat"><span class="stat-num">1000+</span><span class="meta">projets étalonnés (2021–2024)</span></div>
@@ -187,9 +202,41 @@ const marques = reglages.logos;
   /* ================= MARQUES + CHIFFRES ================= */
   .marques-label { max-width: 42ch; }
   .marques-panel { background: var(--ivoire); border-radius: 6px; padding: clamp(1.6rem, 4vw, 2.8rem); margin-top: 2rem; }
-  .marques-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.2rem 1.8rem; align-items: center; justify-items: center; }
-  @media (min-width: 720px) { .marques-grid { grid-template-columns: repeat(5, 1fr); } }
-  .brand-logo { height: var(--logo-h, 30px); width: auto; max-width: 100%; object-fit: contain; }
+  .marques-grid { list-style: none; margin: 0; padding: 0; }
+  .marque { display: flex; align-items: center; }
+
+  /* Chaque logo : hauteur = référence × taille propre (réglée par logo) */
+  .brand-logo { height: calc(var(--logo-h, 30px) * var(--taille, 1)); width: auto; max-width: 100%; object-fit: contain; display: block; }
+
+  /* --- Disposition : LIGNE FIXE (s'enroule proprement sur mobile) --- */
+  .marques-wrap[data-dispo="ligne"] .marques-grid {
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 2.2rem 2.8rem;
+  }
+
+  /* --- Disposition : BANDEAU DÉFILANT --- */
+  .marques-wrap[data-dispo="bandeau"] { overflow-x: auto; }
+  .marques-wrap[data-dispo="bandeau"] .marques-grid {
+    display: flex; flex-wrap: nowrap; align-items: center; width: max-content;
+  }
+  /* Espacement porté par une marge (et non « gap ») pour une boucle sans à-coup */
+  .marques-wrap[data-dispo="bandeau"] .marque { flex: 0 0 auto; margin-right: 3rem; }
+  /* Le défilement continu s'active seulement une fois la boucle préparée en JS */
+  .marques-wrap.is-marquee { overflow: hidden; }
+  .marques-wrap.is-marquee .marques-grid { animation: marques-defile var(--marquee-duree, 40s) linear infinite; }
+  /* Mode « au survol » : à l'arrêt, ne défile que quand la souris passe dessus */
+  .marques-wrap[data-auto="false"].is-marquee .marques-grid { animation-play-state: paused; }
+  .marques-wrap[data-auto="false"].is-marquee:hover .marques-grid { animation-play-state: running; }
+
+  @keyframes marques-defile {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  /* Accessibilité : respecte « animations réduites » du système */
+  @media (prefers-reduced-motion: reduce) {
+    .marques-wrap.is-marquee .marques-grid { animation: none; }
+    .marques-wrap[data-dispo="bandeau"].is-marquee { overflow-x: auto; }
+  }
   .stats { display: flex; flex-wrap: wrap; gap: 2.5rem 3rem; margin-top: 3.6rem; padding-top: 2.6rem; border-top: 1px solid var(--line); }
   .stat { display: flex; flex-direction: column; gap: 0.4rem; }
   .stat-num { font-family: var(--font-serif); font-weight: 300; font-size: var(--step-2); color: var(--ivoire); line-height: 1; }
@@ -224,5 +271,33 @@ const marques = reglages.logos;
   if (host && id && !reduce) {
     if ('requestIdleCallback' in window) (window as any).requestIdleCallback(injectBg, { timeout: 1800 });
     else setTimeout(injectBg, 700);
+  }
+
+  // ===== Logos : mélange de l'ordre + boucle continue du bandeau =====
+  const logosWrap = document.querySelector('.marques-wrap');
+  if (logosWrap) {
+    const grid = logosWrap.querySelector('.marques-grid');
+    const melanger = (logosWrap as HTMLElement).dataset.melanger === 'true';
+    const bandeau = (logosWrap as HTMLElement).dataset.dispo === 'bandeau';
+    if (grid) {
+      // 1) Mélanger l'ordre à chaque visite (Fisher–Yates)
+      if (melanger) {
+        const items = Array.from(grid.children);
+        for (let i = items.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [items[i], items[j]] = [items[j], items[i]];
+        }
+        items.forEach((li) => grid.appendChild(li));
+      }
+      // 2) Bandeau : dupliquer le jeu de logos pour une boucle sans couture
+      if (bandeau) {
+        Array.from(grid.children).forEach((li) => {
+          const clone = li.cloneNode(true) as HTMLElement;
+          clone.setAttribute('aria-hidden', 'true');
+          grid.appendChild(clone);
+        });
+        logosWrap.classList.add('is-marquee');
+      }
+    }
   }
 </script>
