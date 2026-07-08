@@ -16,11 +16,11 @@ wipe:
   apres: /media/projets/les-chants-de-la-foret--wipe-apres.webp
   alt: Les Chants de la Forêt
 stills:
-  - /media/projets/les-chants-de-la-foret--still-01.webp
-  - /media/projets/les-chants-de-la-foret--still-02.webp
-  - /media/projets/les-chants-de-la-foret--still-03.webp
-  - /media/projets/les-chants-de-la-foret--still-04.webp
-  - /media/projets/les-chants-de-la-foret--still-05.webp
+  - /media/Still 2026-04-30 171355_3.1.1.jpg
+  - /media/Still 2026-04-30 171355_3.3.1.jpg
+  - /media/Still 2026-04-30 171355_3.5.1.jpg
+  - /media/Still 2026-04-30 171355_3.7.1.jpg
+  - /media/Still 2026-04-30 171355_3.8.1.jpg
 featured: true
 draft: false
 ordre: 6
