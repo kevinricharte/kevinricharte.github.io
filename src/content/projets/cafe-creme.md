@@ -25,13 +25,12 @@ stills:
   - /media/projets/Still 2026-04-30 161034_3.35.1-1.jpg
   - /media/projets/Still 2026-04-30 161034_3.49.1.jpg
   - /media/projets/Still 2026-04-30 161034_3.69.1.jpg
-  - /media/projets/Still 2026-04-30 161034_3.69.1-1.jpg
 inspirations:
   - Damien Chazelle — La La Land, Babylon
   - Jean-Pierre Jeunet
 featured: true
 draft: false
-ordre: 4
+ordre: 8
 ---
 Univers visuel du groupe parisien Café Crème (The Roaming Agency) — estival, teinté de romantisme. Producteurs : Dennis Sharganov & Yanek Ling.
 
