@@ -17,7 +17,20 @@ wipe:
   apres: /media/Still 2026-04-30 155933_3.14.1_3.1.1.jpg
   alt: Western Moderne — plan du bord de rivière
 stills:
+  - /media/Still 2026-04-30 155933_3.18.1.jpg
+  - /media/Still 2026-04-30 155933_3.19.1.jpg
+  - /media/Still 2026-04-30 155933_3.20.1.jpg
+  - /media/Still 2026-04-30 155933_3.21.1.jpg
   - /media/Still 2026-04-30 155933_3.23.1.jpg
+  - /media/Still 2026-04-30 155933_3.24.1-1.jpg
+  - /media/Still 2026-04-30 155933_3.2.1.jpg
+  - /media/Still 2026-04-30 155933_3.4.1.jpg
+  - /media/Still 2026-04-30 155933_3.5.1.jpg
+  - /media/Still 2026-04-30 155933_3.12.1.jpg
+  - /media/Still 2026-04-30 160056_3.11.1-1.jpg
+  - /media/Still 2026-04-30 155933_3.8.1.jpg
+  - /media/Still 2026-04-30 160101_3.7.1.jpg
+  - /media/Still 2026-04-30 160050_3.14.1-1.jpg
 inspirations:
   - Le Bon, la Brute et le Truand — Sergio Leone
 featured: true
