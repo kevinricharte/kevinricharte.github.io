@@ -13,6 +13,7 @@ cover: /media/Still 2026-04-23 155513_1.7.1.jpg
 coverAlt: Jolie Monstre — image étalonnée
 stills:
   - /media/Still 2026-04-24 131516_3.1.1.jpg
+  - /media/Still 2026-04-23 155513_1.14.1.jpg
   - /media/Still 2026-04-24 131516_3.11.1.jpg
   - /media/Still 2026-04-23 155513_1.18.1.jpg
   - /media/Still 2026-04-23 155513_1.25.1.jpg
