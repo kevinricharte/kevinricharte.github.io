@@ -12,10 +12,9 @@ credits:
 cover: /media/Still 2026-04-23 155513_1.7.1.jpg
 coverAlt: Jolie Monstre — image étalonnée
 stills:
-  - /media/projets/joli-monstre--still-01.webp
-  - /media/projets/joli-monstre--still-02.webp
-  - /media/projets/joli-monstre--still-04.webp
-  - /media/projets/joli-monstre--still-03.webp
+  - /media/Still 2026-04-24 131516_3.1.1.jpg
+  - /media/Still 2026-04-24 131516_3.11.1.jpg
+  - /media/Still 2026-04-23 155513_1.25.1.jpg
 featured: true
 draft: false
 ordre: 13
