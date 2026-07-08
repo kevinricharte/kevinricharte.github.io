@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import BeforeAfter from '../../../components/BeforeAfter.astro';
+import Lightbox from '../../../components/Lightbox.astro';
 import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -58,7 +59,9 @@ const desc = `${d.titre}${d.annee ? ` (${d.annee})` : ''} — ${d.typologiePrinc
     <!-- ===== Visuel principal ===== -->
     {cover && (
       <div class="p-visual container-wide">
-        <img src={cover} alt={d.coverAlt ?? d.titre} class="p-visual-img" />
+        <button type="button" class="zoomable p-visual-btn" aria-label={`Agrandir : ${d.coverAlt ?? d.titre}`}>
+          <img src={cover} alt={d.coverAlt ?? d.titre} class="p-visual-img" />
+        </button>
       </div>
     )}
 
@@ -115,7 +118,9 @@ const desc = `${d.titre}${d.annee ? ` (${d.annee})` : ''} — ${d.typologiePrinc
           <p class="meta p-section-label">Galerie</p>
           <div class="gallery">
             {stills.map((s, i) => (
-              <img src={s} alt={`${d.titre} — image ${i + 1}`} class="gallery-img" loading="lazy" />
+              <button type="button" class="zoomable gallery-btn" aria-label={`Agrandir : ${d.titre} — image ${i + 1}`}>
+                <img src={s} alt={`${d.titre} — image ${i + 1}`} class="gallery-img" loading="lazy" />
+              </button>
             ))}
           </div>
         </div>
@@ -147,6 +152,7 @@ const desc = `${d.titre}${d.annee ? ` (${d.annee})` : ''} — ${d.typologiePrinc
       </a>
     </nav>
   </article>
+  <Lightbox />
 </BaseLayout>
 
 <style>
@@ -179,6 +185,21 @@ const desc = `${d.titre}${d.annee ? ` (${d.annee})` : ''} — ${d.typologiePrinc
   .gallery { display: grid; grid-template-columns: 1fr; gap: 1rem; margin-top: 0.5rem; }
   @media (min-width: 700px) { .gallery { grid-template-columns: repeat(2, 1fr); } }
   .gallery-img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border: 1px solid var(--line); }
+
+  /* Images cliquables → plein écran (le wipe n'est pas concerné) */
+  .zoomable { display: block; width: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; position: relative; }
+  .zoomable img { display: block; }
+  .zoomable:focus-visible { outline: 2px solid var(--ambre); outline-offset: 3px; }
+  .zoomable::after {
+    content: "\2922"; /* ⤢ */
+    position: absolute; right: 0.6rem; bottom: 0.6rem;
+    display: grid; place-items: center; width: 1.9rem; height: 1.9rem;
+    font-size: 1rem; line-height: 1; color: var(--ivoire);
+    background: rgba(21, 17, 14, 0.55); border: 1px solid var(--ivoire-24, rgba(242,234,216,.24)); border-radius: 4px;
+    opacity: 0; transition: opacity var(--dur) var(--ease); pointer-events: none;
+  }
+  .zoomable:hover::after, .zoomable:focus-visible::after { opacity: 1; }
+  @media (hover: none) { .zoomable::after { opacity: 1; } }
 
   .p-tags { margin-top: var(--space-2xl); display: flex; flex-direction: column; gap: 1.4rem; }
   .tag-group { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.8rem; }

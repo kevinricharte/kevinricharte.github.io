@@ -1,0 +1,136 @@
+---
+// Visionneuse plein écran (lightbox).
+// Toute image portant la classe « zoomable » sur la page devient cliquable
+// pour s'afficher en grand. Le comparatif avant/après (wipe) n'est PAS concerné.
+---
+<div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Image en plein écran">
+  <button class="lb-btn lb-close" type="button" aria-label="Fermer">&times;</button>
+  <button class="lb-btn lb-prev" type="button" aria-label="Image précédente">&#8249;</button>
+  <figure class="lb-figure">
+    <img class="lb-img" src="" alt="" />
+  </figure>
+  <button class="lb-btn lb-next" type="button" aria-label="Image suivante">&#8250;</button>
+  <p class="lb-counter" aria-live="polite"></p>
+</div>
+
+<style>
+  .lightbox {
+    position: fixed; inset: 0; z-index: 9999;
+    display: flex; align-items: center; justify-content: center;
+    padding: clamp(1rem, 4vw, 3rem);
+    background: rgba(10, 8, 6, 0.95);
+    -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px);
+  }
+  .lightbox[hidden] { display: none; }
+
+  .lb-figure { margin: 0; max-width: 100%; max-height: 100%; display: flex; align-items: center; justify-content: center; }
+  .lb-img {
+    max-width: 100%; max-height: calc(100vh - 5rem);
+    width: auto; height: auto; object-fit: contain;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.5);
+    opacity: 1; transition: opacity var(--dur) var(--ease);
+  }
+  .lb-img.is-loading { opacity: 0.25; }
+
+  .lb-btn {
+    position: absolute; background: transparent; border: 0; color: var(--ivoire);
+    cursor: pointer; line-height: 1; padding: 0.4rem 0.7rem;
+    opacity: 0.75; transition: opacity var(--dur) var(--ease);
+  }
+  .lb-btn:hover, .lb-btn:focus-visible { opacity: 1; }
+  .lb-btn:focus-visible { outline: 2px solid var(--ambre); outline-offset: 3px; }
+  .lb-close { top: clamp(0.5rem, 2vw, 1.4rem); right: clamp(0.5rem, 2vw, 1.4rem); font-size: 2.4rem; }
+  .lb-prev, .lb-next { top: 50%; transform: translateY(-50%); font-size: clamp(2.4rem, 6vw, 3.6rem); }
+  .lb-prev { left: clamp(0.25rem, 1.5vw, 1rem); }
+  .lb-next { right: clamp(0.25rem, 1.5vw, 1rem); }
+  .lb-btn[hidden] { display: none; }
+
+  .lb-counter {
+    position: absolute; bottom: clamp(0.6rem, 2vw, 1.3rem); left: 50%; transform: translateX(-50%);
+    color: var(--ivoire-72); font-family: var(--font-sans); font-size: 0.78rem; letter-spacing: 0.12em;
+  }
+
+  :global(body.lb-open) { overflow: hidden; }
+</style>
+
+<script>
+  const zoomables = Array.from(document.querySelectorAll('.zoomable'));
+  const lb = document.getElementById('lightbox');
+  if (zoomables.length && lb) {
+    const img = lb.querySelector('.lb-img') as HTMLImageElement;
+    const counter = lb.querySelector('.lb-counter') as HTMLElement;
+    const btnClose = lb.querySelector('.lb-close') as HTMLButtonElement;
+    const btnPrev = lb.querySelector('.lb-prev') as HTMLButtonElement;
+    const btnNext = lb.querySelector('.lb-next') as HTMLButtonElement;
+
+    const items = zoomables.map((el) => {
+      const im = (el.querySelector('img') ?? el) as HTMLImageElement;
+      return { src: im.getAttribute('src') ?? '', alt: im.getAttribute('alt') ?? '' };
+    });
+    const single = items.length < 2;
+    btnPrev.hidden = btnNext.hidden = single;
+
+    let idx = 0;
+    let lastFocus: HTMLElement | null = null;
+
+    const render = () => {
+      const it = items[idx];
+      img.classList.add('is-loading');
+      img.onload = () => img.classList.remove('is-loading');
+      img.src = it.src;
+      img.alt = it.alt;
+      counter.textContent = single ? '' : `${idx + 1} / ${items.length}`;
+    };
+    const open = (i: number) => {
+      idx = i;
+      lastFocus = document.activeElement as HTMLElement;
+      render();
+      lb.hidden = false;
+      document.body.classList.add('lb-open');
+      btnClose.focus();
+    };
+    const close = () => {
+      lb.hidden = true;
+      document.body.classList.remove('lb-open');
+      img.src = '';
+      lastFocus?.focus();
+    };
+    const go = (step: number) => { idx = (idx + step + items.length) % items.length; render(); };
+
+    zoomables.forEach((el, i) => {
+      el.addEventListener('click', (e) => { e.preventDefault(); open(i); });
+    });
+    btnClose.addEventListener('click', close);
+    btnPrev.addEventListener('click', () => go(-1));
+    btnNext.addEventListener('click', () => go(1));
+
+    // Fermer en cliquant sur le fond (mais pas sur l'image ni les boutons)
+    lb.addEventListener('click', (e) => {
+      const t = e.target as HTMLElement;
+      if (!t.closest('button') && !t.classList.contains('lb-img')) close();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (lb.hidden) return;
+      if (e.key === 'Escape') close();
+      else if (!single && e.key === 'ArrowLeft') go(-1);
+      else if (!single && e.key === 'ArrowRight') go(1);
+      else if (e.key === 'Tab') {
+        const f = Array.from(lb.querySelectorAll('button')).filter((b) => !(b as HTMLButtonElement).hidden);
+        const first = f[0] as HTMLElement, last = f[f.length - 1] as HTMLElement;
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
+    });
+
+    // Balayage (mobile)
+    let x0: number | null = null;
+    lb.addEventListener('touchstart', (e) => { x0 = e.changedTouches[0].clientX; }, { passive: true });
+    lb.addEventListener('touchend', (e) => {
+      if (x0 === null || single) return;
+      const dx = e.changedTouches[0].clientX - x0;
+      if (Math.abs(dx) > 40) go(dx < 0 ? 1 : -1);
+      x0 = null;
+    }, { passive: true });
+  }
+</script>
