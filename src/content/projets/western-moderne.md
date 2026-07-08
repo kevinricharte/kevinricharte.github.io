@@ -15,7 +15,7 @@ coverAlt: Western Moderne — image étalonnée
 wipe:
   avant: /media/Still 2026-06-09 122009_2.1.1.jpg
   apres: /media/Still 2026-04-30 155933_3.14.1_3.1.1.jpg
-  alt: Western Moderne — plan du bord de rivière
+  alt: Western Moderne
 stills:
   - /media/Still 2026-04-30 155933_3.18.1.jpg
   - /media/Still 2026-04-30 155933_3.19.1.jpg
