@@ -11,8 +11,8 @@ credits:
 cover: /media/Still 2026-04-30 170942_3.28.1.jpg
 coverAlt: Chromatique — image étalonnée
 wipe:
-  avant: /media/Still 2026-05-01 115149_3.20.1-1.jpg
-  apres: /media/Still 2026-05-01 115149_3.20.2-1.jpg
+  avant: /media/Still 2026-06-09 114803_2.20.1.jpg
+  apres: /media/Still 2026-05-01 115149_3.20.1-2.jpg
   alt: Chromatique
 stills:
   - /media/Still 2026-04-30 170942_3.3.1.jpg
