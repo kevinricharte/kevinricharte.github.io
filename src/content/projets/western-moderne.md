@@ -4,29 +4,26 @@ annee: 2025
 typologiePrincipale: Fiction
 typologies:
   - Fiction
-distinctions: []
 credits:
   realisation: Juliette Kajdas
   production: Balafre Cinéma
   image: Mickaël Delahaie
   camera: RED V-RAPTOR
   etalonnage: Kévin Richarte
-cover: /media/projets/western-moderne--cover.webp
+cover: /media/Still 2026-04-30 155933_3.13.1.jpg
 coverAlt: Western Moderne — image étalonnée
 wipe:
-  avant: /media/projets/western-moderne--wipe-avant.webp
-  apres: /media/projets/western-moderne--wipe-apres.webp
+  avant: /media/Still 2026-06-09 122009_2.1.1.jpg
+  apres: /media/Still 2026-04-30 155933_3.14.1_3.1.1.jpg
   alt: Western Moderne — plan du bord de rivière
 stills:
-  - /media/projets/western-moderne--still-01.webp
-  - /media/projets/western-moderne--still-02.webp
-  - /media/projets/western-moderne--still-03.webp
+  - /media/Still 2026-04-30 155933_3.23.1.jpg
 inspirations:
-  - 'Le Bon, la Brute et le Truand — Sergio Leone'
+  - Le Bon, la Brute et le Truand — Sergio Leone
 featured: true
-ordre: 3
+draft: false
+ordre: 8
 ---
-
 Avec Alassane Diong, Andranic Manet, Anne Burger et Ninon Kjd.
 
 Le film met en scène une équipe qui tente de tourner son western. La structure colorimétrique repose sur une double identité visuelle : les séquences anamorphiques — qui ouvrent et ferment le récit, le western dit « classique » — opposées aux séquences plein format, la réalité du tournage, le « moderne ».
