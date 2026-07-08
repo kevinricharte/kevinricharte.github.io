@@ -25,7 +25,6 @@ stills:
   - /media/Still 2026-04-30 171000_3.19.1.jpg
   - /media/Still 2026-04-30 171000_3.24.1.jpg
   - /media/Still 2026-04-30 171000_3.71.1.jpg
-  - /media/Still 2026-04-30 171000_3.51.1.jpg
   - /media/Still 2026-04-30 171000_3.67.1.jpg
   - /media/Still 2026-04-30 171000_3.83.1.jpg
 inspirations:
