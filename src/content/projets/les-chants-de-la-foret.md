@@ -9,6 +9,7 @@ credits:
   image: Rebecca Antunes
   camera: Blackmagic Pocket Cinema Camera 4K · Panasonic S5IIx (V-Log)
   etalonnage: Kévin Richarte
+cover: /media/Still 2026-04-30 171355_3.16.1.jpg
 coverAlt: Les Chants de la Forêt — image étalonnée
 wipe:
   avant: /media/projets/les-chants-de-la-foret--wipe-avant.webp
