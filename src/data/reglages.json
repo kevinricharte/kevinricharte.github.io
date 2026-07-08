@@ -6,14 +6,50 @@
   "logosVitesse": 40,
   "logoHauteur": 30,
   "logos": [
-    { "image": "/media/marques/apple.svg", "nom": "Apple", "taille": 100 },
-    { "image": "/media/marques/canal.svg", "nom": "Canal+", "taille": 100 },
-    { "image": "/media/marques/france-tv.svg", "nom": "France.tv", "taille": 100 },
-    { "image": "/media/marques/gaumont.svg", "nom": "Gaumont", "taille": 100 },
-    { "image": "/media/marques/la-poste.svg", "nom": "Groupe La Poste", "taille": 100 },
-    { "image": "/media/marques/cordon-bleu.svg", "nom": "Le Cordon Bleu", "taille": 100 },
-    { "image": "/media/marques/nike.svg", "nom": "Nike", "taille": 100 },
-    { "image": "/media/marques/studio-hari.svg", "nom": "Studio Hari", "taille": 100 },
-    { "image": "/media/marques/uber-eats.svg", "nom": "Uber Eats", "taille": 100 }
+    {
+      "image": "/media/marques/apple.svg",
+      "nom": "Apple",
+      "taille": 130
+    },
+    {
+      "image": "/media/marques/canal.svg",
+      "nom": "Canal+",
+      "taille": 100
+    },
+    {
+      "image": "/media/marques/france-tv.svg",
+      "nom": "France.tv",
+      "taille": 100
+    },
+    {
+      "image": "/media/marques/gaumont.svg",
+      "nom": "Gaumont",
+      "taille": 180
+    },
+    {
+      "image": "/media/marques/la-poste.svg",
+      "nom": "Groupe La Poste",
+      "taille": 120
+    },
+    {
+      "image": "/media/marques/cordon-bleu.svg",
+      "nom": "Le Cordon Bleu",
+      "taille": 300
+    },
+    {
+      "image": "/media/marques/nike.svg",
+      "nom": "Nike",
+      "taille": 100
+    },
+    {
+      "image": "/media/marques/studio-hari.svg",
+      "nom": "Studio Hari",
+      "taille": 100
+    },
+    {
+      "image": "/media/marques/uber-eats.svg",
+      "nom": "Uber Eats",
+      "taille": 100
+    }
   ]
 }
