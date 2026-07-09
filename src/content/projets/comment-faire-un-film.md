@@ -1,6 +1,7 @@
 ---
 titre: Comment faire un film
 annee: 2026
+typologiePrincipale: Fiction
 credits:
   realisation: Guillaume Dionnet
   camera: Sony Burano
@@ -12,7 +13,7 @@ wipe:
 stills:
   - /media/Still 2026-06-26 155848_2.6.1-1.jpg
   - /media/Still 2026-06-26 155848_2.7.1-2.jpg
-  - /media/Still 2026-06-26 155848_2.72.1.jpg
+  - /media/Still 2026-06-26 155848_2.66.1-2.jpg
 featured: false
 draft: false
 ---
