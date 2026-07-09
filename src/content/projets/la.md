@@ -28,5 +28,3 @@ draft: false
 ordre: 2
 ---
 Spot de prévention contre les violences faites aux jeunes femmes, pour l'association En Avant Toutes.
-
-[Note d'intention à rédiger par Kévin — projet prioritaire à sortir du brouillon : forte diffusion (Canal+, 163 passages en janvier–février 2026).]
