@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import { thumb } from '../lib/media';
 
 interface Props { entry: CollectionEntry<'projets'>; }
 const { entry } = Astro.props;
@@ -9,7 +10,7 @@ const cover = d.cover;
 <li class="card" data-typos={d.typologies.join('|')}>
   <a href={`/fr/projets/${entry.id}`} class="card-link">
     <div class="card-media">
-      {cover && <img src={cover} alt={d.coverAlt ?? d.titre} class="card-img" loading="lazy" />}
+      {cover && <img src={thumb(cover)} alt={d.coverAlt ?? d.titre} class="card-img" loading="lazy" />}
       <div class="card-overlay" aria-hidden="true">
         <span class="card-otitle">{d.titre}</span>
         {d.typologiePrincipale && <span class="card-otypo">{d.typologiePrincipale}</span>}

@@ -65,7 +65,9 @@
 
     const items = zoomables.map((el) => {
       const im = (el.querySelector('img') ?? el) as HTMLImageElement;
-      return { src: im.getAttribute('src') ?? '', alt: im.getAttribute('alt') ?? '' };
+      // data-full = image pleine résolution (UHD) ; à défaut, la source affichée.
+      const full = (el as HTMLElement).dataset.full;
+      return { src: full || im.getAttribute('src') || '', alt: im.getAttribute('alt') ?? '' };
     });
     const single = items.length < 2;
     btnPrev.hidden = btnNext.hidden = single;

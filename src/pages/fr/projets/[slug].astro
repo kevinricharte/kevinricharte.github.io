@@ -2,6 +2,7 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import BeforeAfter from '../../../components/BeforeAfter.astro';
 import Lightbox from '../../../components/Lightbox.astro';
+import { thumb } from '../../../lib/media';
 import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -60,8 +61,8 @@ const desc = `${d.titre}${d.annee ? ` (${d.annee})` : ''}${d.typologiePrincipale
     <!-- ===== Visuel principal ===== -->
     {cover && (
       <div class="p-visual container-wide">
-        <button type="button" class="zoomable p-visual-btn" aria-label={`Agrandir : ${d.coverAlt ?? d.titre}`}>
-          <img src={cover} alt={d.coverAlt ?? d.titre} class="p-visual-img" />
+        <button type="button" class="zoomable p-visual-btn" data-full={cover} aria-label={`Agrandir : ${d.coverAlt ?? d.titre}`}>
+          <img src={thumb(cover)} alt={d.coverAlt ?? d.titre} class="p-visual-img" />
         </button>
       </div>
     )}
@@ -119,8 +120,8 @@ const desc = `${d.titre}${d.annee ? ` (${d.annee})` : ''}${d.typologiePrincipale
           <p class="meta p-section-label">Galerie</p>
           <div class="gallery">
             {stills.map((s, i) => (
-              <button type="button" class="zoomable gallery-btn" aria-label={`Agrandir : ${d.titre} — image ${i + 1}`}>
-                <img src={s} alt={`${d.titre} — image ${i + 1}`} class="gallery-img" loading="lazy" />
+              <button type="button" class="zoomable gallery-btn" data-full={s} aria-label={`Agrandir : ${d.titre} — image ${i + 1}`}>
+                <img src={thumb(s)} alt={`${d.titre} — image ${i + 1}`} class="gallery-img" loading="lazy" />
               </button>
             ))}
           </div>

@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
+import thumbnails from './scripts/thumbnails.mjs';
 
 // ⚠️ AVANT MISE EN LIGNE :
 //  - `site` : remplacer par le domaine final (ex. https://kevinricharte.fr)
@@ -19,5 +20,5 @@ export default defineConfig({
       redirectToDefaultLocale: false,
     },
   },
-  integrations: [sitemap()],
+  integrations: [sitemap(), thumbnails()],
 });
