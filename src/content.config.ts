@@ -38,7 +38,7 @@ const projets = defineCollection({
     // d'empiler plusieurs emplacements vides dans le panneau (comme la liste des logos).
     // Tolère aussi l'ancien format (simple chaîne) au cas où.
     stills: z
-      .array(z.union([z.string(), z.object({ image: z.string() })]))
+      .array(z.union([z.string(), z.object({ image: z.string().optional() })]))
       .default([])
       .transform((arr) => arr.map((s) => (typeof s === 'string' ? { image: s } : s))),
     detailTechnique: z.string().optional(),
