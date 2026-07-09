@@ -12,12 +12,12 @@ const cover = d.cover;
       {cover && <img src={cover} alt={d.coverAlt ?? d.titre} class="card-img" loading="lazy" />}
       <div class="card-overlay" aria-hidden="true">
         <span class="card-otitle">{d.titre}</span>
-        <span class="card-otypo">{d.typologiePrincipale}</span>
+        {d.typologiePrincipale && <span class="card-otypo">{d.typologiePrincipale}</span>}
       </div>
     </div>
     <div class="card-meta">
       <span class="card-name">{d.titre}</span>
-      <span class="meta card-info">{d.annee ?? '—'} · {d.typologiePrincipale}</span>
+      <span class="meta card-info">{d.annee ?? '—'}{d.typologiePrincipale ? ` · ${d.typologiePrincipale}` : ''}</span>
     </div>
   </a>
 </li>

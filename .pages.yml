@@ -29,6 +29,7 @@ content:
       - name: typologiePrincipale
         label: Type affiché sur la fiche
         type: select
+        required: true
         options:
           values: [Fiction, Clip, Publicité, Brand content, Documentaire, Spot]
       - name: typologies
@@ -68,7 +69,17 @@ content:
           - { name: apres, label: Plan étalonné (après), type: image }
           - { name: alt, label: Légende du plan, type: string }
       - name: stills
-        label: Galerie de plans (sélectionne plusieurs images à la fois ; glisse pour réordonner)
+        label: Galerie de plans — lot 1 (envoie ici un premier paquet ; glisse pour réordonner)
+        type: image
+        options:
+          multiple: true
+      - name: stills2
+        label: Galerie de plans — lot 2 (deuxième bouton d'envoi, pour un paquet suivant)
+        type: image
+        options:
+          multiple: true
+      - name: stills3
+        label: Galerie de plans — lot 3 (troisième bouton d'envoi)
         type: image
         options:
           multiple: true

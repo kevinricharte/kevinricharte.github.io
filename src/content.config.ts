@@ -9,7 +9,7 @@ const projets = defineCollection({
   schema: z.object({
     titre: z.string(),
     annee: z.number().optional(), // laissé vide si inconnu → affiché en placeholder
-    typologiePrincipale: z.string(),
+    typologiePrincipale: z.string().optional(), // requis côté panneau ; toléré ici pour ne jamais casser le build
     typologies: z.array(z.string()).default([]),
     diffusion: z.string().optional(),
     duree: z.string().optional(),
@@ -35,6 +35,10 @@ const projets = defineCollection({
       })
       .optional(),
     stills: z.array(z.string()).default([]),
+    // Zones d'ajout supplémentaires (facilitent l'envoi par petits paquets).
+    // Réunies à la suite de "stills" dans la galerie affichée.
+    stills2: z.array(z.string()).default([]),
+    stills3: z.array(z.string()).default([]),
     detailTechnique: z.string().optional(),
     tags: z
       .object({
