@@ -24,7 +24,7 @@ stills:
   - /media/Still 2026-04-29 121158_3.22.1.jpg
   - /media/Still 2026-04-29 121158_3.23.1.jpg
 featured: false
-draft: true
+draft: false
 ordre: 2
 ---
 Spot de prévention contre les violences faites aux jeunes femmes, pour l'association En Avant Toutes.
