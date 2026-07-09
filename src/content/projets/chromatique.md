@@ -15,14 +15,14 @@ wipe:
   apres: /media/Still 2026-04-30 170942_3.28.1-1.jpg
   alt: Chromatique
 stills:
-  - /media/Still 2026-04-30 170942_3.3.1.jpg
-  - /media/Still 2026-04-30 170942_3.4.1.jpg
-  - /media/Still 2026-04-30 170942_3.8.1.jpg
-  - /media/Still 2026-04-30 170942_3.13.1.jpg
-  - /media/Still 2026-05-01 115149_3.20.2-2.jpg
-  - /media/Still 2026-05-01 115149_3.24.1.jpg
-  - /media/Still 2026-04-30 170942_3.29.1.jpg
-  - /media/Still 2026-04-30 170942_3.31.1.jpg
+  - image: /media/Still 2026-04-30 170942_3.3.1.jpg
+  - image: /media/Still 2026-04-30 170942_3.4.1.jpg
+  - image: /media/Still 2026-04-30 170942_3.8.1.jpg
+  - image: /media/Still 2026-04-30 170942_3.13.1.jpg
+  - image: /media/Still 2026-05-01 115149_3.20.2-2.jpg
+  - image: /media/Still 2026-05-01 115149_3.24.1.jpg
+  - image: /media/Still 2026-04-30 170942_3.29.1.jpg
+  - image: /media/Still 2026-04-30 170942_3.31.1.jpg
 featured: false
 draft: false
 ordre: 8

@@ -16,18 +16,18 @@ wipe:
   avant: /media/Still 2026-05-23 133506_2.1.2.jpg
   apres: /media/Still 2026-05-23 133657_3.1.2.jpg
 stills:
-  - /media/Still 2026-05-23 133657_3.1.5-1.jpg
-  - /media/Still 2026-05-23 133657_3.1.6.jpg
-  - /media/Still 2026-05-23 133657_3.3.1.jpg
-  - /media/Still 2026-05-23 133657_3.3.2.jpg
-  - /media/Still 2026-05-23 133657_3.3.3.jpg
-  - /media/Still 2026-05-23 133657_3.4.1.jpg
-  - /media/Still 2026-05-23 133657_3.5.1.jpg
-  - /media/Still 2026-05-23 133657_3.5.2.jpg
-  - /media/Still 2026-05-23 133657_3.5.4.jpg
-  - /media/Still 2026-05-23 133657_3.5.5.jpg
-  - /media/Still 2026-05-23 133657_3.5.7.jpg
-  - /media/Still 2026-05-23 133657_3.5.8.jpg
+  - image: /media/Still 2026-05-23 133657_3.1.5-1.jpg
+  - image: /media/Still 2026-05-23 133657_3.1.6.jpg
+  - image: /media/Still 2026-05-23 133657_3.3.1.jpg
+  - image: /media/Still 2026-05-23 133657_3.3.2.jpg
+  - image: /media/Still 2026-05-23 133657_3.3.3.jpg
+  - image: /media/Still 2026-05-23 133657_3.4.1.jpg
+  - image: /media/Still 2026-05-23 133657_3.5.1.jpg
+  - image: /media/Still 2026-05-23 133657_3.5.2.jpg
+  - image: /media/Still 2026-05-23 133657_3.5.4.jpg
+  - image: /media/Still 2026-05-23 133657_3.5.5.jpg
+  - image: /media/Still 2026-05-23 133657_3.5.7.jpg
+  - image: /media/Still 2026-05-23 133657_3.5.8.jpg
 featured: false
 draft: false
 ordre: 15

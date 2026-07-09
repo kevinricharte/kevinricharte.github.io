@@ -34,7 +34,13 @@ const projets = defineCollection({
         alt: z.string().optional(),
       })
       .optional(),
-    stills: z.array(z.string()).default([]),
+    // Galerie : liste d'objets { image } — cette structure « liste d'objets » permet
+    // d'empiler plusieurs emplacements vides dans le panneau (comme la liste des logos).
+    // Tolère aussi l'ancien format (simple chaîne) au cas où.
+    stills: z
+      .array(z.union([z.string(), z.object({ image: z.string() })]))
+      .default([])
+      .transform((arr) => arr.map((s) => (typeof s === 'string' ? { image: s } : s))),
     detailTechnique: z.string().optional(),
     tags: z
       .object({

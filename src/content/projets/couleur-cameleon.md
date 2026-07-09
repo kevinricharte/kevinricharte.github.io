@@ -15,8 +15,8 @@ coverAlt: Couleurs Caméléon — image étalonnée
 featured: false
 ordre: 10
 stills:
-  - /media/projets/couleur-cameleon--still-01.webp
-  - /media/projets/couleur-cameleon--still-02.webp
+  - image: /media/projets/couleur-cameleon--still-01.webp
+  - image: /media/projets/couleur-cameleon--still-02.webp
 ---
 
 Le récit raconte une enquête dont les indices sont éloignés dans le temps. Le défi colorimétrique était double : intégrer de manière cohérente des plans tournés sur caméscopes des années 2000 — à la nature analogique très marquée — avec des images contemporaines, dans une atmosphère commune, sans gommer la spécificité de chaque source.

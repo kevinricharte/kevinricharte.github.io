@@ -15,14 +15,14 @@ wipe:
   avant: /media/Still 2026-06-09 120538_2.19.1.jpg
   apres: /media/Still 2026-04-29 121158_3.19.1.jpg
 stills:
-  - /media/Still 2026-04-29 121158_3.2.1.jpg
-  - /media/Still 2026-04-29 121158_3.7.1.jpg
-  - /media/Still 2026-04-29 121158_3.16.1.jpg
-  - /media/Still 2026-04-29 121158_3.17.1.jpg
-  - /media/Still 2026-04-29 121158_3.18.1.jpg
-  - /media/Still 2026-04-29 121158_3.21.1.jpg
-  - /media/Still 2026-04-29 121158_3.22.1.jpg
-  - /media/Still 2026-04-29 121158_3.23.1.jpg
+  - image: /media/Still 2026-04-29 121158_3.2.1.jpg
+  - image: /media/Still 2026-04-29 121158_3.7.1.jpg
+  - image: /media/Still 2026-04-29 121158_3.16.1.jpg
+  - image: /media/Still 2026-04-29 121158_3.17.1.jpg
+  - image: /media/Still 2026-04-29 121158_3.18.1.jpg
+  - image: /media/Still 2026-04-29 121158_3.21.1.jpg
+  - image: /media/Still 2026-04-29 121158_3.22.1.jpg
+  - image: /media/Still 2026-04-29 121158_3.23.1.jpg
 featured: false
 draft: false
 ordre: 2

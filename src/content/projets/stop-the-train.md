@@ -16,20 +16,20 @@ wipe:
   apres: /media/Still 2026-04-30 114308_3.1.1.jpg
   alt: Stop the Train
 stills:
-  - /media/Still 2026-04-30 114308_3.51.1.jpg
-  - /media/Still 2026-04-30 114308_3.53.1.jpg
-  - /media/Still 2026-04-30 114308_3.54.1.jpg
-  - /media/Still 2026-04-30 114308_3.56.1.jpg
-  - /media/Still 2026-04-30 114308_3.72.1.jpg
-  - /media/Still 2026-04-30 114308_3.13.1.jpg
-  - /media/Still 2026-04-30 114308_3.29.1.jpg
-  - /media/Still 2026-04-30 114308_3.31.1.jpg
-  - /media/Still 2026-04-30 114308_3.38.1.jpg
-  - /media/Still 2026-04-30 114308_3.48.1.jpg
-  - /media/Still 2026-04-30 114308_3.25.1.jpg
-  - /media/Still 2026-04-30 114308_3.48.2.jpg
-  - /media/Still 2026-04-30 114308_3.49.1.jpg
-  - /media/Still 2026-04-30 114308_3.50.1.jpg
+  - image: /media/Still 2026-04-30 114308_3.51.1.jpg
+  - image: /media/Still 2026-04-30 114308_3.53.1.jpg
+  - image: /media/Still 2026-04-30 114308_3.54.1.jpg
+  - image: /media/Still 2026-04-30 114308_3.56.1.jpg
+  - image: /media/Still 2026-04-30 114308_3.72.1.jpg
+  - image: /media/Still 2026-04-30 114308_3.13.1.jpg
+  - image: /media/Still 2026-04-30 114308_3.29.1.jpg
+  - image: /media/Still 2026-04-30 114308_3.31.1.jpg
+  - image: /media/Still 2026-04-30 114308_3.38.1.jpg
+  - image: /media/Still 2026-04-30 114308_3.48.1.jpg
+  - image: /media/Still 2026-04-30 114308_3.25.1.jpg
+  - image: /media/Still 2026-04-30 114308_3.48.2.jpg
+  - image: /media/Still 2026-04-30 114308_3.49.1.jpg
+  - image: /media/Still 2026-04-30 114308_3.50.1.jpg
 inspirations:
   - Brazil — Terry Gilliam
   - Abyss — James Cameron

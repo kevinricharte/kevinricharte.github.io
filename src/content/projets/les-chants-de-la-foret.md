@@ -16,24 +16,24 @@ wipe:
   apres: /media/projets/les-chants-de-la-foret--wipe-apres.webp
   alt: Les Chants de la Forêt
 stills:
-  - /media/Still 2026-04-30 171355_3.1.1.jpg
-  - /media/Still 2026-04-30 171355_3.3.1.jpg
-  - /media/Still 2026-04-30 171355_3.5.1.jpg
-  - /media/Still 2026-04-30 171355_3.7.1.jpg
-  - /media/Still 2026-04-30 171355_3.8.1.jpg
-  - /media/Still 2026-04-30 171355_3.9.1.jpg
-  - /media/Still 2026-04-30 171355_3.10.1.jpg
-  - /media/Still 2026-04-30 171355_3.11.1.jpg
-  - /media/Still 2026-04-30 171355_3.13.1.jpg
-  - /media/Still 2026-04-30 171355_3.14.1.jpg
-  - /media/Still 2026-04-30 171355_3.17.1.jpg
-  - /media/Still 2026-04-30 171355_3.18.1.jpg
-  - /media/Still 2026-04-30 171355_3.20.1.jpg
-  - /media/Still 2026-04-30 171355_3.21.1.jpg
-  - /media/Still 2026-04-30 171355_3.23.1.jpg
-  - /media/Still 2026-04-30 171355_3.25.1.jpg
-  - /media/Still 2026-04-30 171355_3.26.1.jpg
-  - /media/Still 2026-04-30 171355_3.28.1.jpg
+  - image: /media/Still 2026-04-30 171355_3.1.1.jpg
+  - image: /media/Still 2026-04-30 171355_3.3.1.jpg
+  - image: /media/Still 2026-04-30 171355_3.5.1.jpg
+  - image: /media/Still 2026-04-30 171355_3.7.1.jpg
+  - image: /media/Still 2026-04-30 171355_3.8.1.jpg
+  - image: /media/Still 2026-04-30 171355_3.9.1.jpg
+  - image: /media/Still 2026-04-30 171355_3.10.1.jpg
+  - image: /media/Still 2026-04-30 171355_3.11.1.jpg
+  - image: /media/Still 2026-04-30 171355_3.13.1.jpg
+  - image: /media/Still 2026-04-30 171355_3.14.1.jpg
+  - image: /media/Still 2026-04-30 171355_3.17.1.jpg
+  - image: /media/Still 2026-04-30 171355_3.18.1.jpg
+  - image: /media/Still 2026-04-30 171355_3.20.1.jpg
+  - image: /media/Still 2026-04-30 171355_3.21.1.jpg
+  - image: /media/Still 2026-04-30 171355_3.23.1.jpg
+  - image: /media/Still 2026-04-30 171355_3.25.1.jpg
+  - image: /media/Still 2026-04-30 171355_3.26.1.jpg
+  - image: /media/Still 2026-04-30 171355_3.28.1.jpg
 featured: true
 draft: false
 ordre: 6

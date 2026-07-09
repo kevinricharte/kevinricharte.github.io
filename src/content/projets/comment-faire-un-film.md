@@ -11,9 +11,9 @@ wipe:
   avant: /media/Still 2026-06-26 155951_1.395.1-1.jpg
   apres: /media/Still 2026-06-26 155848_2.401.1-1.jpg
 stills:
-  - /media/Still 2026-06-26 155848_2.6.1-1.jpg
-  - /media/Still 2026-06-26 155848_2.7.1-2.jpg
-  - /media/Still 2026-06-26 155848_2.66.1-2.jpg
+  - image: /media/Still 2026-06-26 155848_2.6.1-1.jpg
+  - image: /media/Still 2026-06-26 155848_2.7.1-2.jpg
+  - image: /media/Still 2026-06-26 155848_2.66.1-2.jpg
 featured: false
 draft: false
 ---

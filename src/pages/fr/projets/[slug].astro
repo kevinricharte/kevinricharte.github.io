@@ -18,7 +18,8 @@ const d = p.data;
 const { Content } = await render(p);
 
 const cover = d.cover;
-const stills = d.stills ?? [];
+// La galerie est une liste d'objets { image } ; on récupère les chemins (emplacements vides ignorés).
+const stills = (d.stills ?? []).map((s) => s.image).filter(Boolean);
 const wipeAvant = d.wipe?.avant;
 const wipeApres = d.wipe?.apres;
 

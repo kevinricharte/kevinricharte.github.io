@@ -18,18 +18,18 @@ wipe:
   apres: /media/Still 2026-04-29 120059_3.36.1.jpg
   alt: Postcard from Marseille
 stills:
-  - /media/projets/postcard-from-marseille--still-01.webp
-  - /media/projets/postcard-from-marseille--still-02.webp
-  - /media/projets/postcard-from-marseille--still-03.webp
-  - /media/projets/postcard-from-marseille--still-05.webp
-  - /media/Still 2026-04-29 120059_3.34.1.jpg
-  - /media/Still 2026-04-29 120059_3.63.1.jpg
-  - /media/Still 2026-04-29 120059_3.64.1.jpg
-  - /media/Still 2026-04-29 120059_3.66.1.jpg
-  - /media/Still 2026-04-29 120059_3.67.1.jpg
-  - /media/Still 2026-04-29 120059_3.84.1.jpg
-  - /media/Still 2026-04-29 120059_3.85.1.jpg
-  - /media/Still 2026-04-29 120059_3.86.1.jpg
+  - image: /media/projets/postcard-from-marseille--still-01.webp
+  - image: /media/projets/postcard-from-marseille--still-02.webp
+  - image: /media/projets/postcard-from-marseille--still-03.webp
+  - image: /media/projets/postcard-from-marseille--still-05.webp
+  - image: /media/Still 2026-04-29 120059_3.34.1.jpg
+  - image: /media/Still 2026-04-29 120059_3.63.1.jpg
+  - image: /media/Still 2026-04-29 120059_3.64.1.jpg
+  - image: /media/Still 2026-04-29 120059_3.66.1.jpg
+  - image: /media/Still 2026-04-29 120059_3.67.1.jpg
+  - image: /media/Still 2026-04-29 120059_3.84.1.jpg
+  - image: /media/Still 2026-04-29 120059_3.85.1.jpg
+  - image: /media/Still 2026-04-29 120059_3.86.1.jpg
 inspirations:
   - Moonlight
   - Le Grand Bleu
