@@ -62,7 +62,8 @@ const desc = `${d.titre}${d.annee ? ` (${d.annee})` : ''}${d.typologiePrincipale
     {cover && (
       <div class="p-visual container-wide">
         <button type="button" class="zoomable p-visual-btn" data-full={cover} aria-label={`Agrandir : ${d.coverAlt ?? d.titre}`}>
-          <img src={thumb(cover)} alt={d.coverAlt ?? d.titre} class="p-visual-img" />
+          {/* Couverture du haut de fiche : pleine résolution (affichée en grand). */}
+          <img src={cover} alt={d.coverAlt ?? d.titre} class="p-visual-img" fetchpriority="high" />
         </button>
       </div>
     )}
@@ -121,7 +122,7 @@ const desc = `${d.titre}${d.annee ? ` (${d.annee})` : ''}${d.typologiePrincipale
           <div class="gallery">
             {stills.map((s, i) => (
               <button type="button" class="zoomable gallery-btn" data-full={s} aria-label={`Agrandir : ${d.titre} — image ${i + 1}`}>
-                <img src={thumb(s)} alt={`${d.titre} — image ${i + 1}`} class="gallery-img" loading="lazy" />
+                <img src={thumb(s)} alt={`${d.titre} — image ${i + 1}`} class="gallery-img" loading="lazy" decoding="async" />
               </button>
             ))}
           </div>
@@ -187,6 +188,8 @@ const desc = `${d.titre}${d.annee ? ` (${d.annee})` : ''}${d.typologiePrincipale
   .gallery { display: grid; grid-template-columns: 1fr; gap: 1rem; margin-top: 0.5rem; }
   @media (min-width: 700px) { .gallery { grid-template-columns: repeat(2, 1fr); } }
   .gallery-img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border: 1px solid var(--line); }
+  /* Grandes galeries : le navigateur ne calcule/peint que les images proches de l'écran. */
+  .gallery-btn { content-visibility: auto; contain-intrinsic-size: auto 320px; }
 
   /* Images cliquables → plein écran (le wipe n'est pas concerné) */
   .zoomable { display: block; width: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; position: relative; }
