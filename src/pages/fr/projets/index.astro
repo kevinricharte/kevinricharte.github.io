@@ -2,10 +2,22 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import ProjectCard from '../../../components/ProjectCard.astro';
+import reglages from '../../../data/reglages.json';
 
 const projets = (await getCollection('projets', ({ data }) => !data.draft)).sort((a, b) => a.data.ordre - b.data.ordre);
-const allTypos = Array.from(new Set(projets.flatMap((p) => p.data.typologies))).sort((a, b) => a.localeCompare(b, 'fr'));
-const filters = ['Tous', ...allTypos];
+
+// Catégories présentes parmi les projets publiés (non brouillon).
+const present = new Set(projets.flatMap((p) => p.data.typologies));
+
+// Onglets de filtre : pilotés depuis le panneau (Réglages → Catégories de projets).
+// Un onglet ne s'affiche que s'il est coché ET utilisé par au moins un projet publié.
+const configured = reglages.categoriesProjets;
+const categories = (Array.isArray(configured) && configured.length)
+  ? configured
+      .filter((c) => c.visible && present.has(c.valeur))
+      .map((c) => ({ valeur: c.valeur, label: (c.label && c.label.trim()) ? c.label.trim() : c.valeur }))
+  : // Filet de sécurité : si la liste est absente, on retombe sur la détection automatique.
+    Array.from(present).sort((a, b) => a.localeCompare(b, 'fr')).map((v) => ({ valeur: v, label: v }));
 ---
 <BaseLayout title="Projets — Kévin Richarte, étalonneur fiction" lang="fr" description="Sélection de projets étalonnés par Kévin Richarte — fiction, clip narratif, brand content, publicité.">
   <section class="section container-wide">
@@ -15,9 +27,10 @@ const filters = ['Tous', ...allTypos];
       <p class="proj-sub">Filmographie d'étalonneur — fiction, clip, brand content narratif.</p>
     </header>
 
-    <div class="filters" role="group" aria-label="Filtrer par typologie">
-      {filters.map((f, i) => (
-        <button type="button" class:list={["filter", { active: i === 0 }]} data-filter={f === 'Tous' ? '*' : f}>{f}</button>
+    <div class="filters" role="group" aria-label="Filtrer par catégorie">
+      <button type="button" class="filter active" data-filter="*">Tous</button>
+      {categories.map((c) => (
+        <button type="button" class="filter" data-filter={c.valeur}>{c.label}</button>
       ))}
     </div>
 

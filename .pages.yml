@@ -98,6 +98,22 @@ content:
       - name: afficherFormation
         label: Afficher l'onglet « Formation » dans le menu du site
         type: boolean
+      - name: categoriesProjets
+        label: Catégories de projets (onglets de filtre sur la page Projets)
+        description: >-
+          Décoche pour masquer un onglet, glisse pour réordonner, ajoute une ligne pour
+          une nouvelle catégorie. Un onglet n'apparaît que s'il est coché ET qu'au moins
+          un projet publié (non brouillon) l'utilise.
+        type: object
+        list: true
+        fields:
+          - name: valeur
+            label: Catégorie
+            type: select
+            options:
+              values: [Fiction, Clip, Publicité, Brand content, Documentaire, Spot]
+          - { name: label, label: "Nom affiché sur l'onglet (laisser vide = nom par défaut)", type: string }
+          - { name: visible, label: Afficher cet onglet, type: boolean, default: true }
       - name: logosDisposition
         label: Disposition des logos
         type: select

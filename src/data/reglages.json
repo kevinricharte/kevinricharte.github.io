@@ -1,5 +1,13 @@
 {
   "afficherFormation": false,
+  "categoriesProjets": [
+    { "valeur": "Fiction", "label": "", "visible": true },
+    { "valeur": "Clip", "label": "", "visible": true },
+    { "valeur": "Publicité", "label": "", "visible": true },
+    { "valeur": "Brand content", "label": "", "visible": true },
+    { "valeur": "Documentaire", "label": "", "visible": false },
+    { "valeur": "Spot", "label": "", "visible": false }
+  ],
   "logosDisposition": "bandeau",
   "logosDefilementAuto": true,
   "logosMelanger": true,
