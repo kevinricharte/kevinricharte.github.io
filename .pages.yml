@@ -69,20 +69,9 @@ content:
           - { name: apres, label: Plan étalonné (après), type: image }
           - { name: alt, label: Légende du plan, type: string }
       - name: stills
-        label: Galerie de plans — lot 1 (envoie ici un premier paquet ; glisse pour réordonner)
+        label: Galerie de plans — clique « Ajouter un item » autant de fois que tu veux pour créer des emplacements, puis dépose une image dans chacun (glisse pour réordonner)
         type: image
-        options:
-          multiple: true
-      - name: stills2
-        label: Galerie de plans — lot 2 (deuxième bouton d'envoi, pour un paquet suivant)
-        type: image
-        options:
-          multiple: true
-      - name: stills3
-        label: Galerie de plans — lot 3 (troisième bouton d'envoi)
-        type: image
-        options:
-          multiple: true
+        list: true
       - name: inspirations
         label: Inspirations / références (une par ligne)
         type: string

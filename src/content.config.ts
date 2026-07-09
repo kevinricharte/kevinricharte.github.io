@@ -35,10 +35,6 @@ const projets = defineCollection({
       })
       .optional(),
     stills: z.array(z.string()).default([]),
-    // Zones d'ajout supplémentaires (facilitent l'envoi par petits paquets).
-    // Réunies à la suite de "stills" dans la galerie affichée.
-    stills2: z.array(z.string()).default([]),
-    stills3: z.array(z.string()).default([]),
     detailTechnique: z.string().optional(),
     tags: z
       .object({
