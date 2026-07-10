@@ -4,6 +4,8 @@ annee: 2024
 typologiePrincipale: Clip
 typologies:
   - Clip
+genres:
+  - Science-fiction
 credits:
   realisation: Damien Douchez
   image: Olivier Tresson
@@ -36,6 +38,7 @@ inspirations:
 featured: false
 draft: false
 ordre: 7
+afficherNote: true
 ---
 Clip de Tendre Mixeur, tourné dans une centrale désaffectée. Le défi technique était double : gérer la luminosité des couloirs sombres en rattrapant un maximum de détails, tout en maintenant la pureté de certaines couleurs — le bleu — à la lisière de l'écrêtage.
 
