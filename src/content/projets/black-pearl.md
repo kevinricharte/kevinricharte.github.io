@@ -3,12 +3,16 @@ titre: Black Pearl
 typologiePrincipale: Fiction
 typologies:
   - Fiction
+genres:
+  - Action
+  - Aventure
 credits:
   realisation: Gaultier Barra
   production: KN5 Production
   image: Olivier Tresson
   camera: Sony FX9
   etalonnage: Kévin Richarte
+  workflow: S-Log3
 cover: /media/projets/black-pearl--cover.webp
 coverAlt: Black Pearl — image étalonnée
 wipe:
