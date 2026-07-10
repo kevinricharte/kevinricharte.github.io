@@ -3,6 +3,8 @@ titre: Couleurs Caméléon
 typologiePrincipale: Fiction
 typologies:
   - Fiction
+genres:
+  - Thriller
 credits:
   realisation: Nicolas Di Adamo
   production: Rivolian Films
