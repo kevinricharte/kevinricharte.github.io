@@ -38,6 +38,12 @@ content:
         list: true
         options:
           values: [Fiction, Clip, Publicité, Brand content, Documentaire, Spot]
+      - name: genres
+        label: Genres (servent à diversifier la Sélection de l'accueil ; coche ce qui s'applique)
+        type: select
+        list: true
+        options:
+          values: [Action, Aventure, Comédie, Drame, Thriller, Romance, Science-fiction, Documentaire]
       - name: diffusion
         label: Diffusion (ex. « Canal+ », « France 3 Régions · France TV »)
         type: string

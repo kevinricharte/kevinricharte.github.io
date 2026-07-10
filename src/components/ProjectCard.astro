@@ -8,7 +8,7 @@ const { entry } = Astro.props;
 const d = entry.data;
 const cover = d.cover;
 ---
-<li class="card" data-typos={d.typologies.join('|')}>
+<li class="card" data-typos={d.typologies.join('|')} data-genres={d.genres.join('|')}>
   <a href={`/fr/projets/${entry.id}`} class="card-link">
     <div class:list={["card-media", { "fit-contain": reglages.respecterFormatVignette ?? true }]}>
       {cover && <img src={thumb(cover)} alt={d.coverAlt ?? d.titre} class="card-img" loading="lazy" />}

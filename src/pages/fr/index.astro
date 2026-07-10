@@ -6,10 +6,11 @@ import { site } from '../../data/site';
 import reglages from '../../data/reglages.json';
 
 const title = 'Kévin Richarte — Étalonneur fiction · Région parisienne';
-// Sélection de l'accueil : 6 projets maximum (pour remplir joliment la grille).
-const featured = (await getCollection('projets', ({ data }) => data.featured && !data.draft))
-  .sort((a, b) => a.data.ordre - b.data.ordre)
-  .slice(0, 6);
+// Sélection de l'accueil : tous les projets publiés ; 6 sont tirés au hasard côté
+// client (avec diversité de genres) à chaque visite. Sans JS, tous s'affichent.
+const selectionPool = (await getCollection('projets', ({ data }) => !data.draft))
+  .sort((a, b) => a.data.ordre - b.data.ordre);
+const SELECTION_COUNT = 6;
 
 // Marques + logos : tout se règle depuis le panneau (Réglages du site).
 const marques = reglages.logos;
@@ -53,8 +54,8 @@ const logoHauteur = reglages.logoHauteur ?? 30;
         <p class="meta">Sélection</p>
         <h2 class="selection-title">Quelques projets</h2>
       </div>
-      <ul role="list" class="project-grid selection-grid">
-        {featured.map((p) => <ProjectCard entry={p} />)}
+      <ul role="list" class="project-grid selection-grid" data-count={SELECTION_COUNT}>
+        {selectionPool.map((p) => <ProjectCard entry={p} />)}
       </ul>
       <p class="selection-more reveal">
         <a href="/fr/projets" class="cta">
@@ -327,6 +328,39 @@ const logoHauteur = reglages.logoHauteur ?? 30;
         });
         logosWrap.classList.add('is-marquee');
       }
+    }
+  }
+
+  // ===== Sélection : 6 projets au hasard à chaque visite, en variant les genres =====
+  const selGrid = document.querySelector('.selection-grid');
+  if (selGrid) {
+    const count = parseInt((selGrid as HTMLElement).dataset.count || '6', 10);
+    const cards = Array.from(selGrid.querySelectorAll<HTMLElement>('.card'));
+    if (cards.length > count) {
+      // Mélange (Fisher–Yates)
+      for (let i = cards.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [cards[i], cards[j]] = [cards[j], cards[i]];
+      }
+      const picked: HTMLElement[] = [];
+      const usedGenres = new Set<string>();
+      // 1er passage : privilégier les projets qui apportent un genre nouveau (diversité)
+      for (const c of cards) {
+        if (picked.length >= count) break;
+        const genres = (c.dataset.genres || '').split('|').filter(Boolean);
+        if (genres.length && genres.some((g) => !usedGenres.has(g))) {
+          picked.push(c);
+          genres.forEach((g) => usedGenres.add(g));
+        }
+      }
+      // 2e passage : compléter au hasard avec le reste
+      for (const c of cards) {
+        if (picked.length >= count) break;
+        if (!picked.includes(c)) picked.push(c);
+      }
+      const keep = new Set(picked.slice(0, count));
+      cards.forEach((c) => { if (!keep.has(c)) c.remove(); });
+      picked.slice(0, count).forEach((c) => selGrid.appendChild(c));
     }
   }
 </script>

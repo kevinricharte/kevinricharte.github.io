@@ -11,6 +11,7 @@ const projets = defineCollection({
     annee: z.number().optional(), // laissé vide si inconnu → affiché en placeholder
     typologiePrincipale: z.string().optional(), // requis côté panneau ; toléré ici pour ne jamais casser le build
     typologies: z.array(z.string()).default([]),
+    genres: z.array(z.string()).default([]), // genres narratifs — servent à diversifier la Sélection d'accueil
     diffusion: z.string().optional(),
     duree: z.string().optional(),
     distinctions: z.array(z.string()).default([]),
