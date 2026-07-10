@@ -4,6 +4,10 @@ typologiePrincipale: Fiction
 typologies:
   - Fiction
 credits:
+  realisation: Gaultier Barra
+  production: KN5 Production
+  image: Olivier Tresson
+  camera: Sony FX9
   etalonnage: Kévin Richarte
 cover: /media/projets/black-pearl--cover.webp
 coverAlt: Black Pearl — image étalonnée
@@ -51,5 +55,6 @@ stills:
 featured: false
 draft: false
 ordre: 11
+afficherNote: false
 ---
 [Fiche à compléter par Kévin — crédits absents des documents de référence.]
