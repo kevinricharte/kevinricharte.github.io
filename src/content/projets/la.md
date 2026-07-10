@@ -4,6 +4,8 @@ annee: 2026
 typologiePrincipale: Publicité
 typologies:
   - Publicité
+genres:
+  - Drame
 diffusion: Canal+ — 163 passages (janvier–février 2026)
 credits:
   realisation: Emily Finot
@@ -26,5 +28,6 @@ stills:
 featured: false
 draft: false
 ordre: 2
+afficherNote: true
 ---
 Spot de prévention contre les violences faites aux jeunes femmes, pour l'association En Avant Toutes.
