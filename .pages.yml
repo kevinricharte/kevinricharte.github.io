@@ -89,6 +89,10 @@ content:
       - name: ordre
         label: Ordre d'affichage (petit nombre = plus haut dans la grille)
         type: number
+      - name: afficherNote
+        label: Afficher la note d'intention (décoche pour masquer la section sur ce projet)
+        type: boolean
+        default: true
       - name: body
         label: Note d'intention
         type: rich-text

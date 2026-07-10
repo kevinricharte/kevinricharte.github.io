@@ -23,6 +23,8 @@ const cover = d.cover;
 const stills = (d.stills ?? []).map((s) => s.image).filter(Boolean);
 // Nombre d'images affichées d'emblée ; les suivantes se chargent au défilement.
 const GALLERY_BATCH = 12;
+// Note d'intention : affichée si la case est cochée ET qu'un texte est présent.
+const showNote = d.afficherNote && (p.body ?? '').trim().length > 0;
 const wipeAvant = d.wipe?.avant;
 const wipeApres = d.wipe?.apres;
 
@@ -94,21 +96,25 @@ const desc = `${d.titre}${d.annee ? ` (${d.annee})` : ''}${d.typologiePrincipale
       </section>
     )}
 
-    <!-- ===== Note d'intention (fond Ivoire) ===== -->
-    <section class="section on-ivoire p-note">
-      <div class="container-read reveal">
-        <p class="meta p-note-label">Note d'intention</p>
-        <div class="prose">
-          <Content />
+    <!-- ===== Note d'intention (fond Ivoire) — masquée si décochée ou vide ===== -->
+    {(showNote || d.inspirations.length > 0) && (
+      <section class="section on-ivoire p-note">
+        <div class="container-read reveal">
+          {showNote && <p class="meta p-note-label">Note d'intention</p>}
+          {showNote && (
+            <div class="prose">
+              <Content />
+            </div>
+          )}
+          {d.inspirations.length > 0 && (
+            <div class="p-inspirations">
+              <p class="meta">Inspirations / références</p>
+              <ul role="list">{d.inspirations.map((it) => <li>{it}</li>)}</ul>
+            </div>
+          )}
         </div>
-        {d.inspirations.length > 0 && (
-          <div class="p-inspirations">
-            <p class="meta">Inspirations / références</p>
-            <ul role="list">{d.inspirations.map((it) => <li>{it}</li>)}</ul>
-          </div>
-        )}
-      </div>
-    </section>
+      </section>
+    )}
 
     <!-- ===== Détail technique ===== -->
     {detailTech && (

@@ -53,6 +53,7 @@ const projets = defineCollection({
     inspirations: z.array(z.string()).default([]),
     videoUrl: z.string().optional(),
     testimonial: z.object({ citation: z.string(), auteur: z.string() }).optional(),
+    afficherNote: z.boolean().default(true), // false = masque la section « Note d'intention »
     draft: z.boolean().default(false), // true = exclu de la grille, de l'accueil et du sitemap
     featured: z.boolean().default(false),
     ordre: z.number().default(0),
