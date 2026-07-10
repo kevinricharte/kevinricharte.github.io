@@ -19,6 +19,10 @@ stills:
   - image: /media/projets/couleur-cameleon--still-01.webp
   - image: /media/Still 2026-07-09 162532_3.27.1.jpg
   - image: /media/Still 2026-07-09 162532_3.41.1.jpg
+  - image: /media/Still 2026-07-09 162532_3.42.1-1.jpg
+  - image: /media/Still 2026-07-09 162532_3.29.1.jpg
+  - image: /media/Still 2026-07-09 162532_3.48.1.jpg
+  - image: /media/Still 2026-07-09 162532_3.52.1.jpg
 featured: false
 draft: false
 ordre: 10
