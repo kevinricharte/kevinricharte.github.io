@@ -70,7 +70,7 @@ stills:
   - image: /media/Still 2026-06-26 160031_2.28.1.jpg
   - image: /media/Still 2026-06-26 160031_2.35.1.jpg
   - image: /media/Still 2026-06-26 160031_2.44.1.jpg
-  - image: /media/Still 2026-06-26 155848_2.732.1.jpg
+  - {}
   - image: /media/Still 2026-06-26 155848_2.738.1.jpg
   - image: /media/Still 2026-06-26 155848_2.747.1.jpg
   - image: /media/Still 2026-06-26 155848_2.750.1.jpg
