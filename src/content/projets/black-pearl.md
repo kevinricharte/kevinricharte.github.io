@@ -46,8 +46,9 @@ stills:
   - image: /media/Still 2026-07-09 160223_3.165.1-1.jpg
   - image: /media/Still 2026-07-09 160223_3.167.1-1.jpg
   - image: /media/Still 2026-07-09 160223_3.171.1-1.jpg
+  - {}
 featured: false
-draft: true
+draft: false
 ordre: 11
 ---
 [Fiche à compléter par Kévin — crédits absents des documents de référence.]
