@@ -3,6 +3,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import BeforeAfter from '../../../components/BeforeAfter.astro';
 import Lightbox from '../../../components/Lightbox.astro';
 import { thumb } from '../../../lib/media';
+import reglages from '../../../data/reglages.json';
 import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -68,7 +69,7 @@ const desc = `${d.titre}${d.annee ? ` (${d.annee})` : ''}${d.typologiePrincipale
 
     <!-- ===== Visuel principal ===== -->
     {cover && (
-      <div class="p-visual container-wide">
+      <div class:list={["p-visual", "container-wide", { "fit-natural": reglages.respecterFormatCouverture }]}>
         <button type="button" class="zoomable p-visual-btn" data-full={cover} aria-label={`Agrandir : ${d.coverAlt ?? d.titre}`}>
           {/* Couverture du haut de fiche : pleine résolution (affichée en grand). */}
           <img src={cover} alt={d.coverAlt ?? d.titre} class="p-visual-img" fetchpriority="high" />
@@ -184,7 +185,9 @@ const desc = `${d.titre}${d.annee ? ` (${d.annee})` : ''}${d.typologiePrincipale
   .p-distinctions { color: var(--ivoire-72); font-style: italic; font-family: var(--font-serif); margin-top: 0.6rem; }
 
   .p-visual { margin-top: var(--space-xl); }
-  .p-visual-img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border: 1px solid var(--line); }
+  .p-visual-img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border: 1px solid var(--line); display: block; }
+  /* Respect du format : la couverture prend son propre ratio (ni recadrage ni bandes) */
+  .p-visual.fit-natural .p-visual-img { aspect-ratio: auto; height: auto; object-fit: contain; }
 
   .p-credits { margin-top: var(--space-2xl); }
   .credits { display: grid; grid-template-columns: 1fr; gap: 1.2rem 2.5rem; }

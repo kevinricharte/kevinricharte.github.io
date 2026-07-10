@@ -1,5 +1,8 @@
 {
   "afficherFormation": false,
+  "respecterFormatVignette": true,
+  "respecterFormatCouverture": true,
+  "respecterFormatWipe": true,
   "categoriesProjets": [
     { "valeur": "Fiction", "label": "", "visible": true },
     { "valeur": "Clip", "label": "", "visible": true },

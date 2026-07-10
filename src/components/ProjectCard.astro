@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import { thumb } from '../lib/media';
+import reglages from '../data/reglages.json';
 
 interface Props { entry: CollectionEntry<'projets'>; }
 const { entry } = Astro.props;
@@ -9,7 +10,7 @@ const cover = d.cover;
 ---
 <li class="card" data-typos={d.typologies.join('|')}>
   <a href={`/fr/projets/${entry.id}`} class="card-link">
-    <div class="card-media">
+    <div class:list={["card-media", { "fit-contain": reglages.respecterFormatVignette }]}>
       {cover && <img src={thumb(cover)} alt={d.coverAlt ?? d.titre} class="card-img" loading="lazy" />}
       <div class="card-overlay" aria-hidden="true">
         <span class="card-otitle">{d.titre}</span>
@@ -26,6 +27,9 @@ const cover = d.cover;
 <style>
   .card-media { position: relative; aspect-ratio: 16 / 9; overflow: hidden; background: var(--cendre); }
   .card-img { width: 100%; height: 100%; object-fit: cover; transition: transform 600ms var(--ease); }
+  /* Respect du format : image entière avec bandes noires au lieu de recadrer */
+  .card-media.fit-contain { background: #000; }
+  .card-media.fit-contain .card-img { object-fit: contain; }
   .card-link:hover .card-img, .card-link:focus-visible .card-img { transform: scale(1.04); }
   .card-overlay {
     position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
