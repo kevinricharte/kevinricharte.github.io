@@ -43,7 +43,7 @@ stills:
   - {}
   - image: /media/Still 2026-07-09 161036_2.12.1-1.jpg
   - image: /media/Still 2026-07-09 161036_2.13.1.jpg
-  - {}
+  - image: /media/Still 2026-07-09 161036_2.14.1-1.jpg
   - {}
   - {}
   - {}
