@@ -21,6 +21,8 @@ const { Content } = await render(p);
 const cover = d.cover;
 // La galerie est une liste d'objets { image } ; on récupère les chemins (emplacements vides ignorés).
 const stills = (d.stills ?? []).map((s) => s.image).filter(Boolean);
+// Nombre d'images affichées d'emblée ; les suivantes se chargent au défilement.
+const GALLERY_BATCH = 12;
 const wipeAvant = d.wipe?.avant;
 const wipeApres = d.wipe?.apres;
 
@@ -47,6 +49,8 @@ const title = `${d.titre} — Kévin Richarte, étalonneur fiction`;
 const desc = `${d.titre}${d.annee ? ` (${d.annee})` : ''}${d.typologiePrincipale ? ` — ${d.typologiePrincipale}` : ''}. Étalonnage : Kévin Richarte.`;
 ---
 <BaseLayout title={title} description={desc} lang="fr">
+  {/* Marque la page « JS actif » avant le premier rendu : sans JS, toute la galerie reste visible. */}
+  <script is:inline>document.documentElement.classList.add('has-js');</script>
   <article class="project">
     <!-- ===== En-tête ===== -->
     <header class="p-head container-read reveal">
@@ -119,13 +123,19 @@ const desc = `${d.titre}${d.annee ? ` (${d.annee})` : ''}${d.typologiePrincipale
       <section class="section p-gallery">
         <div class="container-wide reveal">
           <p class="meta p-section-label">Galerie</p>
-          <div class="gallery">
+          <div class="gallery" data-batch={GALLERY_BATCH}>
             {stills.map((s, i) => (
-              <button type="button" class="zoomable gallery-btn" data-full={s} aria-label={`Agrandir : ${d.titre} — image ${i + 1}`}>
+              <button
+                type="button"
+                class:list={["zoomable", "gallery-btn", { "gallery-extra": i >= GALLERY_BATCH }]}
+                data-full={s}
+                aria-label={`Agrandir : ${d.titre} — image ${i + 1}`}
+              >
                 <img src={thumb(s)} alt={`${d.titre} — image ${i + 1}`} class="gallery-img" loading="lazy" decoding="async" />
               </button>
             ))}
           </div>
+          {stills.length > GALLERY_BATCH && <div class="gallery-more" aria-hidden="true"></div>}
         </div>
       </section>
     )}
@@ -190,6 +200,10 @@ const desc = `${d.titre}${d.annee ? ` (${d.annee})` : ''}${d.typologiePrincipale
   .gallery-img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border: 1px solid var(--line); }
   /* Grandes galeries : le navigateur ne calcule/peint que les images proches de l'écran. */
   .gallery-btn { content-visibility: auto; contain-intrinsic-size: auto 320px; }
+  /* Chargement au défilement : les images « en trop » sont masquées (uniquement si JS),
+     puis révélées par lots quand on approche du bas. Sans JS, tout reste visible. */
+  :global(html.has-js) .gallery-extra { display: none; }
+  .gallery-more { height: 1px; }
 
   /* Images cliquables → plein écran (le wipe n'est pas concerné) */
   .zoomable { display: block; width: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; position: relative; }
@@ -229,3 +243,24 @@ const desc = `${d.titre}${d.annee ? ` (${d.annee})` : ''}${d.typologiePrincipale
     .p-nav-all { justify-self: start; }
   }
 </style>
+
+<script>
+  // Galerie : chargement progressif au défilement, sans bouton.
+  // Les images au-delà du premier lot (classe « gallery-extra ») sont révélées
+  // par paquets dès qu'on approche du bas de la liste actuellement affichée.
+  const grid = document.querySelector<HTMLElement>('.gallery');
+  const sentinel = document.querySelector('.gallery-more');
+  if (grid && sentinel) {
+    const batch = parseInt(grid.dataset.batch || '12', 10);
+    const remaining = () => Array.from(grid.querySelectorAll('.gallery-extra'));
+    const observer = new IntersectionObserver((entries) => {
+      if (!entries.some((e) => e.isIntersecting)) return;
+      remaining().slice(0, batch).forEach((el) => el.classList.remove('gallery-extra'));
+      if (remaining().length === 0) {
+        observer.disconnect();
+        sentinel.remove();
+      }
+    }, { rootMargin: '600px 0px' });
+    observer.observe(sentinel);
+  }
+</script>
