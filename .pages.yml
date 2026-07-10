@@ -126,6 +126,9 @@ content:
       - name: marquesTexte
         label: Texte au-dessus des logos de marques (laisser vide pour n'afficher que les logos)
         type: text
+      - name: bioTexte
+        label: Bio de la page « À propos » (un paragraphe par ligne, sépare par une ligne vide)
+        type: text
       - name: categoriesProjets
         label: Catégories de projets (onglets de filtre sur la page Projets)
         description: >-

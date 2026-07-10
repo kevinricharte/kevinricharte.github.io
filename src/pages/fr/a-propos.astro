@@ -3,12 +3,26 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
 import portrait from '../../assets/portrait.jpg';
 import { site } from '../../data/site';
+import reglages from '../../data/reglages.json';
 
+// Bio éditable depuis le panneau (Réglages → Bio « À propos »).
+// Repli sur ce texte par défaut si le champ est vide (robustesse).
+const DEFAULT_BIO = `Chaque projet commence pour moi par une lecture. Avant de toucher aux courbes, je regarde le film, je cherche ce que l'image veut raconter, l'émotion qu'une scène doit porter et la place que la couleur peut y prendre. C'est ma conviction de fond, la couleur est une matière narrative. Un bleu peut être une menace ou un refuge, une peau chaude peut dire l'intimité, et c'est le récit qui décide.
+
+Cette lecture, je la traduis ensuite en propositions concrètes. J'arrive rarement avec un seul look, je préfère présenter plusieurs partis pris argumentés, souvent en captures comparatives, pour que le choix se fasse ensemble et en connaissance de cause. L'étalonnage se construit ensuite en dialogue, par étapes validées, en session à distance depuis mon studio calibré ou en présentiel. Et quand le projet le permet, j'aime être là dès la pré-production, au moment où les choix d'image se décident vraiment.
+
+Si je travaille ainsi, c'est que je suis venu à l'étalonnage par la réalisation. Je garde en mémoire l'essence d'un tournage, ses ambitions artistiques comme ses contraintes techniques, et cela me permet de saisir la mentalité des équipes créatives, de parler récit avec un réalisateur et lumière avec un chef opérateur. Trois ans comme coloriste chez Jellysmack / Keli Network France, avec plus de mille projets étalonnés et des étalonneurs freelance supervisés, m'ont appris le reste, la rigueur, la tenue des délais, et cette exigence de cohérence d'ensemble sans laquelle le plus beau plan ne sert à rien. Aujourd'hui indépendant, certifié DaVinci Resolve, je consacre ce parcours à la fiction, au clip et aux contenus narratifs, avec des travaux dont certains ont été diffusés sur Canal+ et France Télévisions.
+
+L'étalonnage est pour moi une véritable transformation de matière, et j'ai plaisir à en faire un résultat cohérent et engageant. Aux côtés de gens qui ont une histoire à raconter.`;
+
+const bioSource = (reglages.bioTexte ?? '').trim() || DEFAULT_BIO;
+const bioParas = bioSource.split(/\n{2,}/).map((s) => s.trim()).filter(Boolean);
+
+// Compétences épurées (moins « CV »)
 const competences = [
-  { label: 'Logiciels', items: ['DaVinci Resolve Studio (certifié End User)', 'Adobe Premiere Pro', 'Shutter Encoder'] },
-  { label: 'Formats & workflows', items: ['RAW & LOG', 'ACES', 'DaVinci Wide Gamut', 'Rec.709', 'Conversion · conforming · livraison multi-formats', 'Conseil pré-production', 'Création de LUTs'] },
-  { label: 'Caméras', items: ['ARRI Alexa', 'RED V-RAPTOR', 'Sony FX9', 'Blackmagic PYXIS 6K · BMPCC', 'Panasonic GH/S'] },
-  { label: 'Approches', items: ['Identités visuelles narratives', 'Harmonisation multi-sources', 'Continuité visuelle', 'Simulation pellicule & looks cinéma'] },
+  { label: 'Outils', items: ['DaVinci Resolve Studio', 'Micro Panel Blackmagic'] },
+  { label: 'Espaces & formats', items: ['RAW & LOG', 'ACES', 'Rec.709', 'Livraison multi-formats'] },
+  { label: 'Savoir-faire', items: ['Harmonisation multi-sources', 'Simulation pellicule & looks cinéma', 'Création de LUTs', 'Conseil dès la pré-production'] },
 ];
 const formation = [
   { annee: '2020', item: 'DaVinci Resolve Certified End User · Blackmagic Design' },
@@ -16,7 +30,7 @@ const formation = [
   { annee: '2016', item: 'Licence Études cinématographiques et audiovisuelles · Université Montpellier III Paul-Valéry' },
 ];
 ---
-<BaseLayout title="À propos — Kévin Richarte, étalonneur fiction" lang="fr" description="Le parcours et la méthode de Kévin Richarte, étalonneur spécialisé fiction en région parisienne.">
+<BaseLayout title="À propos — Kévin Richarte, étalonneur fiction" lang="fr" description="La démarche et la méthode de Kévin Richarte, étalonneur spécialisé fiction en région parisienne.">
   <!-- Exergue -->
   <section class="section container-read exergue-wrap reveal">
     <p class="meta">À propos</p>
@@ -30,10 +44,15 @@ const formation = [
         <Image src={portrait} alt="Portrait de Kévin Richarte, étalonneur" widths={[400, 600, 900]} sizes="(max-width:800px) 100vw, 40vw" format="webp" />
       </div>
       <div class="bio-text reveal">
-        <p class="meta">Parcours</p>
-        <p>Kévin Richarte est étalonneur, spécialisé fiction, en région parisienne. Après une formation en cinéma — Licence Études cinématographiques et audiovisuelles (Université Montpellier III, 2016), puis titre RNCP Réalisateur-Monteur (ACFA Multimédia, 2018) — il commence par la réalisation et la production audiovisuelle : making-of, documentaire, vidéo.</p>
-        <p>En 2021, il rejoint Jellysmack / Keli Network France comme coloriste. En trois ans, il étalonne plus de mille projets pour les chaînes et créateurs de la maison, devient référent technique et conçoit des modules de formation interne, destinés aussi bien aux monteurs qu'aux étalonneurs freelance.</p>
-        <p>Depuis mai 2024, il exerce en indépendant et recentre son travail sur la fiction, le clip narratif et le brand content narratif. Parmi ses projets récents : <em>Postcard from Marseille</em> (France&nbsp;3 Régions · France&nbsp;TV) et <em>Là</em> (En Avant Toutes, diffusé sur Canal+).</p>
+        <p class="meta">Ma démarche</p>
+        {bioParas.map((p) => <p>{p}</p>)}
+        <div class="diffusions">
+          <p class="meta diff-label">Diffusé sur</p>
+          <div class="diff-logos">
+            <img src="/media/marques/canal.svg" alt="Canal+" loading="lazy" />
+            <img src="/media/marques/france-tv.svg" alt="France Télévisions" loading="lazy" />
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -58,13 +77,11 @@ const formation = [
         <ul role="list" class="plain-list">
           <li>Studio personnel calibré (gris 18&nbsp;%, moniteur DCI-P3)</li>
           <li>Panneau Blackmagic Micro Panel</li>
-          <li>Éclairage bias &amp; acoustique contrôlés</li>
           <li>À distance (sessions calibrées par partage d'écran) ou en présentiel</li>
-          <li>Stockage sécurisé</li>
         </ul>
       </div>
       <div class="reveal comp">
-        <p class="meta">Compétences techniques</p>
+        <p class="meta">Compétences</p>
         {competences.map((g) => (
           <div class="comp-group">
             <span class="comp-label">{g.label}</span>
@@ -106,7 +123,11 @@ const formation = [
   .bio-text p { margin-bottom: 1.1rem; max-width: 60ch; }
   .bio-text p:first-of-type { margin-top: 0.8rem; }
   .bio-text em { font-style: italic; }
-  .draft-note { font-family: var(--font-sans); font-size: 0.8rem; font-style: normal; color: #8a7d6a; }
+
+  .diffusions { margin-top: 2rem; padding-top: 1.6rem; border-top: 1px solid rgba(21, 17, 14, 0.14); }
+  .diff-label { margin-bottom: 0.9rem; }
+  .diff-logos { display: flex; align-items: center; flex-wrap: wrap; gap: 2rem; }
+  .diff-logos img { height: 26px; width: auto; }
 
   .method { list-style: none; counter-reset: m; margin-top: 1.6rem; display: flex; flex-direction: column; gap: 1.1rem; max-width: 60ch; }
   .method li { counter-increment: m; position: relative; padding-left: 2.6rem; color: var(--ivoire-72); font-family: var(--font-serif); font-size: 1.15rem; line-height: 1.5; }
