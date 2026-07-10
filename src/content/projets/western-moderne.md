@@ -17,12 +17,6 @@ wipe:
   apres: /media/Still 2026-04-30 155933_3.14.1_3.1.1.jpg
   alt: Western Moderne
 stills:
-  - image: /media/Still 2026-04-30 155933_3.18.1.jpg
-  - image: /media/Still 2026-04-30 155933_3.19.1.jpg
-  - image: /media/Still 2026-04-30 155933_3.20.1.jpg
-  - image: /media/Still 2026-04-30 155933_3.21.1.jpg
-  - image: /media/Still 2026-04-30 155933_3.23.1.jpg
-  - image: /media/Still 2026-04-30 155933_3.24.1-1.jpg
   - image: /media/Still 2026-04-30 155933_3.2.1.jpg
   - image: /media/Still 2026-04-30 155933_3.4.1.jpg
   - image: /media/Still 2026-04-30 155933_3.5.1.jpg
@@ -31,11 +25,21 @@ stills:
   - image: /media/Still 2026-04-30 155933_3.8.1.jpg
   - image: /media/Still 2026-04-30 160101_3.7.1.jpg
   - image: /media/Still 2026-04-30 160050_3.14.1-1.jpg
+  - image: /media/Still 2026-04-30 155933_3.18.1.jpg
+  - image: /media/Still 2026-04-30 155933_3.19.1.jpg
+  - image: /media/Still 2026-04-30 155933_3.20.1.jpg
+  - image: /media/Still 2026-04-30 155933_3.21.1.jpg
+  - image: /media/Still 2026-04-30 155933_3.23.1.jpg
+  - image: /media/Still 2026-04-30 155933_3.24.1-1.jpg
+  - {}
+  - {}
+  - {}
 inspirations:
   - Le Bon, la Brute et le Truand — Sergio Leone
 featured: true
 draft: false
 ordre: 8
+afficherNote: true
 ---
 Avec Alassane Diong, Andranic Manet, Anne Burger et Ninon Kjd.
 
