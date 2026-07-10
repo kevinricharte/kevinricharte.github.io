@@ -4,6 +4,8 @@ annee: 2026
 typologiePrincipale: Fiction
 typologies:
   - Fiction
+genres:
+  - Comédie
 credits:
   realisation: Natacha Couvillers
   production: Stanislas Pacotte
@@ -31,6 +33,7 @@ stills:
 featured: false
 draft: false
 ordre: 15
+afficherNote: true
 ---
 Réalisé dans le cadre du concours 1minute2court, sur le thème « Le mensonge ».
 
