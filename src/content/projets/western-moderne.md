@@ -32,7 +32,10 @@ stills:
   - image: /media/Still 2026-04-30 155933_3.23.1.jpg
   - image: /media/Still 2026-04-30 155933_3.24.1-1.jpg
   - image: /media/Still 2026-07-09 161036_2.1.1.jpg
-  - {}
+  - image: /media/Still 2026-07-09 161036_2.2.1-1.jpg
+  - image: /media/Still 2026-07-09 161036_2.3.1.jpg
+  - image: /media/Still 2026-07-09 161036_2.5.1.jpg
+  - image: /media/Still 2026-07-09 161036_2.6.1.jpg
   - {}
 inspirations:
   - Le Bon, la Brute et le Truand — Sergio Leone
