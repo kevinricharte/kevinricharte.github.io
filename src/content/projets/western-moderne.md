@@ -31,7 +31,7 @@ stills:
   - image: /media/Still 2026-04-30 155933_3.21.1.jpg
   - image: /media/Still 2026-04-30 155933_3.23.1.jpg
   - image: /media/Still 2026-04-30 155933_3.24.1-1.jpg
-  - {}
+  - image: /media/Still 2026-07-09 161036_2.1.1.jpg
   - {}
   - {}
 inspirations:
