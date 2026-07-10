@@ -16,7 +16,7 @@ const {
 } = Astro.props;
 ---
 <figure class="ba" data-ba>
-  <div class:list={["ba-frame", { "fit-natural": reglages.respecterFormatWipe }]}>
+  <div class:list={["ba-frame", { "fit-natural": reglages.respecterFormatWipe ?? true }]}>
     <img class="ba-img" src={apres} alt={`${alt} — ${labelApres}`} />
     <div class="ba-before" data-ba-before>
       <img class="ba-img" src={avant} alt={`${alt} — ${labelAvant}`} />

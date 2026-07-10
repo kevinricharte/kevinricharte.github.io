@@ -10,7 +10,7 @@ const cover = d.cover;
 ---
 <li class="card" data-typos={d.typologies.join('|')}>
   <a href={`/fr/projets/${entry.id}`} class="card-link">
-    <div class:list={["card-media", { "fit-contain": reglages.respecterFormatVignette }]}>
+    <div class:list={["card-media", { "fit-contain": reglages.respecterFormatVignette ?? true }]}>
       {cover && <img src={thumb(cover)} alt={d.coverAlt ?? d.titre} class="card-img" loading="lazy" />}
       <div class="card-overlay" aria-hidden="true">
         <span class="card-otitle">{d.titre}</span>

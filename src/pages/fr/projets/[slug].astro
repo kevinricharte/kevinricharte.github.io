@@ -69,7 +69,7 @@ const desc = `${d.titre}${d.annee ? ` (${d.annee})` : ''}${d.typologiePrincipale
 
     <!-- ===== Visuel principal ===== -->
     {cover && (
-      <div class:list={["p-visual", "container-wide", { "fit-natural": reglages.respecterFormatCouverture }]}>
+      <div class:list={["p-visual", "container-wide", { "fit-natural": reglages.respecterFormatCouverture ?? true }]}>
         <button type="button" class="zoomable p-visual-btn" data-full={cover} aria-label={`Agrandir : ${d.coverAlt ?? d.titre}`}>
           {/* Couverture du haut de fiche : pleine résolution (affichée en grand). */}
           <img src={cover} alt={d.coverAlt ?? d.titre} class="p-visual-img" fetchpriority="high" />

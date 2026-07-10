@@ -6,10 +6,14 @@ import { site } from '../../data/site';
 import reglages from '../../data/reglages.json';
 
 const title = 'Kévin Richarte — Étalonneur fiction · Région parisienne';
-const featured = (await getCollection('projets', ({ data }) => data.featured && !data.draft)).sort((a, b) => a.data.ordre - b.data.ordre);
+// Sélection de l'accueil : 6 projets maximum (pour remplir joliment la grille).
+const featured = (await getCollection('projets', ({ data }) => data.featured && !data.draft))
+  .sort((a, b) => a.data.ordre - b.data.ordre)
+  .slice(0, 6);
 
 // Marques + logos : tout se règle depuis le panneau (Réglages du site).
 const marques = reglages.logos;
+const marquesTexte = (reglages.marquesTexte ?? '').trim();
 const logoDispo = reglages.logosDisposition ?? 'bandeau';
 const logoAuto = reglages.logosDefilementAuto ?? true;
 const logoMelanger = reglages.logosMelanger ?? true;
@@ -79,7 +83,7 @@ const logoHauteur = reglages.logoHauteur ?? 30;
   <!-- ===== 5. MARQUES + CHIFFRES ===== -->
   <section class="section marques">
     <div class="container-wide reveal">
-      <p class="meta marques-label">Marques &amp; groupes rencontrés dans mon parcours d'étalonneur</p>
+      {marquesTexte && <p class="meta marques-label">{marquesTexte}</p>}
       <div class="marques-panel">
         <div
           class="marques-wrap"

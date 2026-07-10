@@ -117,6 +117,9 @@ content:
         label: Comparatifs avant/après — respecter le format d'origine
         type: boolean
         default: true
+      - name: marquesTexte
+        label: Texte au-dessus des logos de marques (laisser vide pour n'afficher que les logos)
+        type: text
       - name: categoriesProjets
         label: Catégories de projets (onglets de filtre sur la page Projets)
         description: >-

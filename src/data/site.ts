@@ -14,6 +14,7 @@ export const site = {
   showreelUrl: 'https://vimeo.com/1069282023',
   instagram: '@kevin_richarte_colorist',
   instagramUrl: 'https://www.instagram.com/kevin_richarte_colorist/',
+  linkedinUrl: 'https://www.linkedin.com/in/kévin-richarte-213358123/',
 
   // Textes éditoriaux (brief §3.3 / §3.4). Baseline PROVISOIRE.
   baselineProvisoire: 'Révéler votre image.',

@@ -1,5 +1,9 @@
 {
   "afficherFormation": false,
+  "respecterFormatVignette": true,
+  "respecterFormatCouverture": true,
+  "respecterFormatWipe": true,
+  "marquesTexte": "",
   "categoriesProjets": [
     {
       "valeur": "Fiction",
