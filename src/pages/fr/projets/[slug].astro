@@ -23,8 +23,10 @@ const cover = d.cover;
 const stills = (d.stills ?? []).map((s) => s.image).filter(Boolean);
 // Nombre d'images affichées d'emblée ; les suivantes se chargent au défilement.
 const GALLERY_BATCH = 12;
-// Note d'intention : affichée si la case est cochée ET qu'un texte est présent.
-const showNote = d.afficherNote && (p.body ?? '').trim().length > 0;
+// Note d'intention : affichée si la case est cochée ET qu'un vrai texte est présent
+// (un corps vide ou réduit à un simple gabarit « [ … ] » est masqué).
+const noteBody = (p.body ?? '').trim();
+const showNote = d.afficherNote && noteBody.length > 0 && !/^\[[\s\S]*\]$/.test(noteBody);
 const wipeAvant = d.wipe?.avant;
 const wipeApres = d.wipe?.apres;
 
