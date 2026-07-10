@@ -11,7 +11,7 @@ wipe:
   avant: /media/Still 2026-07-09 154717_2.109.1-1.jpg
   apres: /media/Still 2026-07-09 160223_3.111.1-1.jpg
 stills:
-  - image: /media/Still 2026-07-09 160223_3.5.1-1.jpg
+  - {}
   - image: /media/Still 2026-07-09 160223_3.13.1-1.jpg
   - image: /media/Still 2026-07-09 160223_3.14.1-1.jpg
   - image: /media/Still 2026-07-09 160223_3.18.1-1.jpg
