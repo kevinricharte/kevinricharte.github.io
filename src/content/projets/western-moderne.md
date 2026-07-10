@@ -4,6 +4,8 @@ annee: 2025
 typologiePrincipale: Fiction
 typologies:
   - Fiction
+genres:
+  - Comédie
 credits:
   realisation: Juliette Kajdas
   production: Balafre Cinéma
