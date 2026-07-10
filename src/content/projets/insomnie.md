@@ -4,6 +4,8 @@ annee: 2026
 typologiePrincipale: Clip
 typologies:
   - Clip
+genres:
+  - Action
 credits:
   realisation: Valentin O'Quin
   production: MUSIGAMY
@@ -34,6 +36,7 @@ inspirations:
 featured: true
 draft: false
 ordre: 5
+afficherNote: true
 ---
 Clip de l'artiste CVRMEN (MUSIGAMY), à grande variété de plans — une liberté créative étendue.
 
