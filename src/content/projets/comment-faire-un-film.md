@@ -6,6 +6,7 @@ credits:
   realisation: Guillaume Dionnet
   camera: Sony Burano
   etalonnage: Kévin Richarte
+  workflow: S-Log3
 cover: /media/Still 2026-06-26 155848_2.336.1-1.jpg
 wipe:
   avant: /media/Still 2026-06-26 155951_1.395.1-1.jpg
@@ -84,5 +85,6 @@ stills:
   - {}
 featured: false
 draft: false
+afficherNote: true
 ---
 Prout
