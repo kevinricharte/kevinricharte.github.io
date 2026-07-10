@@ -1,5 +1,6 @@
 ---
 titre: Chromatique
+annee: 2026
 typologiePrincipale: Fiction
 typologies:
   - Fiction
@@ -26,5 +27,6 @@ stills:
 featured: false
 draft: false
 ordre: 8
+afficherNote: true
 ---
 Le récit met en scène un enfant daltonien. Le travail d'étalonnage a consisté à manipuler les images du tableau du récit en tenant compte de la limitation de perception des couleurs propre à ce type de daltonisme.
