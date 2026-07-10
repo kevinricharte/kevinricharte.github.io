@@ -1,15 +1,30 @@
 {
   "afficherFormation": false,
-  "respecterFormatVignette": true,
-  "respecterFormatCouverture": true,
-  "respecterFormatWipe": true,
   "categoriesProjets": [
-    { "valeur": "Fiction", "label": "", "visible": true },
-    { "valeur": "Clip", "label": "", "visible": true },
-    { "valeur": "Publicité", "label": "", "visible": true },
-    { "valeur": "Brand content", "label": "", "visible": true },
-    { "valeur": "Documentaire", "label": "", "visible": false },
-    { "valeur": "Spot", "label": "", "visible": false }
+    {
+      "valeur": "Fiction",
+      "visible": true
+    },
+    {
+      "valeur": "Clip",
+      "visible": true
+    },
+    {
+      "valeur": "Publicité",
+      "visible": true
+    },
+    {
+      "valeur": "Brand content",
+      "visible": false
+    },
+    {
+      "valeur": "Documentaire",
+      "visible": false
+    },
+    {
+      "valeur": "Spot",
+      "visible": false
+    }
   ],
   "logosDisposition": "bandeau",
   "logosDefilementAuto": true,
