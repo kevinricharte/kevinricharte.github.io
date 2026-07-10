@@ -273,17 +273,15 @@ const logoHauteur = reglages.logoHauteur ?? 30;
 
   const injectBg = () => {
     const f = document.createElement('iframe');
-    // quality=4K : qualité par défaut au chargement (ignorée si la source n'a pas de 4K).
-    f.src = `https://player.vimeo.com/video/${id}?background=1&autoplay=1&loop=1&muted=1&dnt=1&quality=4K`;
+    // quality=1080p : plancher Full HD (jamais en dessous), sans imposer la 4K.
+    f.src = `https://player.vimeo.com/video/${id}?background=1&autoplay=1&loop=1&muted=1&dnt=1&quality=1080p`;
     f.allow = 'autoplay; fullscreen; picture-in-picture';
     f.setAttribute('tabindex', '-1'); f.setAttribute('aria-hidden', 'true'); f.title = 'Showreel Kévin Richarte';
     host?.appendChild(f);
 
+    // SDK utilisé uniquement pour reboucler à 1:37 (la qualité est gérée via l'URL).
     loadVimeoSDK().then((Player) => {
       const player = new Player(f);
-      // Force la 4K (nécessite un compte Vimeo Plus/PRO/Business + une source en 4K).
-      player.setQuality('2160p').catch(() => {});
-      // Reboucle à 1:37 : on revient au début dès qu'on atteint REEL_END.
       let looping = false;
       player.on('timeupdate', (data: { seconds: number }) => {
         if (data.seconds >= REEL_END && !looping) {
