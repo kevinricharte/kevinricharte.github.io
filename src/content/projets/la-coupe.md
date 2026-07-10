@@ -1,5 +1,6 @@
 ---
 titre: La Coupe
+annee: 2026
 typologiePrincipale: Fiction
 typologies:
   - Fiction
