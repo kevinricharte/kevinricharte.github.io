@@ -259,12 +259,39 @@ const logoHauteur = reglages.logoHauteur ?? 30;
   const id = host?.getAttribute('data-vimeo');
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  // Charge le SDK Vimeo (une seule fois) pour piloter la qualité et le point de boucle.
+  const loadVimeoSDK = () => new Promise<any>((resolve, reject) => {
+    if ((window as any).Vimeo?.Player) return resolve((window as any).Vimeo.Player);
+    const s = document.createElement('script');
+    s.src = 'https://player.vimeo.com/api/player.js';
+    s.onload = () => resolve((window as any).Vimeo.Player);
+    s.onerror = reject;
+    document.head.appendChild(s);
+  });
+
+  const REEL_END = 97; // fin de boucle à 1 min 37 s au lieu de la fin naturelle
+
   const injectBg = () => {
     const f = document.createElement('iframe');
-    f.src = `https://player.vimeo.com/video/${id}?background=1&autoplay=1&loop=1&muted=1&dnt=1`;
+    // quality=4K : qualité par défaut au chargement (ignorée si la source n'a pas de 4K).
+    f.src = `https://player.vimeo.com/video/${id}?background=1&autoplay=1&loop=1&muted=1&dnt=1&quality=4K`;
     f.allow = 'autoplay; fullscreen; picture-in-picture';
     f.setAttribute('tabindex', '-1'); f.setAttribute('aria-hidden', 'true'); f.title = 'Showreel Kévin Richarte';
     host?.appendChild(f);
+
+    loadVimeoSDK().then((Player) => {
+      const player = new Player(f);
+      // Force la 4K (nécessite un compte Vimeo Plus/PRO/Business + une source en 4K).
+      player.setQuality('2160p').catch(() => {});
+      // Reboucle à 1:37 : on revient au début dès qu'on atteint REEL_END.
+      let looping = false;
+      player.on('timeupdate', (data: { seconds: number }) => {
+        if (data.seconds >= REEL_END && !looping) {
+          looping = true;
+          player.setCurrentTime(0).finally(() => { looping = false; });
+        }
+      });
+    }).catch(() => { /* SDK indisponible : la vidéo garde sa boucle normale */ });
   };
 
   // Showreel en fond, autoplay muet (desktop + mobile). Respecte prefers-reduced-motion.
