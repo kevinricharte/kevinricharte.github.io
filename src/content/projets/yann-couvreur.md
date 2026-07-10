@@ -4,14 +4,11 @@ annee: 2022
 typologiePrincipale: Brand content
 typologies:
   - Brand content
-distinctions: []
 credits:
   camera: Sony (S-Log3)
   etalonnage: Kévin Richarte
 cover: /media/projets/yann-couvreur--cover.webp
 coverAlt: Yann Couvreur — image étalonnée
-featured: false
-ordre: 9
 wipe:
   avant: /media/projets/yann-couvreur--wipe-avant.webp
   apres: /media/projets/yann-couvreur--wipe-apres.webp
@@ -22,8 +19,11 @@ stills:
   - image: /media/projets/yann-couvreur--still-03.webp
   - image: /media/projets/yann-couvreur--still-04.webp
   - image: /media/projets/yann-couvreur--still-05.webp
+featured: false
+draft: true
+ordre: 9
+afficherNote: true
 ---
-
 Étalonnage de la chaîne YouTube du chef pâtissier Yann Couvreur — une douzaine de capsules de 4 à 6 minutes, réalisées dans le cadre de Jellysmack.
 
 Le contenu culinaire demande une attention particulière, tant sur le traitement de l'intervenant que sur la mise en valeur des créations : la qualité visuelle devait être à la hauteur du savoir-faire du chef. Défi technique principal : harmoniser les variations d'exposition entre prises, difficulté classique des tournages en lumière naturelle.
