@@ -3,6 +3,8 @@ titre: Les Chants de la Forêt
 typologiePrincipale: Fiction
 typologies:
   - Fiction
+genres:
+  - Drame
 credits:
   realisation: Alice Helft
   production: Nomad Drone
@@ -37,6 +39,7 @@ stills:
 featured: true
 draft: false
 ordre: 6
+afficherNote: true
 ---
 L'histoire raconte la transition entre l'enfermement urbain et la liberté naturelle ; l'étalonnage devait traduire visuellement ce contraste émotionnel.
 
