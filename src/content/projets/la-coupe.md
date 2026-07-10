@@ -3,6 +3,8 @@ titre: La Coupe
 typologiePrincipale: Fiction
 typologies:
   - Fiction
+genres:
+  - Comédie
 credits:
   realisation: Florian Sanchez
   camera: ARRI Alexa
@@ -37,6 +39,7 @@ inspirations:
 featured: true
 draft: false
 ordre: 16
+afficherNote: true
 ---
 Court-métrage inspiré du concours Jeanne d'Arc à Orléans — une interrogation sur la féminité et les attentes sociales.
 
