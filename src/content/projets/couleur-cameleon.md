@@ -15,8 +15,10 @@ wipe:
   avant: /media/Still 2026-07-09 162557_1.67.1.jpg
   apres: /media/Still 2026-07-09 162532_1.67.1.jpg
 stills:
-  - {}
-  - {}
+  - image: /media/Still 2026-07-09 162532_3.4.1.jpg
+  - image: /media/projets/couleur-cameleon--still-01.webp
+  - image: /media/Still 2026-07-09 162532_3.27.1.jpg
+  - image: /media/Still 2026-07-09 162532_3.41.1.jpg
 featured: false
 draft: false
 ordre: 10
