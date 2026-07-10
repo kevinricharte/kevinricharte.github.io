@@ -4,6 +4,8 @@ annee: 2026
 typologiePrincipale: Fiction
 typologies:
   - Fiction
+genres:
+  - Drame
 credits:
   realisation: Alexandra Battereau
   image: Louis Bonnet
