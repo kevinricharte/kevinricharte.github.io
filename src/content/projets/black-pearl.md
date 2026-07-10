@@ -21,8 +21,8 @@ stills:
   - image: /media/Still 2026-07-09 160223_3.23.1-1.jpg
   - image: /media/Still 2026-07-09 160223_3.24.1-1.jpg
   - image: /media/Still 2026-07-09 160223_3.42.1-1.jpg
-  - {}
-  - {}
+  - image: /media/Still 2026-07-09 160223_3.46.1-1.jpg
+  - image: /media/Still 2026-07-09 160223_3.53.1-1.jpg
   - image: /media/Still 2026-07-09 160223_3.55.1-1.jpg
   - image: /media/Still 2026-07-09 160223_3.56.1-1.jpg
   - image: /media/Still 2026-07-09 160223_3.61.1-1.jpg
