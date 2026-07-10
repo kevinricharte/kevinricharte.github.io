@@ -1,5 +1,6 @@
 ---
 titre: Black Pearl
+annee: 2026
 typologiePrincipale: Fiction
 typologies:
   - Fiction
