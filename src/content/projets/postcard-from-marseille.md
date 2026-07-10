@@ -4,6 +4,8 @@ annee: 2025
 typologiePrincipale: Fiction
 typologies:
   - Fiction
+genres:
+  - Thriller
 diffusion: France 3 Régions · France TV
 credits:
   realisation: Hermance Roué & Marie Abega
@@ -37,6 +39,7 @@ inspirations:
 featured: true
 draft: false
 ordre: 1
+afficherNote: true
 ---
 Réalisé dans le cadre du concours « Eau, Capital Bleu » (Métropole Aix-Marseille × France TV).
 
