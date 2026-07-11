@@ -2,24 +2,29 @@
 import type { CollectionEntry } from 'astro:content';
 import { thumb } from '../lib/media';
 import reglages from '../data/reglages.json';
+import { typoLabel, projectHref } from '../i18n/content';
 
-interface Props { entry: CollectionEntry<'projets'>; }
-const { entry } = Astro.props;
+interface Props { entry: CollectionEntry<'projets'>; lang?: 'fr' | 'en'; }
+const { entry, lang = 'fr' } = Astro.props;
+const en = lang === 'en';
 const d = entry.data;
 const cover = d.cover;
+const title = en ? (d.titreEn?.trim() || d.titre) : d.titre;
+const href = projectHref(entry.id, en);
+const typo = d.typologiePrincipale ? typoLabel(d.typologiePrincipale, en) : undefined;
 ---
 <li class="card" data-typos={d.typologies.join('|')} data-genres={d.genres.join('|')}>
-  <a href={`/fr/projets/${entry.id}`} class="card-link">
+  <a href={href} class="card-link">
     <div class:list={["card-media", { "fit-contain": reglages.respecterFormatVignette ?? true }]}>
-      {cover && <img src={thumb(cover)} alt={d.coverAlt ?? d.titre} class="card-img" loading="lazy" />}
+      {cover && <img src={thumb(cover)} alt={d.coverAlt ?? title} class="card-img" loading="lazy" />}
       <div class="card-overlay" aria-hidden="true">
-        <span class="card-otitle">{d.titre}</span>
-        {d.typologiePrincipale && <span class="card-otypo">{d.typologiePrincipale}</span>}
+        <span class="card-otitle">{title}</span>
+        {typo && <span class="card-otypo">{typo}</span>}
       </div>
     </div>
     <div class="card-meta">
-      <span class="card-name">{d.titre}</span>
-      <span class="meta card-info">{d.annee ?? '—'}{d.typologiePrincipale ? ` · ${d.typologiePrincipale}` : ''}</span>
+      <span class="card-name">{title}</span>
+      <span class="meta card-info">{d.annee ?? '—'}{typo ? ` · ${typo}` : ''}</span>
     </div>
   </a>
 </li>

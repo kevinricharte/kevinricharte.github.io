@@ -1,0 +1,276 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BeforeAfter from '../BeforeAfter.astro';
+import Lightbox from '../Lightbox.astro';
+import { thumb } from '../../lib/media';
+import reglages from '../../data/reglages.json';
+import { typoLabel, projectHref } from '../../i18n/content';
+import { getRoutes } from '../../i18n/utils';
+import { render } from 'astro:content';
+
+type Entry = CollectionEntry<'projets'>;
+interface Props { p: Entry; prev: Entry; next: Entry; lang: 'fr' | 'en'; }
+const { p, prev, next, lang } = Astro.props;
+const en = lang === 'en';
+const r = getRoutes(lang);
+const d = p.data;
+const { Content } = await render(p);
+
+const projTitle = (e: Entry) => (en ? (e.data.titreEn?.trim() || e.data.titre) : e.data.titre);
+const heading = projTitle(p);
+const cover = d.cover;
+const stills = (d.stills ?? []).map((s) => s.image).filter(Boolean);
+const GALLERY_BATCH = 12;
+
+// Note : FR = corps Markdown ; EN = champ noteEn (un paragraphe par ligne).
+const noteBody = (p.body ?? '').trim();
+const noteEnParas = (d.noteEn ?? '').split(/\n{2,}/).map((s) => s.trim()).filter(Boolean);
+const showNote = d.afficherNote && (en
+  ? noteEnParas.length > 0
+  : noteBody.length > 0 && !/^\[[\s\S]*\]$/.test(noteBody));
+
+const wipeAvant = d.wipe?.avant;
+const wipeApres = d.wipe?.apres;
+
+const show = (v?: string) => (v && !/^\s*\[.*\]\s*$/.test(v) ? v : undefined);
+const detailTech = show(d.detailTechnique);
+const typoPrincipale = d.typologiePrincipale ? typoLabel(d.typologiePrincipale, en) : undefined;
+const metaLine = [d.annee, typoPrincipale, show(d.diffusion), show(d.duree)].filter(Boolean).join('  ·  ');
+const eyebrow = d.typologies.map((t) => typoLabel(t, en)).join('  ·  ');
+
+const L = {
+  credits: en
+    ? ['Direction', 'Production', 'Cinematography', 'Camera', 'Grading', 'Workflow']
+    : ['Réalisation', 'Production', 'Image', 'Caméra', 'Étalonnage', 'Workflow'],
+  creditsAria: en ? 'Credits' : 'Crédits',
+  wipe: en ? 'Before / After' : 'Avant / Après',
+  note: en ? 'Intention' : "Note d'intention",
+  inspirations: en ? 'Inspirations / references' : 'Inspirations / références',
+  tech: en ? 'Technical details' : 'Détail technique',
+  gallery: en ? 'Gallery' : 'Galerie',
+  tags: en ? ['Cameras', 'Colour spaces', 'Broadcast', 'Approaches'] : ['Caméras', 'Espaces', 'Diffusions', 'Approches'],
+  prev: en ? 'Previous' : 'Précédent',
+  next: en ? 'Next' : 'Suivant',
+  all: en ? 'All projects' : 'Tous les projets',
+  navAria: en ? 'Project navigation' : 'Navigation entre projets',
+  enlarge: en ? 'Enlarge' : 'Agrandir',
+};
+const creditVals = [
+  show(d.credits.realisation), show(d.credits.production), show(d.credits.image),
+  show(d.credits.camera), d.credits.etalonnage, show(d.credits.workflow),
+];
+const tagVals = [d.tags.cameras, d.tags.espaces, d.tags.diffusions, d.tags.approches];
+const hasTags = tagVals.some((v) => v.length > 0);
+
+const title = en
+  ? `${heading} — Kévin Richarte, fiction colorist`
+  : `${heading} — Kévin Richarte, étalonneur fiction`;
+const desc = en
+  ? `${heading}${d.annee ? ` (${d.annee})` : ''}${typoPrincipale ? ` — ${typoPrincipale}` : ''}. Grading: Kévin Richarte.`
+  : `${heading}${d.annee ? ` (${d.annee})` : ''}${typoPrincipale ? ` — ${typoPrincipale}` : ''}. Étalonnage : Kévin Richarte.`;
+---
+<BaseLayout title={title} description={desc} lang={lang}>
+  <script is:inline>document.documentElement.classList.add('has-js');</script>
+  <article class="project">
+    <header class="p-head container-read reveal">
+      <p class="meta p-eyebrow">{eyebrow}</p>
+      <h1 class="p-title">{heading}</h1>
+      <p class="p-metaline meta">{metaLine}</p>
+      {d.distinctions.length > 0 && (
+        <p class="p-distinctions">{d.distinctions.join('  ·  ')}</p>
+      )}
+    </header>
+
+    {cover && (
+      <div class:list={["p-visual", "container-wide", { "fit-natural": reglages.respecterFormatCouverture ?? true }]}>
+        <button type="button" class="zoomable p-visual-btn" data-full={cover} aria-label={`${L.enlarge} : ${d.coverAlt ?? heading}`}>
+          <img src={cover} alt={d.coverAlt ?? heading} class="p-visual-img" fetchpriority="high" />
+        </button>
+      </div>
+    )}
+
+    <section class="p-credits container-read reveal" aria-label={L.creditsAria}>
+      <dl class="credits">
+        {L.credits.map((label, i) => creditVals[i] && (
+          <div class="credit">
+            <dt class="meta">{label}</dt>
+            <dd>{creditVals[i]}</dd>
+          </div>
+        ))}
+      </dl>
+    </section>
+
+    {wipeAvant && wipeApres && (
+      <section class="section p-wipe">
+        <div class="container-wide reveal">
+          <p class="meta p-section-label">{L.wipe}</p>
+          <BeforeAfter avant={wipeAvant} apres={wipeApres} alt={d.wipe?.alt ?? heading} />
+        </div>
+      </section>
+    )}
+
+    {(showNote || d.inspirations.length > 0) && (
+      <section class="section on-ivoire p-note">
+        <div class="container-read reveal">
+          {showNote && <p class="meta p-note-label">{L.note}</p>}
+          {showNote && (
+            <div class="prose">
+              {en ? noteEnParas.map((para) => <p>{para}</p>) : <Content />}
+            </div>
+          )}
+          {d.inspirations.length > 0 && (
+            <div class="p-inspirations">
+              <p class="meta">{L.inspirations}</p>
+              <ul role="list">{d.inspirations.map((it) => <li>{it}</li>)}</ul>
+            </div>
+          )}
+        </div>
+      </section>
+    )}
+
+    {detailTech && (
+      <section class="p-tech container-read reveal">
+        <p class="meta p-section-label">{L.tech}</p>
+        <p class="p-tech-text">{detailTech}</p>
+      </section>
+    )}
+
+    {stills.length > 0 && (
+      <section class="section p-gallery">
+        <div class="container-wide reveal">
+          <p class="meta p-section-label">{L.gallery}</p>
+          <div class="gallery" data-batch={GALLERY_BATCH}>
+            {stills.map((s, i) => (
+              <button
+                type="button"
+                class:list={["zoomable", "gallery-btn", { "gallery-extra": i >= GALLERY_BATCH }]}
+                data-full={s}
+                aria-label={`${L.enlarge} : ${heading} — ${i + 1}`}
+              >
+                <img src={thumb(s)} alt={`${heading} — ${i + 1}`} class="gallery-img" loading="lazy" decoding="async" />
+              </button>
+            ))}
+          </div>
+          {stills.length > GALLERY_BATCH && <div class="gallery-more" aria-hidden="true"></div>}
+        </div>
+      </section>
+    )}
+
+    {hasTags && (
+      <section class="p-tags container-read reveal">
+        {L.tags.map((label, i) => tagVals[i].length > 0 && (
+          <div class="tag-group">
+            <span class="meta">{label}</span>
+            <ul role="list" class="tag-list">{tagVals[i].map((v) => <li class="tag">{v}</li>)}</ul>
+          </div>
+        ))}
+      </section>
+    )}
+
+    <nav class="p-nav container-wide" aria-label={L.navAria}>
+      <a class="p-nav-link p-nav-prev" href={projectHref(prev.id, en)}>
+        <span class="meta">{L.prev}</span>
+        <span class="p-nav-title">← {projTitle(prev)}</span>
+      </a>
+      <a class="p-nav-all" href={r.projects}>{L.all}</a>
+      <a class="p-nav-link p-nav-next" href={projectHref(next.id, en)}>
+        <span class="meta">{L.next}</span>
+        <span class="p-nav-title">{projTitle(next)} →</span>
+      </a>
+    </nav>
+  </article>
+  <Lightbox />
+</BaseLayout>
+
+<style>
+  .p-head { padding-top: var(--space-2xl); }
+  .p-eyebrow { color: var(--ambre); }
+  .p-title { font-size: var(--step-4); font-weight: 300; margin-top: 1rem; }
+  .p-metaline { margin-top: 1.1rem; }
+  .p-distinctions { color: var(--ivoire-72); font-style: italic; font-family: var(--font-serif); margin-top: 0.6rem; }
+
+  .p-visual { margin-top: var(--space-xl); }
+  .p-visual-img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border: 1px solid var(--line); display: block; }
+  .p-visual.fit-natural .p-visual-img { aspect-ratio: auto; height: auto; object-fit: contain; }
+
+  .p-credits { margin-top: var(--space-2xl); }
+  .credits { display: grid; grid-template-columns: 1fr; gap: 1.2rem 2.5rem; }
+  @media (min-width: 640px) { .credits { grid-template-columns: repeat(2, 1fr); } }
+  .credit dt { margin-bottom: 0.3rem; }
+  .credit dd { font-family: var(--font-serif); font-size: 1.1rem; color: var(--ivoire); }
+
+  .p-note-label, .p-section-label { margin-bottom: 1.6rem; }
+  .p-note .prose { font-family: var(--font-serif); font-size: 1.19rem; line-height: 1.72; color: var(--encre); }
+  .p-note .prose :global(p) { margin-bottom: 1.2rem; max-width: 62ch; }
+  .p-note .prose p { margin-bottom: 1.2rem; max-width: 62ch; }
+  .p-inspirations { margin-top: 2.5rem; }
+  .p-inspirations ul { margin-top: 0.8rem; display: flex; flex-direction: column; gap: 0.4rem; color: var(--encre); font-family: var(--font-serif); font-style: italic; }
+
+  .p-wipe { padding-top: var(--space-2xl); }
+
+  .p-tech { margin-top: var(--space-2xl); }
+  .p-tech-text { color: var(--ivoire-72); max-width: 62ch; }
+
+  .gallery { display: grid; grid-template-columns: 1fr; gap: 1rem; margin-top: 0.5rem; }
+  @media (min-width: 700px) { .gallery { grid-template-columns: repeat(2, 1fr); } }
+  .gallery-img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border: 1px solid var(--line); }
+  .gallery-btn { content-visibility: auto; contain-intrinsic-size: auto 320px; }
+  :global(html.has-js) .gallery-extra { display: none; }
+  .gallery-more { height: 1px; }
+
+  .zoomable { display: block; width: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; position: relative; }
+  .zoomable img { display: block; }
+  .zoomable:focus-visible { outline: 2px solid var(--ambre); outline-offset: 3px; }
+  .zoomable::after {
+    content: "\2922";
+    position: absolute; right: 0.6rem; bottom: 0.6rem;
+    display: grid; place-items: center; width: 1.9rem; height: 1.9rem;
+    font-size: 1rem; line-height: 1; color: var(--ivoire);
+    background: rgba(21, 17, 14, 0.55); border: 1px solid var(--ivoire-24, rgba(242,234,216,.24)); border-radius: 4px;
+    opacity: 0; transition: opacity var(--dur) var(--ease); pointer-events: none;
+  }
+  .zoomable:hover::after, .zoomable:focus-visible::after { opacity: 1; }
+  @media (hover: none) { .zoomable::after { opacity: 1; } }
+
+  .p-tags { margin-top: var(--space-2xl); display: flex; flex-direction: column; gap: 1.4rem; }
+  .tag-group { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.8rem; }
+  .tag-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .tag { font-family: var(--font-sans); font-size: 0.72rem; letter-spacing: 0.06em; color: var(--ivoire-72); border: 1px solid var(--line); border-radius: 100px; padding: 0.3rem 0.8rem; }
+
+  .p-nav {
+    margin-top: var(--space-3xl); padding-top: var(--space-l); padding-bottom: var(--space-3xl);
+    border-top: 1px solid var(--line);
+    display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 1rem;
+  }
+  .p-nav-link { display: flex; flex-direction: column; gap: 0.35rem; }
+  .p-nav-next { text-align: right; }
+  .p-nav-title { font-family: var(--font-serif); font-size: 1.2rem; color: var(--ivoire); transition: color var(--dur) var(--ease); }
+  .p-nav-link:hover .p-nav-title { color: var(--ambre); }
+  .p-nav-all { justify-self: center; }
+  .p-nav-all { font-family: var(--font-sans); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--brouillard); }
+  .p-nav-all:hover { color: var(--ivoire); }
+  @media (max-width: 620px) {
+    .p-nav { grid-template-columns: 1fr; text-align: left; gap: 1.5rem; }
+    .p-nav-next { text-align: left; }
+    .p-nav-all { justify-self: start; }
+  }
+</style>
+
+<script>
+  const grid = document.querySelector<HTMLElement>('.gallery');
+  const sentinel = document.querySelector('.gallery-more');
+  if (grid && sentinel) {
+    const batch = parseInt(grid.dataset.batch || '12', 10);
+    const remaining = () => Array.from(grid.querySelectorAll('.gallery-extra'));
+    const observer = new IntersectionObserver((entries) => {
+      if (!entries.some((e) => e.isIntersecting)) return;
+      remaining().slice(0, batch).forEach((el) => el.classList.remove('gallery-extra'));
+      if (remaining().length === 0) {
+        observer.disconnect();
+        sentinel.remove();
+      }
+    }, { rootMargin: '600px 0px' });
+    observer.observe(sentinel);
+  }
+</script>

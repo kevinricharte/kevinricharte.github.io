@@ -1,0 +1,94 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { site } from '../../data/site';
+
+interface Props { lang: 'fr' | 'en'; }
+const { lang } = Astro.props;
+const en = lang === 'en';
+
+const T = {
+  title: en ? 'Legal notice — Kévin Richarte' : 'Mentions légales — Kévin Richarte',
+  description: en ? 'Legal notice for Kévin Richarte’s website, colorist.' : 'Mentions légales du site de Kévin Richarte, étalonneur.',
+  eyebrow: en ? 'Legal information' : 'Informations légales',
+  heading: en ? 'Legal notice' : 'Mentions légales',
+  publisher: en ? 'Site publisher' : 'Éditeur du site',
+  director: en ? 'Publication director' : 'Directeur de la publication',
+  hosting: en ? 'Hosting' : 'Hébergement',
+  ip: en ? 'Intellectual property' : 'Propriété intellectuelle',
+  data: en ? 'Personal data & cookies' : 'Données personnelles & cookies',
+  contactLabel: en ? 'Contact' : 'Contact',
+};
+---
+<BaseLayout title={T.title} lang={lang} description={T.description}>
+  <section class="section container-read legal">
+    <header class="reveal">
+      <p class="meta">{T.eyebrow}</p>
+      <h1 class="legal-title">{T.heading}</h1>
+    </header>
+
+    <div class="legal-body reveal">
+      <div class="legal-block">
+        <h2 class="meta">{T.publisher}</h2>
+        {en ? (
+          <p>Kévin Richarte — Colorist.<br />
+          Sole trader (micro-enterprise).<br />
+          SIRET: 843&nbsp;487&nbsp;042&nbsp;00015.<br />
+          VAT not applicable, article 293&nbsp;B of the French General Tax Code.<br />
+          Registered office: Paris area, France.<br />
+          {T.contactLabel}: <a href={`mailto:${site.email}`} class="underline-accent">{site.email}</a></p>
+        ) : (
+          <p>Kévin Richarte — Étalonneur.<br />
+          Entrepreneur individuel (micro-entreprise).<br />
+          SIRET : 843&nbsp;487&nbsp;042&nbsp;00015.<br />
+          TVA non applicable, article 293&nbsp;B du CGI.<br />
+          Siège : Région parisienne, France.<br />
+          {T.contactLabel} : <a href={`mailto:${site.email}`} class="underline-accent">{site.email}</a></p>
+        )}
+      </div>
+
+      <div class="legal-block">
+        <h2 class="meta">{T.director}</h2>
+        <p>Kévin Richarte.</p>
+      </div>
+
+      <div class="legal-block">
+        <h2 class="meta">{T.hosting}</h2>
+        {en ? (
+          <p>GitHub, Inc.<br />
+          88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA.<br />
+          Site hosted via GitHub Pages.</p>
+        ) : (
+          <p>GitHub, Inc.<br />
+          88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis.<br />
+          Site hébergé via le service GitHub Pages.</p>
+        )}
+      </div>
+
+      <div class="legal-block">
+        <h2 class="meta">{T.ip}</h2>
+        {en ? (
+          <p>All content on this site (text, project images, layouts) is protected. Project visuals remain the property of their respective rights holders and are shown as a colour-grading portfolio. The logos of the brands and groups mentioned belong to their respective owners and are shown to illustrate a career path, without any claim of commercial partnership.</p>
+        ) : (
+          <p>L'ensemble des contenus de ce site (textes, images des projets, mises en page) est protégé. Les visuels des projets restent la propriété de leurs ayants droit respectifs et sont présentés à titre de portfolio d'étalonnage. Les logos des marques et groupes cités appartiennent à leurs propriétaires respectifs et sont mentionnés à titre indicatif du parcours, sans revendication de partenariat commercial.</p>
+        )}
+      </div>
+
+      <div class="legal-block">
+        <h2 class="meta">{T.data}</h2>
+        {en ? (
+          <p>This site is static and uses no advertising trackers or analytics tools. No non-essential cookie is set and no personal data is collected without your knowledge. Exchanges happen directly by email, at your initiative. For any question about your data, write to <a href={`mailto:${site.email}`} class="underline-accent">{site.email}</a>.</p>
+        ) : (
+          <p>Ce site est statique et n'utilise aucun traceur publicitaire ni outil de mesure d'audience. Aucun cookie non essentiel n'est déposé et aucune donnée personnelle n'est collectée à votre insu. Les échanges se font directement par e-mail, à votre initiative. Pour toute question relative à vos données, écrivez à <a href={`mailto:${site.email}`} class="underline-accent">{site.email}</a>.</p>
+        )}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .legal { padding-top: var(--space-2xl); }
+  .legal-title { font-family: var(--font-serif); font-weight: 300; font-size: var(--step-3); margin-top: 0.8rem; }
+  .legal-body { margin-top: var(--space-xl); display: flex; flex-direction: column; gap: 2.2rem; }
+  .legal-block h2 { margin-bottom: 0.7rem; }
+  .legal-block p { color: var(--ivoire-72); line-height: 1.7; max-width: 62ch; }
+</style>

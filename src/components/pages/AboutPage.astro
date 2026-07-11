@@ -1,0 +1,185 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import portrait from '../../assets/portrait.jpg';
+import { site } from '../../data/site';
+import reglages from '../../data/reglages.json';
+
+interface Props { lang: 'fr' | 'en'; }
+const { lang } = Astro.props;
+const en = lang === 'en';
+
+const DEFAULT_BIO_FR = `Chaque projet commence pour moi par une lecture. Je cherche ce que l'image veut raconter et la place que la couleur peut y prendre. L'étalonnage se construit ensuite en dialogue, par propositions argumentées et étapes validées.\n\nSi je travaille ainsi, c'est que je suis venu à l'étalonnage par la réalisation. Je garde en mémoire l'essence d'un tournage, ses ambitions artistiques comme ses contraintes techniques, ce qui me permet de parler récit avec un réalisateur et lumière avec un chef opérateur. Avec plus de mille projets étalonnés, il y a toujours une nouvelle façon de dire en images.\n\nDoté d'une certification DaVinci Resolve, mon travail englobe la fiction, le clip et divers contenus narratifs, avec des travaux dont certains ont été diffusés sur Canal+ et France Télévisions.\n\nL'étalonnage est pour moi la dernière pierre apportée à l'élaboration d'un projet audiovisuel, et j'ai plaisir à en faire un résultat cohérent et engageant aux côtés de gens qui ont une histoire à raconter.`;
+const DEFAULT_BIO_EN = `For me, every project begins with a reading. I look for what the image is trying to say and the place colour can hold within it. The grade is then built through dialogue, with reasoned proposals and validated stages.\n\nI work this way because I came to colour grading through directing. I keep in mind the essence of a shoot — its artistic ambitions as much as its technical constraints — which lets me talk story with a director and light with a cinematographer. With more than a thousand projects graded, there is always a new way of saying things in images.\n\nDaVinci Resolve certified, my work spans fiction, music videos and various narrative content, with projects some of which have aired on Canal+ and France Télévisions.\n\nFor me, colour grading is the final stone in the making of an audiovisual project, and I enjoy shaping a coherent, compelling result alongside people who have a story to tell.`;
+
+const bioSource = en
+  ? ((reglages.bioTexteEn ?? '').trim() || DEFAULT_BIO_EN)
+  : ((reglages.bioTexte ?? '').trim() || DEFAULT_BIO_FR);
+const bioParas = bioSource.split(/\n{2,}/).map((s) => s.trim()).filter(Boolean);
+
+const competences = en
+  ? [
+      { label: 'Tools', items: ['DaVinci Resolve Studio', 'Blackmagic Micro Panel'] },
+      { label: 'Colour spaces & formats', items: ['RAW & LOG', 'ACES', 'Rec.709', 'Multi-format delivery'] },
+      { label: 'Craft', items: ['Multi-source matching', 'Film emulation & cinema looks', 'LUT creation', 'Advice from pre-production'] },
+    ]
+  : [
+      { label: 'Outils', items: ['DaVinci Resolve Studio', 'Micro Panel Blackmagic'] },
+      { label: 'Espaces & formats', items: ['RAW & LOG', 'ACES', 'Rec.709', 'Livraison multi-formats'] },
+      { label: 'Savoir-faire', items: ['Harmonisation multi-sources', 'Simulation pellicule & looks cinéma', 'Création de LUTs', 'Conseil dès la pré-production'] },
+    ];
+
+const formation = en
+  ? [
+      { annee: '2020', item: 'DaVinci Resolve Certified End User · Blackmagic Design' },
+      { annee: '2018', item: 'RNCP Level II Director-Editor qualification · ACFA Multimédia, Montpellier' },
+      { annee: '2016', item: 'BA in Film & Audiovisual Studies · Université Montpellier III Paul-Valéry' },
+    ]
+  : [
+      { annee: '2020', item: 'DaVinci Resolve Certified End User · Blackmagic Design' },
+      { annee: '2018', item: 'Titre RNCP Niveau II Réalisateur-Monteur · ACFA Multimédia, Montpellier' },
+      { annee: '2016', item: 'Licence Études cinématographiques et audiovisuelles · Université Montpellier III Paul-Valéry' },
+    ];
+
+const method = en
+  ? [
+      { h: 'Read the project', d: 'the film first, the technique second.' },
+      { h: 'Assess the sources', d: 'technical state, colour spaces, points to watch.' },
+      { h: 'Propose, with reasons', d: 'often by comparing raw LOG, a standard LUT and personal proposals.' },
+      { h: 'Dialogue', d: 'with the director and the cinematographer, throughout the grade.' },
+      { h: 'Deliver', d: 'in multiple formats, ready for release.' },
+    ]
+  : [
+      { h: 'Analyser le projet', d: 'lire le film d’abord, la technique ensuite.' },
+      { h: 'Évaluer les sources', d: 'état technique, espaces colorimétriques, points de vigilance.' },
+      { h: 'Proposer, argumenté', d: 'souvent par comparatifs entre LOG brut, LUT standard et propositions personnelles.' },
+      { h: 'Dialoguer', d: 'avec le réalisateur et le chef opérateur, tout au long du grading.' },
+      { h: 'Livrer', d: 'en multi-formats, prêts pour la diffusion.' },
+    ];
+
+const T = {
+  title: en ? 'About — Kévin Richarte, fiction colorist' : 'À propos — Kévin Richarte, étalonneur fiction',
+  description: en
+    ? 'The approach and method of Kévin Richarte, fiction-focused colorist based in the Paris area.'
+    : 'La démarche et la méthode de Kévin Richarte, étalonneur spécialisé fiction en région parisienne.',
+  eyebrow: en ? 'About' : 'À propos',
+  approach: en ? 'My approach' : 'Ma démarche',
+  broadcast: en ? 'Aired on' : 'Diffusé sur',
+  methodLabel: en ? 'Approach & method' : 'Approche & méthode',
+  studio: 'Studio',
+  studioItems: en
+    ? ['Personal calibrated studio (18% grey, DCI-P3 monitor)', 'Blackmagic Micro Panel', 'Remote (calibrated screen-sharing sessions) or on site']
+    : ['Studio personnel calibré (gris 18 %, moniteur DCI-P3)', 'Panneau Blackmagic Micro Panel', 'À distance (sessions calibrées par partage d’écran) ou en présentiel'],
+  skills: en ? 'Skills' : 'Compétences',
+  training: en ? 'Training & certifications' : 'Formation & certifications',
+  languages: en ? 'Languages' : 'Langues',
+  langItems: en ? ['French — native', 'English — fluent (C1)'] : ['Français — natif', 'Anglais — C1 courant'],
+  portraitAlt: en ? 'Portrait of Kévin Richarte, colorist' : 'Portrait de Kévin Richarte, étalonneur',
+};
+---
+<BaseLayout title={T.title} lang={lang} description={T.description}>
+  <section class="section container-read exergue-wrap reveal">
+    <p class="meta">{T.eyebrow}</p>
+    <blockquote class="exergue">«&nbsp;{site.manifeste}&nbsp;»</blockquote>
+  </section>
+
+  <section class="section on-ivoire">
+    <div class="container-wide bio-grid">
+      <div class="bio-portrait reveal">
+        <Image src={portrait} alt={T.portraitAlt} widths={[400, 600, 900]} sizes="(max-width:800px) 100vw, 40vw" format="webp" />
+      </div>
+      <div class="bio-text reveal">
+        <p class="meta">{T.approach}</p>
+        {bioParas.map((p) => <p>{p}</p>)}
+        <div class="diffusions">
+          <p class="meta diff-label">{T.broadcast}</p>
+          <div class="diff-logos">
+            <img src="/media/marques/canal.svg" alt="Canal+" loading="lazy" />
+            <img src="/media/marques/france-tv.svg" alt="France Télévisions" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section container-read method-wrap reveal">
+    <p class="meta">{T.methodLabel}</p>
+    <ol class="method">
+      {method.map((m) => <li><span class="method-h">{m.h}</span> — {m.d}</li>)}
+    </ol>
+  </section>
+
+  <section class="section on-ivoire">
+    <div class="container-wide two-col">
+      <div class="reveal">
+        <p class="meta">{T.studio}</p>
+        <ul role="list" class="plain-list">
+          {T.studioItems.map((i) => <li>{i}</li>)}
+        </ul>
+      </div>
+      <div class="reveal comp">
+        <p class="meta">{T.skills}</p>
+        {competences.map((g) => (
+          <div class="comp-group">
+            <span class="comp-label">{g.label}</span>
+            <p class="comp-items">{g.items.join('  ·  ')}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section container-wide two-col formation-wrap reveal">
+    <div>
+      <p class="meta">{T.training}</p>
+      <ul role="list" class="timeline">
+        {formation.map((f) => (
+          <li><span class="tl-year meta">{f.annee}</span><span class="tl-item">{f.item}</span></li>
+        ))}
+      </ul>
+    </div>
+    <div>
+      <p class="meta">{T.languages}</p>
+      <ul role="list" class="plain-list">
+        {T.langItems.map((i) => <li>{i}</li>)}
+      </ul>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .exergue-wrap { padding-top: var(--space-2xl); }
+  .exergue { font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: var(--step-3); line-height: 1.3; color: var(--ivoire); max-width: 24ch; margin-top: 1.4rem; }
+
+  .bio-grid { display: grid; grid-template-columns: 1fr; gap: 2.5rem; }
+  @media (min-width: 800px) { .bio-grid { grid-template-columns: 0.8fr 1.2fr; gap: 4rem; align-items: start; } }
+  .bio-portrait :global(img) { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border: 1px solid var(--line); }
+  .bio-text { font-family: var(--font-serif); font-size: 1.18rem; line-height: 1.7; color: var(--encre); }
+  .bio-text p { margin-bottom: 1.1rem; max-width: 60ch; }
+  .bio-text p:first-of-type { margin-top: 0.8rem; }
+  .bio-text em { font-style: italic; }
+
+  .diffusions { margin-top: 2rem; padding-top: 1.6rem; border-top: 1px solid rgba(21, 17, 14, 0.14); }
+  .diff-label { margin-bottom: 0.9rem; }
+  .diff-logos { display: flex; align-items: center; flex-wrap: wrap; gap: 2rem; }
+  .diff-logos img { height: 26px; width: auto; }
+
+  .method { list-style: none; counter-reset: m; margin-top: 1.6rem; display: flex; flex-direction: column; gap: 1.1rem; max-width: 60ch; }
+  .method li { counter-increment: m; position: relative; padding-left: 2.6rem; color: var(--ivoire-72); font-family: var(--font-serif); font-size: 1.15rem; line-height: 1.5; }
+  .method li::before { content: counter(m, decimal-leading-zero); position: absolute; left: 0; top: 0.15rem; font-family: var(--font-sans); font-size: 0.72rem; letter-spacing: 0.08em; color: var(--ambre); }
+  .method-h { color: var(--ivoire); }
+
+  .two-col { display: grid; grid-template-columns: 1fr; gap: 3rem; }
+  @media (min-width: 760px) { .two-col { grid-template-columns: 1fr 1fr; } }
+  .plain-list { display: flex; flex-direction: column; gap: 0.6rem; margin-top: 1.1rem; color: var(--ivoire-72); }
+  :global(.on-ivoire) .plain-list { color: #5a5044; }
+  .comp-group { margin-top: 1.3rem; }
+  .comp-label { font-family: var(--font-sans); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ambre); }
+  .comp-items { font-family: var(--font-serif); font-size: 1.1rem; color: var(--encre); margin-top: 0.35rem; line-height: 1.4; }
+
+  .formation-wrap { padding-top: var(--space-2xl); }
+  .timeline { display: flex; flex-direction: column; gap: 1rem; margin-top: 1.1rem; }
+  .timeline li { display: grid; grid-template-columns: 5.5rem 1fr; gap: 1rem; align-items: baseline; }
+  .tl-year { color: var(--ambre); }
+  .tl-item { font-family: var(--font-serif); font-size: 1.1rem; color: var(--ivoire); }
+</style>
