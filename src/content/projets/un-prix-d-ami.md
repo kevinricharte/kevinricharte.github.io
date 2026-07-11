@@ -4,7 +4,6 @@ annee: 2024
 typologiePrincipale: Fiction
 typologies:
   - Fiction
-distinctions: []
 credits:
   realisation: Élie Ankri
   production: 1982 Films
@@ -17,9 +16,10 @@ inspirations:
   - Woody Allen
   - Simulation Kodak Portra 400
 featured: false
+draft: true
 ordre: 12
+afficherNote: true
 ---
-
 Court-métrage cherchant une texture visuelle intemporelle, quelque part entre Buster Keaton et Woody Allen. Les rushes présentaient une excellente base technique — constance remarquable de la dynamique d'image, hautes et basses lumières bien équilibrées — offrant une flexibilité idéale pour le grading.
 
 L'approche s'est construite par comparaisons visuelles présentées au réalisateur : captures comparatives entre LOG brut, conversion LUT standard et propositions créatives. À partir de références noir et blanc classiques, le réalisateur cherchait une texture organique et chaude : la simulation Kodak Portra 400 s'est imposée comme compromis — chaleur et texture, sans basculer dans le noir et blanc des références d'origine.
