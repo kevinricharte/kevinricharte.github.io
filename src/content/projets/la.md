@@ -29,5 +29,7 @@ featured: false
 draft: false
 ordre: 2
 afficherNote: true
+noteEn: |-
+  A prevention spot against violence towards young women, for the association En Avant Toutes.
 ---
 Spot de prévention contre les violences faites aux jeunes femmes, pour l'association En Avant Toutes.

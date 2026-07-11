@@ -30,5 +30,7 @@ featured: false
 draft: false
 ordre: 8
 afficherNote: true
+noteEn: |-
+  The story features a colour-blind child. The grading work consisted of reworking the images of the story's painting while accounting for the colour-perception limits specific to this type of colour blindness.
 ---
 Le récit met en scène un enfant daltonien. Le travail d'étalonnage a consisté à manipuler les images du tableau du récit en tenant compte de la limitation de perception des couleurs propre à ce type de daltonisme.

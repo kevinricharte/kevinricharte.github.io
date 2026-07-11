@@ -40,6 +40,12 @@ featured: true
 draft: false
 ordre: 1
 afficherNote: true
+noteEn: |-
+  Made for the "Eau, Capital Bleu" competition (Aix-Marseille Metropolis × France TV).
+
+  The story explores Stendhal syndrome — that stunned state before a work of art that can make one lose touch with reality. The directors wanted to heighten the presence of blue in its both fascinating and dangerous aspect, like a pull towards the force of the void.
+
+  The grading approach was to push the blue's hues and saturation as far as possible without breaking the image, while capturing the appeal of the Marseille seafront through warm tones evoking the feeling of Mediterranean heat.
 ---
 Réalisé dans le cadre du concours « Eau, Capital Bleu » (Métropole Aix-Marseille × France TV).
 

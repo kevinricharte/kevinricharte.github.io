@@ -34,6 +34,10 @@ featured: false
 draft: false
 ordre: 15
 afficherNote: true
+noteEn: |-
+  Made for the 1minute2court competition, on the theme of "The lie".
+
+  A short film of absurd, biting humour, built on a three-way pun around "the blonde" — the set light, the actress, the beer. The grade plays on two opposing registers: the opening shot of the actress was treated with DaVinci Resolve's Glow and Beauty tools pushed to excess, to over-stylise and evoke an artificial advertising aesthetic; the rest of the film keeps a dark, contrasty on-set image, in a rawer register. The lower mids were adjusted to preserve legibility, the film being designed for mobile viewing. Done in one afternoon, in a direct method.
 ---
 Réalisé dans le cadre du concours 1minute2court, sur le thème « Le mensonge ».
 

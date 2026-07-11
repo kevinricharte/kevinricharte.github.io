@@ -41,6 +41,12 @@ featured: true
 draft: false
 ordre: 6
 afficherNote: true
+noteEn: |-
+  The story tells of the transition between urban confinement and natural freedom; the grade had to translate that emotional contrast visually.
+
+  Office scenes: a cold, desaturated, monochrome palette — the uniformity of tones conveys the character's psychological confinement in a stressful everyday life.
+
+  Forest scenes: a completely different approach, warmth in the highlights to evoke the calm of contact with nature. DaVinci Resolve's Halation tool became central to these sequences: the luminous diffusion creates an enveloping, almost dreamlike atmosphere, especially striking in the reflections on the water. The idea was for the viewer to physically feel the sensory immersion the protagonist experiences.
 ---
 L'histoire raconte la transition entre l'enfermement urbain et la liberté naturelle ; l'étalonnage devait traduire visuellement ce contraste émotionnel.
 

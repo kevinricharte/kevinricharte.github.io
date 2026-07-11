@@ -37,6 +37,10 @@ featured: true
 draft: false
 ordre: 5
 afficherNote: true
+noteEn: |-
+  A music video for the artist CVRMEN (MUSIGAMY), with a wide variety of shots — broad creative freedom.
+
+  The aim was to render a cinematic atmosphere, drawing on Tarantino (Kill Bill) and John Wick to shape this dark interior. Some shots pushed the colour rendering very far; others switched to a heavily stylised black and white, strong contrast and pronounced film grain. The halation effect was pushed to the maximum to recapture that quality of light found in Spielberg's films.
 ---
 Clip de l'artiste CVRMEN (MUSIGAMY), à grande variété de plans — une liberté créative étendue.
 

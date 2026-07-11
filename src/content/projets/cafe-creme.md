@@ -31,6 +31,12 @@ inspirations:
 featured: true
 draft: false
 ordre: 8
+noteEn: |-
+  The visual world of the Paris band Café Crème (The Roaming Agency) — summery, tinged with romance. Producers: Dennis Sharganov & Yanek Ling.
+
+  Key influences: Damien Chazelle (La La Land, Babylon) for the warm colours and romantic quality; the visual elegance of Babylon for the interior scenes. As most exterior shots were filmed in natural daylight, the challenge was to create overall consistency while building a recognisable colour identity: every frame had to evoke the Café Crème world at a glance.
+
+  Texture was the central element: heavy use of the Halation tools in DaVinci Resolve's Film Look Creator to create that film patina, lending authenticity to the romance and the timelessness we were after. Also a first: grading a CG shot — the famous cup of coffee — integrated finely enough to be treated like the other camera sequences.
 ---
 Univers visuel du groupe parisien Café Crème (The Roaming Agency) — estival, teinté de romantisme. Producteurs : Dennis Sharganov & Yanek Ling.
 

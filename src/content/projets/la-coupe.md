@@ -41,6 +41,10 @@ featured: true
 draft: false
 ordre: 16
 afficherNote: true
+noteEn: |-
+  A short film inspired by the Joan of Arc pageant in Orléans — a questioning of femininity and social expectations.
+
+  After a default ARRI LUT conversion, the aesthetic direction turned towards Korean cinema (Old Boy, Bong Joon-ho): bold colours, a tragicomic atmosphere. The work was structured around three key shots, with an orange, incandescent mood for the audition scenes and a darker tone for the final sequence.
 ---
 Court-métrage inspiré du concours Jeanne d'Arc à Orléans — une interrogation sur la féminité et les attentes sociales.
 

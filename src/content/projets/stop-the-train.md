@@ -39,6 +39,12 @@ featured: false
 draft: false
 ordre: 7
 afficherNote: true
+noteEn: |-
+  A music video for Tendre Mixeur, shot in a disused power plant. The technical challenge was twofold: to handle the brightness of the dark corridors, recovering as much detail as possible, while keeping certain colours pure — the blue — right at the edge of clipping.
+
+  The direction aimed for an atmosphere recalling the industrial moods of Brazil (Terry Gilliam) or The Abyss (James Cameron). Raised exposure, worked with contrast for a filmic patina; a bluish mood handled with cool tones on the gamma wheel, refined with Color Slice to control density and depth.
+
+  Finishing: noise reduction combined with added sharpness, a diffuse luminous patina via the Glow tool, the Bloom effect characteristic of film, and a layer of silver grain for an organic result that shows off the derelict location.
 ---
 Clip de Tendre Mixeur, tourné dans une centrale désaffectée. Le défi technique était double : gérer la luminosité des couloirs sombres en rattrapant un maximum de détails, tout en maintenant la pureté de certaines couleurs — le bleu — à la lisière de l'écrêtage.
 

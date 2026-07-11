@@ -30,6 +30,10 @@ featured: false
 draft: false
 ordre: 10
 afficherNote: true
+noteEn: |-
+  The story follows an investigation whose clues are scattered across time. The colour challenge was twofold: to coherently blend shots filmed on early-2000s camcorders — with their strongly analogue character — with contemporary images, in a shared atmosphere, without erasing each source's specificity.
+
+  The direction was to deliberately keep the imperfections typical of an early-2000s video camera — notably the ever-present digital noise — while building an oppressive overall atmosphere that sets almost sickly yellowish tones against archives cold in their clinical feel.
 ---
 Le récit raconte une enquête dont les indices sont éloignés dans le temps. Le défi colorimétrique était double : intégrer de manière cohérente des plans tournés sur caméscopes des années 2000 — à la nature analogique très marquée — avec des images contemporaines, dans une atmosphère commune, sans gommer la spécificité de chaque source.
 
