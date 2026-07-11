@@ -1,0 +1,65 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { site } from '../../data/site';
+
+interface Props { lang: 'fr' | 'en'; }
+const { lang } = Astro.props;
+const en = lang === 'en';
+
+const T = {
+  title: en
+    ? 'Contact — Kévin Richarte, fiction colorist'
+    : 'Contact — Kévin Richarte, étalonneur fiction',
+  description: en
+    ? 'Get in touch with Kévin Richarte, fiction-focused colorist based in the Paris area.'
+    : 'Contactez Kévin Richarte, étalonneur spécialisé fiction en région parisienne.',
+  eyebrow: 'Contact',
+  heading: en
+    ? 'A fiction film, a music video, a documentary, a narrative commercial, a mentoring project?'
+    : 'Un projet de fiction, un clip, un documentaire, une publicité narrative, un projet d’accompagnement ?',
+  headingEm: en ? "Let’s talk." : 'Parlons-en.',
+  write: en ? 'Email me' : 'M’écrire',
+  location: en ? 'Paris area' : site.location,
+  delay: en ? 'I reply within 24–48 h on business days.' : 'Je réponds sous 24–48 h en jours ouvrés.',
+  online: en ? 'Online' : 'En ligne',
+};
+---
+<BaseLayout title={T.title} lang={lang} description={T.description}>
+  <section class="section container-read contact">
+    <header class="reveal">
+      <p class="meta">{T.eyebrow}</p>
+      <h1 class="contact-title">{T.heading} <em>{T.headingEm}</em></h1>
+    </header>
+
+    <div class="contact-cols reveal">
+      <div class="contact-block">
+        <p class="meta">{T.write}</p>
+        <ul role="list" class="contact-list">
+          <li><a href={`mailto:${site.email}`} class="contact-link underline-accent">{site.email}</a></li>
+          <li class="contact-loc">{T.location}</li>
+        </ul>
+        <p class="contact-delay meta">{T.delay}</p>
+      </div>
+
+      <div class="contact-block">
+        <p class="meta">{T.online}</p>
+        <ul role="list" class="contact-list">
+          <li><a href={site.showreelUrl} target="_blank" rel="noopener noreferrer" class="contact-link underline-accent">Showreel <span aria-hidden="true">↗</span></a></li>
+          <li><a href={site.instagramUrl} target="_blank" rel="noopener noreferrer" class="contact-link underline-accent">Instagram · {site.instagram} <span aria-hidden="true">↗</span></a></li>
+          <li><a href={site.linkedinUrl} target="_blank" rel="noopener noreferrer" class="contact-link underline-accent">LinkedIn <span aria-hidden="true">↗</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .contact-title { font-family: var(--font-serif); font-weight: 300; font-size: var(--step-3); line-height: 1.18; margin-top: 1rem; max-width: 24ch; }
+  .contact-title em { font-style: italic; color: var(--ambre); }
+  .contact-cols { display: grid; grid-template-columns: 1fr; gap: 3rem; margin-top: var(--space-2xl); }
+  @media (min-width: 640px) { .contact-cols { grid-template-columns: 1fr 1fr; } }
+  .contact-list { display: flex; flex-direction: column; gap: 0.7rem; margin-top: 1.1rem; }
+  .contact-link { font-family: var(--font-serif); font-size: 1.25rem; color: var(--ivoire); }
+  .contact-loc { color: var(--ivoire-72); }
+  .contact-delay { margin-top: 1.6rem; }
+</style>
