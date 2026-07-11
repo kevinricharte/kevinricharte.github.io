@@ -1,6 +1,10 @@
 import { defineConfig } from 'astro/config';
+import { readFileSync } from 'node:fs';
 import sitemap from '@astrojs/sitemap';
 import thumbnails from './scripts/thumbnails.mjs';
+
+// Tant que la version anglaise n'est pas activée, on l'exclut du sitemap.
+const EN_ACTIVE = JSON.parse(readFileSync('./src/data/reglages.json', 'utf8')).enActive === true;
 
 // ⚠️ AVANT MISE EN LIGNE :
 //  - `site` : remplacer par le domaine final (ex. https://kevinricharte.fr)
@@ -20,5 +24,8 @@ export default defineConfig({
       redirectToDefaultLocale: false,
     },
   },
-  integrations: [sitemap(), thumbnails()],
+  integrations: [
+    sitemap({ filter: (page) => EN_ACTIVE || !page.includes('/en/') }),
+    thumbnails(),
+  ],
 });
