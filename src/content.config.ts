@@ -8,6 +8,8 @@ const projets = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/projets' }),
   schema: z.object({
     titre: z.string(),
+    titreEn: z.string().optional(), // titre EN (facultatif) pour la version anglaise
+    noteEn: z.string().optional(), // note d'intention EN (un paragraphe par ligne)
     annee: z.number().optional(), // laissé vide si inconnu → affiché en placeholder
     typologiePrincipale: z.string().optional(), // requis côté panneau ; toléré ici pour ne jamais casser le build
     typologies: z.array(z.string()).default([]),

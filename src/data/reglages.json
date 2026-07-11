@@ -1,5 +1,8 @@
 {
   "afficherFormation": false,
+  "enActive": false,
+  "bioTexteEn": "",
+  "marquesTexteEn": "",
   "respecterFormatVignette": true,
   "respecterFormatCouverture": true,
   "respecterFormatWipe": true,

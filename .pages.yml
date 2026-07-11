@@ -23,6 +23,9 @@ content:
         label: Titre du projet
         type: string
         required: true
+      - name: titreEn
+        label: Titre (EN) — laisse vide pour réutiliser le titre français
+        type: string
       - name: annee
         label: Année (laisser vide si inconnue)
         type: number
@@ -102,6 +105,9 @@ content:
       - name: body
         label: Note d'intention
         type: rich-text
+      - name: noteEn
+        label: Note d'intention (EN) — un paragraphe par ligne ; vide = pas de note en anglais
+        type: text
 
   - name: reglages
     label: Réglages du site
@@ -111,6 +117,10 @@ content:
       - name: afficherFormation
         label: Afficher l'onglet « Formation » dans le menu du site
         type: boolean
+      - name: enActive
+        label: Activer la version anglaise du site (le sélecteur FR/EN apparaît quand c'est coché)
+        type: boolean
+        default: false
       - name: respecterFormatVignette
         label: Vignettes — respecter le format d'origine (bandes noires au lieu de recadrer)
         type: boolean
@@ -126,8 +136,14 @@ content:
       - name: marquesTexte
         label: Texte au-dessus des logos de marques (laisser vide pour n'afficher que les logos)
         type: text
+      - name: marquesTexteEn
+        label: Texte des marques (EN) — version anglaise
+        type: text
       - name: bioTexte
         label: Bio de la page « À propos » (un paragraphe par ligne, sépare par une ligne vide)
+        type: text
+      - name: bioTexteEn
+        label: Bio (EN) — version anglaise de la bio (un paragraphe par ligne)
         type: text
       - name: categoriesProjets
         label: Catégories de projets (onglets de filtre sur la page Projets)
