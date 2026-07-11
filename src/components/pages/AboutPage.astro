@@ -63,6 +63,9 @@ const T = {
     ? 'The approach and method of Kévin Richarte, fiction-focused colorist based in the Paris area.'
     : 'La démarche et la méthode de Kévin Richarte, étalonneur spécialisé fiction en région parisienne.',
   eyebrow: en ? 'About' : 'À propos',
+  manifeste: en
+    ? 'Because seeing your vision take its final form is what gives this craft all its meaning.'
+    : site.manifeste,
   approach: en ? 'My approach' : 'Ma démarche',
   broadcast: en ? 'Aired on' : 'Diffusé sur',
   methodLabel: en ? 'Approach & method' : 'Approche & méthode',
@@ -80,7 +83,7 @@ const T = {
 <BaseLayout title={T.title} lang={lang} description={T.description}>
   <section class="section container-read exergue-wrap reveal">
     <p class="meta">{T.eyebrow}</p>
-    <blockquote class="exergue">«&nbsp;{site.manifeste}&nbsp;»</blockquote>
+    <blockquote class="exergue">«&nbsp;{T.manifeste}&nbsp;»</blockquote>
   </section>
 
   <section class="section on-ivoire">
