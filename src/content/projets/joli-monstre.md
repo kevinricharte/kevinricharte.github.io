@@ -4,6 +4,8 @@ annee: 2026
 typologiePrincipale: Fiction
 typologies:
   - Fiction
+genres:
+  - Drame
 distinctions:
   - Nikon Film Festival 2026 — parmi les 50 finalistes
 credits:
@@ -21,10 +23,18 @@ stills:
 featured: true
 draft: false
 ordre: 13
-noteEn: |-
-  An intimate short film built around a fundamentally stripped-down concept: a couple who need to tell each other the truth. No stylistic effects, no artifice.
+afficherNote: true
+noteEn: >-
+  An intimate short film built around a fundamentally stripped-down concept: a
+  couple who need to tell each other the truth. No stylistic effects, no
+  artifice.
 
-  The grading challenge lay precisely in the sincere modesty of the material: to bring out a cinematic quality from a setup that could quickly look like a TV movie rather than a short conceived for the big screen. Without an assertive look, without an emotion built through colour, the result would have stayed neutral, televisual. That risk is what made the work interesting.
+
+  The grading challenge lay precisely in the sincere modesty of the material: to
+  bring out a cinematic quality from a setup that could quickly look like a TV
+  movie rather than a short conceived for the big screen. Without an assertive
+  look, without an emotion built through colour, the result would have stayed
+  neutral, televisual. That risk is what made the work interesting.
 ---
 Court-métrage intimiste construit autour d'un concept fondamentalement épuré : un couple qui a besoin de se dire la vérité. Aucun effet de style, aucun artifice.
 
