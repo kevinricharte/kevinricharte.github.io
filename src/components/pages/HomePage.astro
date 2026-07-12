@@ -67,6 +67,29 @@ const T = {
     </div>
   </section>
 
+  <section class="section marques">
+    <div class="container-wide reveal">
+      {marquesTexte && <p class="meta marques-label">{marquesTexte}</p>}
+      <div class="marques-panel">
+        <div
+          class="marques-wrap"
+          data-dispo={logoDispo}
+          data-auto={String(logoAuto)}
+          data-melanger={String(logoMelanger)}
+          style={`--logo-h: ${logoHauteur}px; --marquee-duree: ${logoVitesse}s`}
+        >
+          <ul role="list" class="marques-grid">
+            {marques.map((l) => (
+              <li class="marque">
+                <img class="brand-logo" src={l.image} alt={l.nom} loading="lazy" style={`--taille: ${(l.taille ?? 100) / 100}`} />
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="section selection">
     <div class="container-wide">
       <div class="selection-head reveal">
@@ -93,29 +116,6 @@ const T = {
         <span class="cta-label">{t('cta.more')}</span>
         <span class="cta-arrow" aria-hidden="true">→</span>
       </a>
-    </div>
-  </section>
-
-  <section class="section marques">
-    <div class="container-wide reveal">
-      {marquesTexte && <p class="meta marques-label">{marquesTexte}</p>}
-      <div class="marques-panel">
-        <div
-          class="marques-wrap"
-          data-dispo={logoDispo}
-          data-auto={String(logoAuto)}
-          data-melanger={String(logoMelanger)}
-          style={`--logo-h: ${logoHauteur}px; --marquee-duree: ${logoVitesse}s`}
-        >
-          <ul role="list" class="marques-grid">
-            {marques.map((l) => (
-              <li class="marque">
-                <img class="brand-logo" src={l.image} alt={l.nom} loading="lazy" style={`--taille: ${(l.taille ?? 100) / 100}`} />
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
     </div>
   </section>
 
