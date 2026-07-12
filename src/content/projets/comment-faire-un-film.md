@@ -2,6 +2,9 @@
 titre: Comment faire un film
 annee: 2026
 typologiePrincipale: Fiction
+genres:
+  - Comédie
+  - Drame
 credits:
   realisation: Guillaume Dionnet
   camera: Sony Burano
