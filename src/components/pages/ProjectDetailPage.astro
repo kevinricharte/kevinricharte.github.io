@@ -5,7 +5,7 @@ import BeforeAfter from '../BeforeAfter.astro';
 import Lightbox from '../Lightbox.astro';
 import { thumb } from '../../lib/media';
 import reglages from '../../data/reglages.json';
-import { typoLabel, projectHref } from '../../i18n/content';
+import { typoLabel, projectHref, genreLabel } from '../../i18n/content';
 import { getRoutes } from '../../i18n/utils';
 import { render } from 'astro:content';
 
@@ -37,7 +37,7 @@ const show = (v?: string) => (v && !/^\s*\[.*\]\s*$/.test(v) ? v : undefined);
 const detailTech = show(d.detailTechnique);
 const typoPrincipale = d.typologiePrincipale ? typoLabel(d.typologiePrincipale, en) : undefined;
 // À côté de la date : les genres (plutôt que la catégorie, souvent redondante).
-const genres = d.genres?.length ? d.genres.join('  ·  ') : undefined;
+const genres = d.genres?.length ? d.genres.map((g) => genreLabel(g, en)).join('  ·  ') : undefined;
 const metaLine = [d.annee, genres, show(d.diffusion), show(d.duree)].filter(Boolean).join('  ·  ');
 const eyebrow = d.typologies.map((t) => typoLabel(t, en)).join('  ·  ');
 

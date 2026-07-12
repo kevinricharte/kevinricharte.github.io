@@ -2,7 +2,7 @@
 import type { CollectionEntry } from 'astro:content';
 import { thumb } from '../lib/media';
 import reglages from '../data/reglages.json';
-import { projectHref } from '../i18n/content';
+import { projectHref, genreLabel } from '../i18n/content';
 
 interface Props { entry: CollectionEntry<'projets'>; lang?: 'fr' | 'en'; }
 const { entry, lang = 'fr' } = Astro.props;
@@ -12,7 +12,7 @@ const cover = d.cover;
 const title = en ? (d.titreEn?.trim() || d.titre) : d.titre;
 const href = projectHref(entry.id, en);
 // On affiche les genres (plutôt que la catégorie, souvent « Fiction » et redondante).
-const genres = d.genres?.length ? d.genres.join(' · ') : undefined;
+const genres = d.genres?.length ? d.genres.map((g) => genreLabel(g, en)).join(' · ') : undefined;
 ---
 <li class="card" data-typos={d.typologies.join('|')} data-genres={d.genres.join('|')}>
   <a href={href} class="card-link">
