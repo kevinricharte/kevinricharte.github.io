@@ -211,7 +211,7 @@ const T = {
   .marques-panel { background: var(--ivoire); border-radius: 6px; padding: clamp(1.6rem, 4vw, 2.8rem); margin-top: 2rem; }
   .marques-grid { list-style: none; margin: 0; padding: 0; }
   .marque { display: flex; align-items: center; }
-  .brand-logo { height: calc(var(--logo-h, 30px) * var(--taille, 1)); width: auto; max-width: 100%; object-fit: contain; display: block; }
+  .brand-logo { height: calc(var(--logo-h, 30px) * var(--taille, 1) * var(--logo-mobile, 1)); width: auto; max-width: 100%; object-fit: contain; display: block; }
   .marques-wrap[data-dispo="ligne"] .marques-grid {
     display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 2.2rem 2.8rem;
   }
@@ -239,6 +239,16 @@ const T = {
   .cta-band-text { font-family: var(--font-serif); font-size: var(--step-2); font-weight: 300; color: var(--ivoire); max-width: 30ch; }
   .cta-band-text em { font-style: italic; color: var(--ambre); }
   .cta-band .cta { margin-top: 0; }
+
+  /* ===== Ajustements petit écran (portrait) — le rendu ordinateur ne change pas ===== */
+  @media (max-width: 640px) {
+    /* Carton d'accroche plus compact (moins dominant, moins de vide avant les logos) */
+    .statement { padding-block: 2.4rem 2.6rem; }
+    /* Bandeau de logos plus discret : réduit + moins de marge interne et entre logos */
+    .marques-panel { padding: 1.1rem 0.9rem; }
+    .marques-wrap { --logo-mobile: 0.62; }
+    .marques-wrap[data-dispo="bandeau"] .marque { margin-right: 1.6rem; }
+  }
 </style>
 
 <script>

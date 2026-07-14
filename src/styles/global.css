@@ -48,6 +48,8 @@ p { text-wrap: pretty; }
 .container-wide { width: 100%; max-width: var(--container-wide); margin-inline: auto; padding-inline: var(--gutter); }
 .container-read { width: 100%; max-width: var(--container-read); margin-inline: auto; padding-inline: var(--gutter); }
 .section { padding-block: var(--section-y); }
+/* Mobile : sections resserrées (moins de vide, moins de défilement) — le bureau ne change pas */
+@media (max-width: 640px) { :root { --section-y: clamp(2.2rem, 6vw, 3.2rem); } }
 
 /* Grille de projets (accueil + page Projets) */
 .project-grid { display: grid; grid-template-columns: 1fr; gap: clamp(1.5rem, 3vw, 2.4rem); }
