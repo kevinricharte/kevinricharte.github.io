@@ -242,8 +242,11 @@ const T = {
 
   /* ===== Ajustements petit écran (portrait) — le rendu ordinateur ne change pas ===== */
   @media (max-width: 640px) {
-    /* Carton d'accroche plus compact (moins dominant, moins de vide avant les logos) */
-    .statement { padding-block: 2.4rem 2.6rem; }
+    /* Carton d'accroche compact : titre + espacements réduits pour s'aligner sur le showreel */
+    .statement { padding-block: 2rem 2rem; }
+    .statement-title { font-size: 2.6rem; }
+    .statement-eyebrow { margin-bottom: 0.8rem; }
+    .statement .cta { margin-top: 1.3rem; }
     /* Bandeau de logos plus discret : réduit + moins de marge interne et entre logos */
     .marques-panel { padding: 1.1rem 0.9rem; }
     .marques-wrap { --logo-mobile: 0.62; }
