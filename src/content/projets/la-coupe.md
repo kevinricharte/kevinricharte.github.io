@@ -11,13 +11,14 @@ credits:
   realisation: Florian Sanchez
   camera: ARRI Alexa
   etalonnage: Kévin Richarte
-cover: /media/Still 2026-04-30 143528_3.21.1.jpg
+cover: /media/Still 2026-04-30 143528_3.123.1.jpg
 coverAlt: La Coupe — image étalonnée
 wipe:
   avant: /media/Still 2026-06-09 120121_2.66.1.jpg
   apres: /media/Still 2026-04-30 143528_3.66.1.jpg
   alt: La Coupe
 stills:
+  - image: /media/Still 2026-04-30 143528_3.21.1-1.jpg
   - image: /media/Still 2026-04-30 143528_3.16.1.jpg
   - image: /media/Still 2026-04-30 143528_3.52.1.jpg
   - image: /media/Still 2026-04-30 143528_3.50.1.jpg
