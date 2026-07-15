@@ -14,7 +14,7 @@ credits:
   camera: Sony FX9
   etalonnage: Kévin Richarte
   workflow: S-Log3
-cover: /media/Still 2026-07-09 160223_3.23.1-2.jpg
+cover: /media/Still 2026-04-24 131501_3.161.1.jpg
 coverAlt: Black Pearl — image étalonnée
 wipe:
   avant: /media/Still 2026-07-09 154717_2.109.1-1.jpg
