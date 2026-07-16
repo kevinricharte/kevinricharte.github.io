@@ -75,7 +75,7 @@ const links = [
     z-index: var(--z-header);
     display: flex; align-items: center;
     border-bottom: 1px solid transparent;
-    transition: background var(--dur) var(--ease), border-color var(--dur) var(--ease), backdrop-filter var(--dur) var(--ease);
+    transition: background var(--dur) var(--ease), border-color var(--dur) var(--ease), backdrop-filter var(--dur) var(--ease), transform 250ms var(--ease);
   }
   /* Non-transparent (pages intérieures) : fond dès le départ */
   .site-header:not(.transparent) {
@@ -139,18 +139,68 @@ const links = [
     .burger { display: block; }
   }
 
+  /* Nav escamotable (mobile ≤899px) : masquée en descendant, réapparaît en remontant — le bureau ne la déclenche jamais */
+  @media (max-width: 899px) {
+    .site-header.is-hidden { transform: translateY(-100%); }
+  }
+
+  /* Paysage mobile : nav compacte (menu ☰) pour ne pas couvrir la vidéo — nom à gauche, menu à droite */
+  @media (max-width: 899px) and (orientation: landscape) {
+    .nav-desktop, .header-lang { display: none; }
+    .burger { display: block; }
+    /* Nom réduit pour empiéter moins sur la vidéo */
+    .brand-name { font-size: 1rem; }
+    /* Menu = panneau à droite (le showreel reste visible à gauche) ; liens compacts + défilables */
+    .mobile-menu {
+      left: auto; width: max-content; max-width: 60%;
+      justify-content: flex-start; align-items: flex-end; gap: 0.3rem;
+      overflow-y: auto; padding-block: 1.1rem;
+      border-left: 1px solid var(--line);
+    }
+    .mobile-menu ul { align-items: flex-end; }
+    .m-link { font-size: 1.5rem; padding-block: 0.25rem; text-align: right; }
+    .mobile-lang { padding-top: 1rem; align-self: flex-end; }
+  }
+
+  /* Portrait mobile : menu = liens en LIGNE horizontale dans l'espace au-dessus du showreel (qui reste visible) */
+  @media (max-width: 899px) and (orientation: portrait) {
+    .mobile-menu {
+      inset: var(--header-h) 0 auto 0;          /* juste sous l'en-tête, hauteur selon le contenu */
+      background: transparent; border-top: none;
+      justify-content: flex-start; align-items: center;
+      gap: 0.2rem; padding: 0.4rem var(--gutter) 0.45rem;
+    }
+    .mobile-menu ul { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 0.35rem 1.3rem; }
+    .m-link { font-size: 1.02rem; padding-block: 0.05rem; }
+    .mobile-lang { padding-top: 0.2rem; }
+  }
   :global(body.menu-open) { overflow: hidden; }
 </style>
 
 <script>
   const header = document.querySelector('.site-header');
-  const solidify = () => {
+  const isMobile = () => matchMedia('(max-width: 899px)').matches;
+  const HIDE_THRESHOLD = 80;   // ne pas masquer avant d'avoir descendu ce seuil
+  const JITTER = 10;           // ignorer les micro-scrolls
+  let lastY = window.scrollY;
+  const onScroll = () => {
     if (!header) return;
-    if (window.scrollY > 24) header.classList.add('is-solid');
+    const y = window.scrollY;
+    // Fond solide (accueil transparent) au-delà de 24px — comportement existant conservé
+    if (y > 24) header.classList.add('is-solid');
     else header.classList.remove('is-solid');
+    // Escamotage — mobile uniquement, jamais sur ordinateur
+    if (!isMobile()) { header.classList.remove('is-hidden'); lastY = y; return; }
+    if (y <= 4) { header.classList.remove('is-hidden'); lastY = y; return; }        // haut de page : toujours visible
+    if (document.body.classList.contains('menu-open')) return;                      // menu ouvert : on ne masque pas
+    const delta = y - lastY;
+    if (Math.abs(delta) < JITTER) return;                                           // micro-scroll ignoré (anti-tremblement)
+    if (delta > 0 && y > HIDE_THRESHOLD) header.classList.add('is-hidden');         // on descend → masquer
+    else header.classList.remove('is-hidden');                                      // on remonte → réapparaître
+    lastY = y;
   };
-  solidify();
-  window.addEventListener('scroll', solidify, { passive: true });
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
 
   const burger = document.querySelector('.burger');
   const menu = document.getElementById('mobile-menu');
