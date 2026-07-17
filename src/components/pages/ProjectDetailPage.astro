@@ -72,7 +72,7 @@ const desc = en
   ? `${heading}${d.annee ? ` (${d.annee})` : ''}${typoPrincipale ? ` — ${typoPrincipale}` : ''}. Grading: Kévin Richarte.`
   : `${heading}${d.annee ? ` (${d.annee})` : ''}${typoPrincipale ? ` — ${typoPrincipale}` : ''}. Étalonnage : Kévin Richarte.`;
 ---
-<BaseLayout title={title} description={desc} lang={lang}>
+<BaseLayout title={title} description={desc} image={`/og/projets/${p.id}.jpg`} lang={lang}>
   <script is:inline>document.documentElement.classList.add('has-js');</script>
   <article class="project">
     <header class="p-head container-read reveal">

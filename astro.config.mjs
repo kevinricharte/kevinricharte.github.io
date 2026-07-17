@@ -2,6 +2,7 @@ import { defineConfig } from 'astro/config';
 import { readFileSync } from 'node:fs';
 import sitemap from '@astrojs/sitemap';
 import thumbnails from './scripts/thumbnails.mjs';
+import ogImages from './scripts/og-images.mjs';
 
 // Tant que la version anglaise n'est pas activée, on l'exclut du sitemap.
 const EN_ACTIVE = JSON.parse(readFileSync('./src/data/reglages.json', 'utf8')).enActive === true;
@@ -27,5 +28,6 @@ export default defineConfig({
   integrations: [
     sitemap({ filter: (page) => EN_ACTIVE || !page.includes('/en/') }),
     thumbnails(),
+    ogImages(),
   ],
 });
