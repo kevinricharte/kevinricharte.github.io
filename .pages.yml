@@ -190,3 +190,50 @@ content:
           - { name: image, label: Fichier du logo, type: image }
           - { name: nom, label: Nom de la marque, type: string }
           - { name: taille, label: 'Taille propre en % (100 = référence, 120 = plus grand, 80 = plus petit)', type: number, default: 100 }
+      - name: seo
+        label: SEO & Partage — titres et descriptions par page
+        description: >-
+          Ce qui s'affiche dans l'onglet du navigateur, sur Google et lors du partage d'un lien
+          (le titre en gras + la description dessous). Laisse un champ vide pour garder le texte par défaut.
+        type: object
+        fields:
+          - name: accueil
+            label: Accueil
+            type: object
+            fields:
+              - { name: titre, label: 'Titre (FR)', type: string }
+              - { name: description, label: 'Description (FR)', type: text }
+              - { name: titreEn, label: 'Titre (EN)', type: string }
+              - { name: descriptionEn, label: 'Description (EN)', type: text }
+          - name: projets
+            label: Projets
+            type: object
+            fields:
+              - { name: titre, label: 'Titre (FR)', type: string }
+              - { name: description, label: 'Description (FR)', type: text }
+              - { name: titreEn, label: 'Titre (EN)', type: string }
+              - { name: descriptionEn, label: 'Description (EN)', type: text }
+          - name: apropos
+            label: À propos
+            type: object
+            fields:
+              - { name: titre, label: 'Titre (FR)', type: string }
+              - { name: description, label: 'Description (FR)', type: text }
+              - { name: titreEn, label: 'Titre (EN)', type: string }
+              - { name: descriptionEn, label: 'Description (EN)', type: text }
+          - name: contact
+            label: Contact
+            type: object
+            fields:
+              - { name: titre, label: 'Titre (FR)', type: string }
+              - { name: description, label: 'Description (FR)', type: text }
+              - { name: titreEn, label: 'Titre (EN)', type: string }
+              - { name: descriptionEn, label: 'Description (EN)', type: text }
+          - name: mentions
+            label: Mentions légales
+            type: object
+            fields:
+              - { name: titre, label: 'Titre (FR)', type: string }
+              - { name: description, label: 'Description (FR)', type: text }
+              - { name: titreEn, label: 'Titre (EN)', type: string }
+              - { name: descriptionEn, label: 'Description (EN)', type: text }

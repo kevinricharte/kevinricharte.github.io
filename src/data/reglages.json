@@ -88,5 +88,37 @@
       "nom": "Jellysmack",
       "taille": 310
     }
-  ]
+  ],
+  "seo": {
+    "accueil": {
+      "titre": "Kévin Richarte — Étalonneur fiction · Région parisienne",
+      "description": "Étalonneur spécialisé fiction, en région parisienne. Étalonnage créatif de films, clips et publicités narratives — en studio ou à distance.",
+      "titreEn": "Kévin Richarte — Fiction colorist · Paris area",
+      "descriptionEn": "Fiction-focused colorist based near Paris. Creative color grading for films, music videos and narrative commercials — on-site or remote."
+    },
+    "projets": {
+      "titre": "Projets — Kévin Richarte, étalonneur fiction",
+      "description": "Une sélection de projets étalonnés par Kévin Richarte : fiction, clips et publicités narratives.",
+      "titreEn": "Work — Kévin Richarte, fiction colorist",
+      "descriptionEn": "Selected projects color graded by Kévin Richarte: fiction, music videos and narrative commercials."
+    },
+    "apropos": {
+      "titre": "À propos — Kévin Richarte, étalonneur fiction",
+      "description": "Étalonneur spécialisé fiction. Parcours, convictions et approche de la couleur — en studio ou à distance.",
+      "titreEn": "About — Kévin Richarte, fiction colorist",
+      "descriptionEn": "Fiction-focused colorist. Background, convictions and approach to colour — working on-site or remotely."
+    },
+    "contact": {
+      "titre": "Contact — Kévin Richarte, étalonneur fiction",
+      "description": "Parlons de votre projet de fiction, clip ou publicité narrative. Étalonnage en studio ou à distance.",
+      "titreEn": "Contact — Kévin Richarte, fiction colorist",
+      "descriptionEn": "Let's talk about your fiction film, music video or narrative commercial. Color grading on-site or remote."
+    },
+    "mentions": {
+      "titre": "Mentions légales — Kévin Richarte",
+      "description": "Mentions légales du site de Kévin Richarte, étalonneur fiction.",
+      "titreEn": "Legal notice — Kévin Richarte",
+      "descriptionEn": "Legal notice for Kévin Richarte's website."
+    }
+  }
 }

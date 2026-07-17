@@ -1,3 +1,15 @@
+import reglages from '../data/reglages.json';
+
+/** Titre + description SEO d'une page fixe, selon la langue (repli si un champ est vidé dans le panneau). */
+export type SeoKey = 'accueil' | 'projets' | 'apropos' | 'contact' | 'mentions';
+export function pageMeta(key: SeoKey, en: boolean): { title?: string; description?: string } {
+  const s = ((reglages as { seo?: Record<string, Record<string, string>> }).seo ?? {})[key] ?? {};
+  return {
+    title: (en ? s.titreEn : s.titre) || undefined,
+    description: (en ? s.descriptionEn : s.description) || undefined,
+  };
+}
+
 // Traductions de contenu structuré (typologies de projets, etc.).
 export const typoLabels: Record<string, string> = {
   Fiction: 'Fiction',

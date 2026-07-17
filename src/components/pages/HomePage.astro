@@ -5,12 +5,14 @@ import ProjectCard from '../ProjectCard.astro';
 import { site } from '../../data/site';
 import reglages from '../../data/reglages.json';
 import { getRoutes, useTranslations } from '../../i18n/utils';
+import { pageMeta } from '../../i18n/content';
 
 interface Props { lang: 'fr' | 'en'; }
 const { lang } = Astro.props;
 const en = lang === 'en';
 const r = getRoutes(lang);
 const t = useTranslations(lang);
+const meta = pageMeta('accueil', en);
 
 const selectionPool = (await getCollection('projets', ({ data }) => !data.draft))
   .sort((a, b) => a.data.ordre - b.data.ordre);
@@ -41,7 +43,7 @@ const T = {
   mentoringCta: en ? 'Discover the training' : 'Découvrir la formation',
 };
 ---
-<BaseLayout title={T.title} lang={lang} image="/og/og-home.jpg" padded={false} heroHeader={true}>
+<BaseLayout title={meta.title ?? T.title} description={meta.description} lang={lang} image="/og/og-home.jpg" padded={false} heroHeader={true}>
   <section class="reel" id="showreel" aria-label="Showreel">
     <div class="reel-media" aria-hidden="true">
       <div class="reel-fallback"></div>

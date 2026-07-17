@@ -1,10 +1,12 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { site } from '../../data/site';
+import { pageMeta } from '../../i18n/content';
 
 interface Props { lang: 'fr' | 'en'; }
 const { lang } = Astro.props;
 const en = lang === 'en';
+const meta = pageMeta('contact', en);
 
 const T = {
   title: en
@@ -24,7 +26,7 @@ const T = {
   online: en ? 'Online' : 'En ligne',
 };
 ---
-<BaseLayout title={T.title} lang={lang} description={T.description}>
+<BaseLayout title={meta.title ?? T.title} description={meta.description ?? T.description} lang={lang}>
   <section class="section container-read contact">
     <header class="reveal">
       <p class="meta">{T.eyebrow}</p>

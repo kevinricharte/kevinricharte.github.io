@@ -3,11 +3,12 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import ProjectCard from '../ProjectCard.astro';
 import reglages from '../../data/reglages.json';
-import { typoLabel } from '../../i18n/content';
+import { typoLabel, pageMeta } from '../../i18n/content';
 
 interface Props { lang: 'fr' | 'en'; }
 const { lang } = Astro.props;
 const en = lang === 'en';
+const meta = pageMeta('projets', en);
 
 const projets = (await getCollection('projets', ({ data }) => !data.draft)).sort((a, b) => a.data.ordre - b.data.ordre);
 const present = new Set(projets.flatMap((p) => p.data.typologies));
@@ -33,7 +34,7 @@ const T = {
   filterAria: en ? 'Filter by category' : 'Filtrer par catégorie',
 };
 ---
-<BaseLayout title={T.title} lang={lang} description={T.description}>
+<BaseLayout title={meta.title ?? T.title} description={meta.description ?? T.description} lang={lang}>
   <section class="section container-wide">
     <header class="proj-head reveal">
       <p class="meta">{T.eyebrow}</p>

@@ -4,10 +4,12 @@ import { Image } from 'astro:assets';
 import portrait from '../../assets/portrait.jpg';
 import { site } from '../../data/site';
 import reglages from '../../data/reglages.json';
+import { pageMeta } from '../../i18n/content';
 
 interface Props { lang: 'fr' | 'en'; }
 const { lang } = Astro.props;
 const en = lang === 'en';
+const meta = pageMeta('apropos', en);
 
 const DEFAULT_BIO_FR = `Chaque projet commence pour moi par une lecture. Je cherche ce que l'image veut raconter et la place que la couleur peut y prendre. L'étalonnage se construit ensuite en dialogue, par propositions argumentées et étapes validées.\n\nSi je travaille ainsi, c'est que je suis venu à l'étalonnage par la réalisation. Je garde en mémoire l'essence d'un tournage, ses ambitions artistiques comme ses contraintes techniques, ce qui me permet de parler récit avec un réalisateur et lumière avec un chef opérateur. Avec plus de mille projets étalonnés, il y a toujours une nouvelle façon de dire en images.\n\nDoté d'une certification DaVinci Resolve, mon travail englobe la fiction, le clip et divers contenus narratifs, avec des travaux dont certains ont été diffusés sur Canal+ et France Télévisions.\n\nL'étalonnage est pour moi la dernière pierre apportée à l'élaboration d'un projet audiovisuel, et j'ai plaisir à en faire un résultat cohérent et engageant aux côtés de gens qui ont une histoire à raconter.`;
 const DEFAULT_BIO_EN = `For me, every project begins with a reading. I look for what the image is trying to say and the place colour can hold within it. The grade is then built through dialogue, with reasoned proposals and validated stages.\n\nI work this way because I came to colour grading through directing. I keep in mind the essence of a shoot — its artistic ambitions as much as its technical constraints — which lets me talk story with a director and light with a cinematographer. With more than a thousand projects graded, there is always a new way of saying things in images.\n\nDaVinci Resolve certified, my work spans fiction, music videos and various narrative content, with projects some of which have aired on Canal+ and France Télévisions.\n\nFor me, colour grading is the final stone in the making of an audiovisual project, and I enjoy shaping a coherent, compelling result alongside people who have a story to tell.`;
@@ -80,7 +82,7 @@ const T = {
   portraitAlt: en ? 'Portrait of Kévin Richarte, colorist' : 'Portrait de Kévin Richarte, étalonneur',
 };
 ---
-<BaseLayout title={T.title} lang={lang} description={T.description}>
+<BaseLayout title={meta.title ?? T.title} description={meta.description ?? T.description} lang={lang}>
   <section class="section container-read exergue-wrap reveal">
     <p class="meta">{T.eyebrow}</p>
     <blockquote class="exergue">«&nbsp;{T.manifeste}&nbsp;»</blockquote>
