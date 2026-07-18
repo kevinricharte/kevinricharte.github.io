@@ -4,19 +4,43 @@ annee: 2024
 typologiePrincipale: Fiction
 typologies:
   - Fiction
+genres:
+  - Comédie
 credits:
   realisation: Élie Ankri
   production: 1982 Films
   image: Olivier Tresson
+  camera: Sony FX9
   etalonnage: Kévin Richarte
-cover: /media/projets/un-prix-d-ami--cover.webp
+  workflow: S-Log3
+cover: /media/Still 2026-07-18 140749_3.6.1.jpg
 coverAlt: Un Prix d'Ami — image étalonnée
+wipe:
+  avant: /media/Still 2026-07-18 140808_2.9.1.jpg
+  apres: /media/Still 2026-07-18 140749_3.9.1.jpg
+stills:
+  - image: /media/Still 2026-07-18 140749_3.1.1.jpg
+  - image: /media/Still 2026-07-18 140749_3.3.1.jpg
+  - image: /media/Still 2026-07-18 140749_3.4.1.jpg
+  - image: /media/Still 2026-07-18 140749_3.6.1-1.jpg
+  - image: /media/Still 2026-07-18 140749_3.7.1.jpg
+  - image: /media/Still 2026-07-18 140749_3.7.2.jpg
+  - image: /media/Still 2026-07-18 140749_3.8.1.jpg
+  - image: /media/Still 2026-07-18 140749_3.9.1-1.jpg
+  - image: /media/Still 2026-07-18 140749_3.9.2.jpg
+  - image: /media/Still 2026-07-18 140749_3.9.3.jpg
+  - image: /media/Still 2026-07-18 140749_3.9.4.jpg
+  - image: /media/Still 2026-07-18 140749_3.9.5.jpg
+  - image: /media/Still 2026-07-18 140749_3.9.6.jpg
+  - image: /media/Still 2026-07-18 140749_3.10.1.jpg
+  - image: /media/Still 2026-07-18 140749_3.10.2.jpg
+  - image: /media/Still 2026-07-18 140749_3.13.1.jpg
+  - image: /media/Still 2026-07-18 140749_3.17.1.jpg
 inspirations:
-  - Buster Keaton
   - Woody Allen
   - Simulation Kodak Portra 400
 featured: false
-draft: true
+draft: false
 ordre: 12
 afficherNote: true
 ---

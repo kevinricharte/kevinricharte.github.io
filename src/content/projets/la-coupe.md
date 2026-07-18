@@ -11,24 +11,39 @@ credits:
   realisation: Florian Sanchez
   camera: ARRI Alexa
   etalonnage: Kévin Richarte
-cover: /media/Still 2026-04-30 143528_3.26.1.jpg
+  workflow: ARRI
+cover: /media/Still 2026-04-30 143528_3.123.1-1.jpg
 coverAlt: La Coupe — image étalonnée
 wipe:
   avant: /media/Still 2026-06-09 120121_2.66.1.jpg
   apres: /media/Still 2026-04-30 143528_3.66.1.jpg
   alt: La Coupe
 stills:
+  - image: /media/Still 2026-07-18 143124_3.3.1.jpg
+  - image: /media/Still 2026-07-18 143124_3.13.1.jpg
   - image: /media/Still 2026-04-30 143528_3.21.1-1.jpg
+  - image: /media/Still 2026-07-18 143124_3.15.1.jpg
+  - image: /media/Still 2026-07-18 143124_3.18.1.jpg
+  - image: /media/Still 2026-07-18 143124_3.19.1.jpg
+  - image: /media/Still 2026-07-18 143124_3.20.1.jpg
   - image: /media/Still 2026-04-30 143528_3.16.1.jpg
   - image: /media/Still 2026-04-30 143528_3.52.1.jpg
+  - image: /media/Still 2026-07-18 143124_3.46.1.jpg
   - image: /media/Still 2026-04-30 143528_3.50.1.jpg
   - image: /media/Still 2026-04-30 143528_3.25.1.jpg
   - image: /media/Still 2026-04-30 143528_3.29.1.jpg
+  - image: /media/Still 2026-07-18 143124_3.59.1.jpg
+  - image: /media/Still 2026-07-18 143124_3.40.1.jpg
   - image: /media/Still 2026-04-30 143528_3.83.1.jpg
-  - image: /media/Still 2026-04-30 143528_3.85.1.jpg
+  - image: /media/Still 2026-07-18 143124_3.87.1.jpg
+  - image: /media/Still 2026-07-18 143124_3.83.1.jpg
+  - image: /media/Still 2026-07-18 143124_3.96.1.jpg
   - image: /media/Still 2026-04-30 143528_3.97.1.jpg
   - image: /media/Still 2026-04-30 143528_3.107.1.jpg
   - image: /media/Still 2026-04-30 143528_3.114.1.jpg
+  - image: /media/Still 2026-07-18 143124_3.121.1.jpg
+  - image: /media/Still 2026-07-18 143124_3.149.1.jpg
+  - image: /media/Still 2026-07-18 143124_3.160.1.jpg
   - image: /media/Still 2026-04-30 143528_3.127.1.jpg
   - image: /media/Still 2026-04-30 143528_3.128.1.jpg
   - image: /media/Still 2026-04-30 143528_3.171.1.jpg
