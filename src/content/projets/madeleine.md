@@ -21,7 +21,7 @@ stills:
   - image: /media/Still 2026-07-18 135320_3.4.2.jpg
   - image: /media/Still 2026-07-18 135320_3.5.1-1.jpg
   - image: /media/Still 2026-07-18 135320_3.8.1-1.jpg
-  - image: /media/Still 2026-07-18 135320_3.17.1.jpg
+  - {}
   - image: /media/Still 2026-07-18 135320_3.19.1.jpg
   - image: /media/Still 2026-07-18 135320_3.23.1.jpg
   - image: /media/Still 2026-07-18 135320_3.25.1.jpg
