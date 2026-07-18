@@ -18,14 +18,25 @@ wipe:
   apres: /media/Still 2026-04-30 143528_3.66.1.jpg
   alt: La Coupe
 stills:
+  - image: /media/Still 2026-07-18 143124_3.3.1.jpg
+  - image: /media/Still 2026-07-18 143124_3.13.1.jpg
   - image: /media/Still 2026-04-30 143528_3.21.1-1.jpg
+  - image: /media/Still 2026-07-18 143124_3.15.1.jpg
+  - image: /media/Still 2026-07-18 143124_3.18.1.jpg
+  - image: /media/Still 2026-07-18 143124_3.19.1.jpg
+  - image: /media/Still 2026-07-18 143124_3.20.1.jpg
   - image: /media/Still 2026-04-30 143528_3.16.1.jpg
   - image: /media/Still 2026-04-30 143528_3.52.1.jpg
+  - image: /media/Still 2026-07-18 143124_3.46.1.jpg
   - image: /media/Still 2026-04-30 143528_3.50.1.jpg
   - image: /media/Still 2026-04-30 143528_3.25.1.jpg
   - image: /media/Still 2026-04-30 143528_3.29.1.jpg
+  - image: /media/Still 2026-07-18 143124_3.59.1.jpg
+  - image: /media/Still 2026-07-18 143124_3.40.1.jpg
   - image: /media/Still 2026-04-30 143528_3.83.1.jpg
-  - image: /media/Still 2026-04-30 143528_3.85.1.jpg
+  - image: /media/Still 2026-07-18 143124_3.87.1.jpg
+  - image: /media/Still 2026-07-18 143124_3.83.1.jpg
+  - image: /media/Still 2026-07-18 143124_3.96.1.jpg
   - image: /media/Still 2026-04-30 143528_3.97.1.jpg
   - image: /media/Still 2026-04-30 143528_3.107.1.jpg
   - image: /media/Still 2026-04-30 143528_3.114.1.jpg
@@ -36,6 +47,9 @@ stills:
   - image: /media/Still 2026-04-30 143528_3.182.1.jpg
   - image: /media/Still 2026-04-30 143528_3.185.1.jpg
   - image: /media/Still 2026-04-30 143528_3.188.1.jpg
+  - image: /media/Still 2026-07-18 143124_3.121.1.jpg
+  - image: /media/Still 2026-07-18 143124_3.149.1.jpg
+  - image: /media/Still 2026-07-18 143124_3.160.1.jpg
 inspirations:
   - Old Boy
   - Bong Joon-ho
