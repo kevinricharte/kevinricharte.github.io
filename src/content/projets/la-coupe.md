@@ -40,6 +40,9 @@ stills:
   - image: /media/Still 2026-04-30 143528_3.97.1.jpg
   - image: /media/Still 2026-04-30 143528_3.107.1.jpg
   - image: /media/Still 2026-04-30 143528_3.114.1.jpg
+  - image: /media/Still 2026-07-18 143124_3.121.1.jpg
+  - image: /media/Still 2026-07-18 143124_3.149.1.jpg
+  - image: /media/Still 2026-07-18 143124_3.160.1.jpg
   - image: /media/Still 2026-04-30 143528_3.127.1.jpg
   - image: /media/Still 2026-04-30 143528_3.128.1.jpg
   - image: /media/Still 2026-04-30 143528_3.171.1.jpg
@@ -47,9 +50,6 @@ stills:
   - image: /media/Still 2026-04-30 143528_3.182.1.jpg
   - image: /media/Still 2026-04-30 143528_3.185.1.jpg
   - image: /media/Still 2026-04-30 143528_3.188.1.jpg
-  - image: /media/Still 2026-07-18 143124_3.121.1.jpg
-  - image: /media/Still 2026-07-18 143124_3.149.1.jpg
-  - image: /media/Still 2026-07-18 143124_3.160.1.jpg
 inspirations:
   - Old Boy
   - Bong Joon-ho
