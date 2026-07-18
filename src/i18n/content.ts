@@ -49,3 +49,13 @@ const genreEn: Record<string, string> = {
 /** Libellé d'un genre selon la langue (repli sur la valeur saisie si non répertorié). */
 export const genreLabel = (value: string, en: boolean): string =>
   en ? (genreEn[value.trim().toLowerCase()] ?? value) : value;
+
+/** Genres à afficher selon la langue : en anglais, on privilégie les genres EN saisis à la main,
+ *  sinon on auto-traduit les genres FR (repli sur la valeur brute si inconnue). */
+export const projectGenres = (
+  d: { genres?: string[]; genresEn?: string[] },
+  en: boolean,
+): string[] =>
+  en
+    ? (d.genresEn?.length ? d.genresEn.filter(Boolean) : (d.genres ?? []).map((g) => genreLabel(g, true)))
+    : (d.genres ?? []).filter(Boolean);

@@ -5,8 +5,8 @@ import sharp from 'sharp';
 
 // Largeur des miniatures d'affichage. Les originaux (UHD) ne sont pas touchés
 // et restent servis en plein écran (lightbox).
-const THUMB_WIDTH = 1200;
-const QUALITY = 78;
+const THUMB_WIDTH = 1600;
+const QUALITY = 85;
 const RASTER = /\.(jpe?g|png|webp)$/i;
 
 async function walk(dir) {

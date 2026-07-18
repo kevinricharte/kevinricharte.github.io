@@ -2,7 +2,7 @@
 import type { CollectionEntry } from 'astro:content';
 import { thumb } from '../lib/media';
 import reglages from '../data/reglages.json';
-import { projectHref, genreLabel } from '../i18n/content';
+import { projectHref, typoLabel, projectGenres } from '../i18n/content';
 
 interface Props { entry: CollectionEntry<'projets'>; lang?: 'fr' | 'en'; }
 const { entry, lang = 'fr' } = Astro.props;
@@ -11,8 +11,9 @@ const d = entry.data;
 const cover = d.cover;
 const title = en ? (d.titreEn?.trim() || d.titre) : d.titre;
 const href = projectHref(entry.id, en);
-// On affiche les genres (plutôt que la catégorie, souvent « Fiction » et redondante).
-const genres = d.genres?.length ? d.genres.map((g) => genreLabel(g, en)).join(' · ') : undefined;
+// Classification : type de métrage (Clip, Fiction…) puis genre(s).
+const type = d.typologiePrincipale ? typoLabel(d.typologiePrincipale, en) : undefined;
+const classif = [type, ...projectGenres(d, en)].filter(Boolean).join(' · ') || undefined;
 ---
 <li class="card" data-typos={d.typologies.join('|')} data-genres={d.genres.join('|')}>
   <a href={href} class="card-link">
@@ -20,12 +21,12 @@ const genres = d.genres?.length ? d.genres.map((g) => genreLabel(g, en)).join(' 
       {cover && <img src={thumb(cover)} alt={d.coverAlt ?? title} class="card-img" loading="lazy" />}
       <div class="card-overlay" aria-hidden="true">
         <span class="card-otitle">{title}</span>
-        {genres && <span class="card-otypo">{genres}</span>}
+        {classif && <span class="card-otypo">{classif}</span>}
       </div>
     </div>
     <div class="card-meta">
       <span class="card-name">{title}</span>
-      <span class="meta card-info">{d.annee ?? '—'}{genres ? ` · ${genres}` : ''}</span>
+      <span class="meta card-info">{d.annee ?? '—'}{classif ? ` · ${classif}` : ''}</span>
     </div>
   </a>
 </li>

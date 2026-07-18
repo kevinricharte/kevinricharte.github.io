@@ -14,6 +14,7 @@ const projets = defineCollection({
     typologiePrincipale: z.string().optional(), // requis côté panneau ; toléré ici pour ne jamais casser le build
     typologies: z.array(z.string()).default([]),
     genres: z.array(z.string()).default([]), // genres narratifs — servent à diversifier la Sélection d'accueil
+    genresEn: z.array(z.string()).default([]), // équivalents anglais libres (sinon auto-traduction du genre FR)
     diffusion: z.string().optional(),
     duree: z.string().optional(),
     distinctions: z.array(z.string()).default([]),

@@ -30,7 +30,7 @@ content:
         label: Année (laisser vide si inconnue)
         type: number
       - name: typologiePrincipale
-        label: Type affiché sur la fiche
+        label: Type de métrage (affiché avant le genre, sur la fiche et les cartes)
         type: select
         required: true
         options:
@@ -43,6 +43,10 @@ content:
           values: [Fiction, Clip, Publicité, Brand content, Documentaire, Spot]
       - name: genres
         label: Genres / styles (saisie libre — ajoute ce que tu veux, un par ligne ; affichés à côté de la date et utilisés pour diversifier la Sélection)
+        type: string
+        list: true
+      - name: genresEn
+        label: Genres / styles — version anglaise (saisie libre ; laisse vide = auto-traduction du genre FR)
         type: string
         list: true
       - name: diffusion
