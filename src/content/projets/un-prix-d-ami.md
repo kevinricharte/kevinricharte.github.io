@@ -29,7 +29,7 @@ stills:
   - image: /media/Still 2026-07-18 140749_3.9.1-1.jpg
   - image: /media/Still 2026-07-18 140749_3.9.2.jpg
   - image: /media/Still 2026-07-18 140749_3.9.3.jpg
-  - image: /media/Still 2026-07-18 140749_3.9.4.jpg
+  - {}
   - image: /media/Still 2026-07-18 140749_3.9.5.jpg
   - image: /media/Still 2026-07-18 140749_3.9.6.jpg
   - image: /media/Still 2026-07-18 140749_3.10.1.jpg
