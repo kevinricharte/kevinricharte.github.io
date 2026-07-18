@@ -4,6 +4,10 @@ annee: 2026
 typologiePrincipale: Fiction
 typologies:
   - Fiction
+genres:
+  - Horreur
+genresEn:
+  - Horror
 credits:
   realisation: Pauline Bernon
   image: Benjamin Minel
