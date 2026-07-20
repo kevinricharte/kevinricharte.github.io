@@ -10,6 +10,7 @@ distinctions:
   - Nikon Film Festival 2026 — parmi les 50 finalistes
 credits:
   realisation: Stan Pacotte & Natacha Couvillers
+  image: Tom Giffon
   etalonnage: Kévin Richarte
 cover: /media/Still 2026-04-23 155513_1.7.1.jpg
 coverAlt: Jolie Monstre — image étalonnée
