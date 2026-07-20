@@ -12,6 +12,7 @@ credits:
   image: Clement Vaissaire
   camera: Blackmagic PYXIS 6K
   etalonnage: Kévin Richarte
+  workflow: Blackmagic RAW
 cover: /media/projets/Still 2026-04-30 161034_3.70.2.jpg
 coverAlt: Café Crème — image étalonnée
 wipe:
@@ -36,7 +37,7 @@ ordre: 8
 afficherNote: true
 noteEn: >-
   The visual world of the Paris band Café Crème (The Roaming Agency) — summery,
-  tinged with romance. Producers: Dennis Sharganov & Yanek Ling.
+  tinged with romance. 
 
 
   Key influences: Damien Chazelle (La La Land, Babylon) for the warm colours and
@@ -52,7 +53,7 @@ noteEn: >-
   shot — the famous cup of coffee — integrated finely enough to be treated like
   the other camera sequences.
 ---
-Univers visuel du groupe parisien Café Crème (The Roaming Agency) — estival, teinté de romantisme. Producteurs : Dennis Sharganov & Yanek Ling.
+Univers visuel du groupe parisien Café Crème (The Roaming Agency) — estival, teinté de romantisme. 
 
 Inspirations principales : Damien Chazelle (*La La Land*, *Babylon*) pour les couleurs chaleureuses et la qualité romantique ; l'élégance visuelle de *Babylon* pour les scènes d'intérieur. La majorité des plans extérieurs ayant été filmée en lumière naturelle de jour, l'enjeu était de créer une cohérence d'ensemble tout en construisant une identité colorimétrique reconnaissable : chaque image devait évoquer immédiatement l'univers du Café Crème.
 
