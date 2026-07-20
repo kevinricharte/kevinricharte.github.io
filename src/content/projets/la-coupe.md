@@ -51,9 +51,6 @@ stills:
   - image: /media/Still 2026-04-30 143528_3.182.1.jpg
   - image: /media/Still 2026-04-30 143528_3.185.1.jpg
   - image: /media/Still 2026-04-30 143528_3.188.1.jpg
-inspirations:
-  - Old Boy
-  - Bong Joon-ho
 featured: true
 draft: false
 ordre: 16
@@ -63,11 +60,12 @@ noteEn: >-
   femininity and social expectations.
 
 
-  After a default ARRI LUT conversion, the aesthetic direction turned towards
-  Korean cinema (Old Boy, Bong Joon-ho): bold colours, a tragicomic atmosphere.
-  The work was structured around three key shots, with an orange, incandescent
-  mood for the audition scenes and a darker tone for the final sequence.
+  Following the observation a default ARRI LUT conversion, the aesthetic
+  direction turned towards Korean cinema (Old Boy, Bong Joon-ho): bold colours,
+  a tragicomic atmosphere. The work was structured around three key shots, with
+  an orange, incandescent mood for the audition scenes and a darker tone for the
+  final sequence.
 ---
 Court-métrage inspiré du concours Jeanne d'Arc à Orléans — une interrogation sur la féminité et les attentes sociales.
 
-Après une conversion LUT ARRI par défaut, la direction esthétique s'est orientée vers le cinéma coréen (*Old Boy*, Bong Joon-ho) : couleurs assumées, atmosphère tragi-comique. Le travail s'est structuré autour de trois plans clés, avec une ambiance orangée et incandescente pour les scènes d'audition, et une tonalité plus sombre pour la séquence finale.
+Après observation d'une conversion LUT ARRI par défaut, la direction esthétique s'est orientée vers le cinéma coréen (*Old Boy*, Bong Joon-ho) : couleurs assumées, atmosphère tragi-comique. Le travail s'est structuré autour de trois plans clés, avec une ambiance orangée et incandescente pour les scènes d'audition, et une tonalité plus sombre pour la séquence finale.
