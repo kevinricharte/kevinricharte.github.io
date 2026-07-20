@@ -88,5 +88,5 @@ stills:
   - {}
 featured: false
 draft: false
-afficherNote: true
+afficherNote: false
 ---
